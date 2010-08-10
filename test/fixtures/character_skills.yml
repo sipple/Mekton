@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  character_skill_data_id: 1
+  level: 1
+  ip_earned: 1
+
+two:
+  character_skill_data_id: 1
+  level: 1
+  ip_earned: 1

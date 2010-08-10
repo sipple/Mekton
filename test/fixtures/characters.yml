@@ -1,0 +1,31 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  age: 1
+  money: 1
+  ip: 1
+  intelligence: 1
+  cool: 1
+  reflexes: 1
+  attractiveness: 1
+  empathy: 1
+  luck: 1
+  move_allowance: 1
+  body_type: 1
+  education: 1
+
+two:
+  name: MyString
+  age: 1
+  money: 1
+  ip: 1
+  intelligence: 1
+  cool: 1
+  reflexes: 1
+  attractiveness: 1
+  empathy: 1
+  luck: 1
+  move_allowance: 1
+  body_type: 1
+  education: 1

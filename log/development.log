@@ -1,0 +1,58 @@
+  [4;36;1mSQL (23.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (40.7ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (221.5ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (183.6ms)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateCharacters (20100810181828)
+  [4;35;1mSQL (154.9ms)[0m   [0mCREATE TABLE `characters` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `age` int(11), `money` int(11), `ip` int(11), `intelligence` int(11), `cool` int(11), `reflexes` int(11), `attractiveness` int(11), `empathy` int(11), `luck` int(11), `move_allowance` int(11), `body_type` int(11), `education` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100810181828')[0m
+Migrating to CreateCharacterProfessions (20100810182534)
+  [4;35;1mSQL (235.4ms)[0m   [0mCREATE TABLE `character_professions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `character_profession_data_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (4.9ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100810182534')[0m
+Migrating to CreateCharacterProfessionSkills (20100810182753)
+  [4;35;1mSQL (234.2ms)[0m   [0mCREATE TABLE `character_profession_skills` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `character_profession_skill_data_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (19.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100810182753')[0m
+Migrating to CreateCharacterSkills (20100810182903)
+  [4;35;1mSQL (164.4ms)[0m   [0mCREATE TABLE `character_skills` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `character_skill_data_id` int(11), `level` int(11), `ip_earned` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100810182903')[0m
+Migrating to CreateCharacterTemplates (20100810183038)
+  [4;35;1mSQL (221.9ms)[0m   [0mCREATE TABLE `character_templates` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `character_template_data_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (17.9ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100810183038')[0m
+Migrating to CreateCharacterEquipments (20100810183206)
+  [4;35;1mSQL (199.0ms)[0m   [0mCREATE TABLE `character_equipments` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `character_equipment_data_id` int(11), `quantity` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (13.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100810183206')[0m
+Migrating to CreateCharacterWeapons (20100810183300)
+  [4;35;1mSQL (187.3ms)[0m   [0mCREATE TABLE `character_weapons` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `character_weapon_data_id` int(11), `quantity` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100810183300')[0m
+Migrating to CreateCharacterArmors (20100810183346)
+  [4;35;1mSQL (115.6ms)[0m   [0mCREATE TABLE `character_armors` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `character_armor_data_id` int(11), `location` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100810183346')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (57.0ms)[0m   [0;1mSHOW FIELDS FROM `character_armors`[0m
+  [4;35;1mSQL (2.2ms)[0m   [0mdescribe `character_armors`[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSHOW KEYS FROM `character_armors`[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mSHOW FIELDS FROM `character_equipments`[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mdescribe `character_equipments`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW KEYS FROM `character_equipments`[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSHOW FIELDS FROM `character_profession_skills`[0m
+  [4;35;1mSQL (1.7ms)[0m   [0mdescribe `character_profession_skills`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW KEYS FROM `character_profession_skills`[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSHOW FIELDS FROM `character_professions`[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mdescribe `character_professions`[0m
+  [4;35;1mSQL (2.1ms)[0m   [0mSHOW KEYS FROM `character_professions`[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mSHOW FIELDS FROM `character_skills`[0m
+  [4;35;1mSQL (1.7ms)[0m   [0mdescribe `character_skills`[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSHOW KEYS FROM `character_skills`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSHOW FIELDS FROM `character_templates`[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mdescribe `character_templates`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW KEYS FROM `character_templates`[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mSHOW FIELDS FROM `character_weapons`[0m
+  [4;35;1mSQL (2.1ms)[0m   [0mdescribe `character_weapons`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW KEYS FROM `character_weapons`[0m
+  [4;35;1mSQL (2.1ms)[0m   [0mSHOW FIELDS FROM `characters`[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mdescribe `characters`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW KEYS FROM `characters`[0m
