@@ -9,7 +9,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100810183346) do
+ActiveRecord::Schema.define(:version => 20100810191502) do
+
+  create_table "character_armor_data", :force => true do |t|
+    t.string   "armor"
+    t.integer  "stopping_power"
+    t.integer  "cost"
+    t.float    "weight"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "character_armors", :force => true do |t|
     t.integer  "character_armor_data_id"
@@ -18,9 +27,31 @@ ActiveRecord::Schema.define(:version => 20100810183346) do
     t.datetime "updated_at"
   end
 
+  create_table "character_equipment_data", :force => true do |t|
+    t.string   "equipment"
+    t.float    "weight"
+    t.integer  "cost"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "character_equipments", :force => true do |t|
     t.integer  "character_equipment_data_id"
     t.integer  "quantity"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "character_profession_data", :force => true do |t|
+    t.string   "profession"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "character_profession_skill_data", :force => true do |t|
+    t.integer  "character_profession_data_id"
+    t.integer  "character_skill_data_id"
+    t.integer  "bonus"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -37,6 +68,12 @@ ActiveRecord::Schema.define(:version => 20100810183346) do
     t.datetime "updated_at"
   end
 
+  create_table "character_skill_data", :force => true do |t|
+    t.string   "skill"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "character_skills", :force => true do |t|
     t.integer  "character_skill_data_id"
     t.integer  "level"
@@ -45,8 +82,36 @@ ActiveRecord::Schema.define(:version => 20100810183346) do
     t.datetime "updated_at"
   end
 
+  create_table "character_template_data", :force => true do |t|
+    t.string   "template"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "character_template_skill_data", :force => true do |t|
+    t.integer  "character_template_data_id"
+    t.integer  "character_skill_data_id"
+    t.integer  "bonus"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "character_templates", :force => true do |t|
     t.integer  "character_template_data_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "character_weapon_data", :force => true do |t|
+    t.string   "weapon"
+    t.integer  "weapon_adjustment"
+    t.string   "range"
+    t.string   "damage"
+    t.string   "shots"
+    t.string   "burst_value"
+    t.string   "concealment"
+    t.float    "weight"
+    t.integer  "cost"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
