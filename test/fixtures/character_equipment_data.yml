@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  equipment: MyString
+  weight: 1.5
+  cost: 1
+
+two:
+  equipment: MyString
+  weight: 1.5
+  cost: 1

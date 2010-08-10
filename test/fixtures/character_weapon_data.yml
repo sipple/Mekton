@@ -1,0 +1,23 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  weapon: MyString
+  weapon_adjustment: 1
+  range: MyString
+  damage: MyString
+  shots: MyString
+  burst_value: MyString
+  concealment: MyString
+  weight: 1.5
+  cost: 1
+
+two:
+  weapon: MyString
+  weapon_adjustment: 1
+  range: MyString
+  damage: MyString
+  shots: MyString
+  burst_value: MyString
+  concealment: MyString
+  weight: 1.5
+  cost: 1

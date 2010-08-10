@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  character_profession_data_id: 1
+  character_skill_data_id: 1
+  bonus: 1
+
+two:
+  character_profession_data_id: 1
+  character_skill_data_id: 1
+  bonus: 1
