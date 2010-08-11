@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100811162938) do
+ActiveRecord::Schema.define(:version => 20100811172520) do
 
   create_table "character_armor_data", :force => true do |t|
     t.string   "armor"
@@ -154,6 +154,7 @@ ActiveRecord::Schema.define(:version => 20100811162938) do
     t.string   "effect"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "mecha_id"
   end
 
   create_table "mecha_armor_data", :force => true do |t|
@@ -175,6 +176,7 @@ ActiveRecord::Schema.define(:version => 20100811162938) do
     t.float    "modifier"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "mecha_id"
   end
 
   create_table "mecha_movement_data", :force => true do |t|
@@ -190,6 +192,7 @@ ActiveRecord::Schema.define(:version => 20100811162938) do
     t.integer  "speed"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "mecha_id"
   end
 
   create_table "mecha_multipliers", :force => true do |t|
@@ -198,6 +201,7 @@ ActiveRecord::Schema.define(:version => 20100811162938) do
     t.string   "effect"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "mecha_id"
   end
 
   create_table "mecha_sensor_data", :force => true do |t|
@@ -215,6 +219,7 @@ ActiveRecord::Schema.define(:version => 20100811162938) do
     t.integer  "mecha_sensor_data_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "mecha_id"
   end
 
   create_table "mecha_servo_data", :force => true do |t|
@@ -242,6 +247,7 @@ ActiveRecord::Schema.define(:version => 20100811162938) do
     t.integer  "mecha_armor_data_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "mecha_id"
   end
 
   create_table "mecha_shield_data", :force => true do |t|
@@ -260,6 +266,7 @@ ActiveRecord::Schema.define(:version => 20100811162938) do
     t.integer  "mecha_servo_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "mecha_id"
   end
 
   create_table "mecha_subassemblies", :force => true do |t|
@@ -267,6 +274,7 @@ ActiveRecord::Schema.define(:version => 20100811162938) do
     t.integer  "mecha_servo_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "mecha_id"
   end
 
   create_table "mecha_subassembly_data", :force => true do |t|
@@ -297,6 +305,7 @@ ActiveRecord::Schema.define(:version => 20100811162938) do
     t.integer  "mecha_servo_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "mecha_id"
   end
 
   create_table "mechas", :force => true do |t|
