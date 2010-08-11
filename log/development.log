@@ -546,3 +546,150 @@ Migrating to CreateMechaAttributeData (20100811143602)
   [4;35;1mSQL (15.7ms)[0m   [0mSHOW FIELDS FROM `mechas`[0m
   [4;36;1mSQL (21.8ms)[0m   [0;1mdescribe `mechas`[0m
   [4;35;1mSQL (0.4ms)[0m   [0mSHOW KEYS FROM `mechas`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateCharacters (20100810181828)
+Migrating to CreateCharacterProfessions (20100810182534)
+Migrating to CreateCharacterProfessionSkills (20100810182753)
+Migrating to CreateCharacterSkills (20100810182903)
+Migrating to CreateCharacterTemplates (20100810183038)
+Migrating to CreateCharacterEquipments (20100810183206)
+Migrating to CreateCharacterWeapons (20100810183300)
+Migrating to CreateCharacterArmors (20100810183346)
+Migrating to CreateCharacterEquipmentData (20100810191028)
+Migrating to CreateCharacterWeaponData (20100810191049)
+Migrating to CreateCharacterArmorData (20100810191134)
+Migrating to CreateCharacterSkillData (20100810191321)
+Migrating to CreateCharacterProfessionData (20100810191348)
+Migrating to CreateCharacterTemplateData (20100810191358)
+Migrating to CreateCharacterProfessionSkillData (20100810191443)
+Migrating to CreateCharacterTemplateSkillData (20100810191502)
+Migrating to CreateMechas (20100811131502)
+Migrating to CreateMechaServos (20100811131752)
+Migrating to CreateMechaWeapons (20100811131905)
+Migrating to CreateMechaSubassemblies (20100811131945)
+Migrating to CreateMechaSensors (20100811132012)
+Migrating to CreateMechaMovements (20100811132100)
+Migrating to CreateMechaShields (20100811132150)
+Migrating to CreateMechaAdditives (20100811132302)
+Migrating to CreateMechaMultipliers (20100811132335)
+Migrating to CreateMechaModifiers (20100811132701)
+Migrating to CreateMechaServoData (20100811142718)
+Migrating to CreateMechaServoLevelData (20100811142836)
+Migrating to CreateMechaArmorData (20100811143008)
+Migrating to CreateMechaWeaponData (20100811143205)
+Migrating to CreateMechaShieldData (20100811143316)
+Migrating to CreateMechaSubassemblyData (20100811143406)
+Migrating to CreateMechaSensorData (20100811143436)
+Migrating to CreateMechaMovementData (20100811143528)
+Migrating to CreateMechaAttributeData (20100811143602)
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (37.6ms)[0m   [0mSHOW FIELDS FROM `character_armor_data`[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mdescribe `character_armor_data`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW KEYS FROM `character_armor_data`[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mSHOW FIELDS FROM `character_armors`[0m
+  [4;35;1mSQL (1.7ms)[0m   [0mdescribe `character_armors`[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSHOW KEYS FROM `character_armors`[0m
+  [4;35;1mSQL (2.4ms)[0m   [0mSHOW FIELDS FROM `character_equipment_data`[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mdescribe `character_equipment_data`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW KEYS FROM `character_equipment_data`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSHOW FIELDS FROM `character_equipments`[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mdescribe `character_equipments`[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSHOW KEYS FROM `character_equipments`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW FIELDS FROM `character_profession_data`[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mdescribe `character_profession_data`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW KEYS FROM `character_profession_data`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW FIELDS FROM `character_profession_skill_data`[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mdescribe `character_profession_skill_data`[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `character_profession_skill_data`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSHOW FIELDS FROM `character_profession_skills`[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mdescribe `character_profession_skills`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW KEYS FROM `character_profession_skills`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW FIELDS FROM `character_professions`[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mdescribe `character_professions`[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `character_professions`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW FIELDS FROM `character_skill_data`[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mdescribe `character_skill_data`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW KEYS FROM `character_skill_data`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW FIELDS FROM `character_skills`[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mdescribe `character_skills`[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `character_skills`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSHOW FIELDS FROM `character_template_data`[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mdescribe `character_template_data`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW KEYS FROM `character_template_data`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW FIELDS FROM `character_template_skill_data`[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mdescribe `character_template_skill_data`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW KEYS FROM `character_template_skill_data`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW FIELDS FROM `character_templates`[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mdescribe `character_templates`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW KEYS FROM `character_templates`[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSHOW FIELDS FROM `character_weapon_data`[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mdescribe `character_weapon_data`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW KEYS FROM `character_weapon_data`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSHOW FIELDS FROM `character_weapons`[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mdescribe `character_weapons`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW KEYS FROM `character_weapons`[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSHOW FIELDS FROM `characters`[0m
+  [4;35;1mSQL (2.1ms)[0m   [0mdescribe `characters`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSHOW KEYS FROM `characters`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSHOW FIELDS FROM `mecha_additives`[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mdescribe `mecha_additives`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSHOW KEYS FROM `mecha_additives`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW FIELDS FROM `mecha_armor_data`[0m
+  [4;35;1mSQL (2.1ms)[0m   [0mdescribe `mecha_armor_data`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW KEYS FROM `mecha_armor_data`[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSHOW FIELDS FROM `mecha_attribute_data`[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mdescribe `mecha_attribute_data`[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW KEYS FROM `mecha_attribute_data`[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW FIELDS FROM `mecha_modifiers`[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mdescribe `mecha_modifiers`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW KEYS FROM `mecha_modifiers`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSHOW FIELDS FROM `mecha_movement_data`[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1mdescribe `mecha_movement_data`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW KEYS FROM `mecha_movement_data`[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW FIELDS FROM `mecha_movements`[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mdescribe `mecha_movements`[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `mecha_movements`[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSHOW FIELDS FROM `mecha_multipliers`[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mdescribe `mecha_multipliers`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSHOW KEYS FROM `mecha_multipliers`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSHOW FIELDS FROM `mecha_sensor_data`[0m
+  [4;35;1mSQL (1.7ms)[0m   [0mdescribe `mecha_sensor_data`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW KEYS FROM `mecha_sensor_data`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSHOW FIELDS FROM `mecha_sensors`[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mdescribe `mecha_sensors`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW KEYS FROM `mecha_sensors`[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW FIELDS FROM `mecha_servo_data`[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mdescribe `mecha_servo_data`[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `mecha_servo_data`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSHOW FIELDS FROM `mecha_servo_level_data`[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mdescribe `mecha_servo_level_data`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW KEYS FROM `mecha_servo_level_data`[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW FIELDS FROM `mecha_servos`[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mdescribe `mecha_servos`[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW KEYS FROM `mecha_servos`[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mSHOW FIELDS FROM `mecha_shield_data`[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mdescribe `mecha_shield_data`[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mSHOW KEYS FROM `mecha_shield_data`[0m
+  [4;36;1mSQL (2.4ms)[0m   [0;1mSHOW FIELDS FROM `mecha_shields`[0m
+  [4;35;1mSQL (2.5ms)[0m   [0mdescribe `mecha_shields`[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSHOW KEYS FROM `mecha_shields`[0m
+  [4;35;1mSQL (2.3ms)[0m   [0mSHOW FIELDS FROM `mecha_subassemblies`[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mdescribe `mecha_subassemblies`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW KEYS FROM `mecha_subassemblies`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSHOW FIELDS FROM `mecha_subassembly_data`[0m
+  [4;35;1mSQL (1.7ms)[0m   [0mdescribe `mecha_subassembly_data`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW KEYS FROM `mecha_subassembly_data`[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSHOW FIELDS FROM `mecha_weapon_data`[0m
+  [4;36;1mSQL (2.5ms)[0m   [0;1mdescribe `mecha_weapon_data`[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSHOW KEYS FROM `mecha_weapon_data`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSHOW FIELDS FROM `mecha_weapons`[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mdescribe `mecha_weapons`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `mecha_weapons`[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mSHOW FIELDS FROM `mechas`[0m
+  [4;36;1mSQL (2.5ms)[0m   [0;1mdescribe `mechas`[0m
+  [4;35;1mSQL (3.1ms)[0m   [0mSHOW KEYS FROM `mechas`[0m
