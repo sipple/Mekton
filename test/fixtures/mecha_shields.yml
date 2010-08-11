@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  mecha_shield_data_id: 1
+  mounted: 
+  mecha_servo_id: 1
+
+two:
+  mecha_shield_data_id: 1
+  mounted: 
+  mecha_servo_id: 1

@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  mecha_attribute_data_id: 1
+  multiply: 
+  modifier: 1.5
+
+two:
+  mecha_attribute_data_id: 1
+  multiply: 
+  modifier: 1.5

@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  system: MyString
+  multiplier: 1.5
+  effect: MyString
+
+two:
+  system: MyString
+  multiplier: 1.5
+  effect: MyString

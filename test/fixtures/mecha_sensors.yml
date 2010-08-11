@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  mecha_sensor_data_id: 1
+  mecha_servo_id: 
+
+two:
+  mecha_sensor_data_id: 1
+  mecha_servo_id: 

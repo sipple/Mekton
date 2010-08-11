@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  character_id: 1
+  mecha_servo_id: 1
+
+two:
+  name: MyString
+  character_id: 1
+  mecha_servo_id: 1

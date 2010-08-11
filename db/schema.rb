@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100810191502) do
+ActiveRecord::Schema.define(:version => 20100811132701) do
 
   create_table "character_armor_data", :force => true do |t|
     t.string   "armor"
@@ -137,6 +137,82 @@ ActiveRecord::Schema.define(:version => 20100810191502) do
     t.integer  "move_allowance"
     t.integer  "body_type"
     t.integer  "education"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "mecha_additives", :force => true do |t|
+    t.string   "system"
+    t.float    "cost"
+    t.string   "effect"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "mecha_modifiers", :force => true do |t|
+    t.integer  "mecha_attribute_data_id"
+    t.float    "modifier"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "mecha_movements", :force => true do |t|
+    t.integer  "mecha_movement_data_id"
+    t.integer  "mecha_servo_id"
+    t.integer  "speed"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "mecha_multipliers", :force => true do |t|
+    t.string   "system"
+    t.float    "multiplier"
+    t.string   "effect"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "mecha_sensors", :force => true do |t|
+    t.integer  "mecha_sensor_data_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "mecha_servos", :force => true do |t|
+    t.integer  "mecha_servo_data_id"
+    t.integer  "mecha_servo_level_data_id"
+    t.integer  "kills"
+    t.float    "space"
+    t.integer  "mecha_armor_data_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "mecha_shields", :force => true do |t|
+    t.integer  "mecha_shield_data_id"
+    t.integer  "mecha_servo_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "mecha_subassemblies", :force => true do |t|
+    t.integer  "mecha_subassembly_data_id"
+    t.integer  "mecha_servo_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "mecha_weapons", :force => true do |t|
+    t.integer  "mecha_weapon_data_id"
+    t.integer  "mecha_servo_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "mechas", :force => true do |t|
+    t.string   "name"
+    t.integer  "character_id"
+    t.integer  "mecha_servo_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

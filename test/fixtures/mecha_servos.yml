@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  mecha_servo_data_id: 1
+  mecha_servo_level_data_id: 1
+  kills: 1
+  space: 1.5
+  mecha_armor_data_id: 1
+
+two:
+  mecha_servo_data_id: 1
+  mecha_servo_level_data_id: 1
+  kills: 1
+  space: 1.5
+  mecha_armor_data_id: 1
