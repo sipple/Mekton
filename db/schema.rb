@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100811143602) do
+ActiveRecord::Schema.define(:version => 20100811162938) do
 
   create_table "character_armor_data", :force => true do |t|
     t.string   "armor"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(:version => 20100811143602) do
     t.string   "location"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "character_id"
   end
 
   create_table "character_equipment_data", :force => true do |t|
@@ -40,6 +41,7 @@ ActiveRecord::Schema.define(:version => 20100811143602) do
     t.integer  "quantity"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "character_id"
   end
 
   create_table "character_profession_data", :force => true do |t|
@@ -60,12 +62,14 @@ ActiveRecord::Schema.define(:version => 20100811143602) do
     t.integer  "character_profession_skill_data_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "character_id"
   end
 
   create_table "character_professions", :force => true do |t|
     t.integer  "character_profession_data_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "character_id"
   end
 
   create_table "character_skill_data", :force => true do |t|
@@ -80,6 +84,7 @@ ActiveRecord::Schema.define(:version => 20100811143602) do
     t.integer  "ip_earned"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "character_id"
   end
 
   create_table "character_template_data", :force => true do |t|
@@ -100,6 +105,7 @@ ActiveRecord::Schema.define(:version => 20100811143602) do
     t.integer  "character_template_data_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "character_id"
   end
 
   create_table "character_weapon_data", :force => true do |t|
@@ -121,6 +127,7 @@ ActiveRecord::Schema.define(:version => 20100811143602) do
     t.integer  "quantity"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "character_id"
   end
 
   create_table "characters", :force => true do |t|
