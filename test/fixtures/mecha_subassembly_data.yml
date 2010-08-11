@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  subassembly: MyString
+  space: 1.5
+  kills: 1
+  weight: 1.5
+  cost: 1.5
+
+two:
+  subassembly: MyString
+  space: 1.5
+  kills: 1
+  weight: 1.5
+  cost: 1.5

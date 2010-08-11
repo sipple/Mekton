@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  sensor: MyString
+  range: MyString
+  communication_range: MyString
+  kills: 1
+  cost: 1.5
+  space: 1.5
+
+two:
+  sensor: MyString
+  range: MyString
+  communication_range: MyString
+  kills: 1
+  cost: 1.5
+  space: 1.5

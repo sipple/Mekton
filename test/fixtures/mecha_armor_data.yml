@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  armor: MyString
+  stopping_power: 1
+  cost: 1.5
+
+two:
+  armor: MyString
+  stopping_power: 1
+  cost: 1.5

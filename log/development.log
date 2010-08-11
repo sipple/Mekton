@@ -381,3 +381,168 @@ Migrating to CreateMechaModifiers (20100811132701)
   [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW FIELDS FROM `mechas`[0m
   [4;35;1mSQL (1.5ms)[0m   [0mdescribe `mechas`[0m
   [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW KEYS FROM `mechas`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (55.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateCharacters (20100810181828)
+Migrating to CreateCharacterProfessions (20100810182534)
+Migrating to CreateCharacterProfessionSkills (20100810182753)
+Migrating to CreateCharacterSkills (20100810182903)
+Migrating to CreateCharacterTemplates (20100810183038)
+Migrating to CreateCharacterEquipments (20100810183206)
+Migrating to CreateCharacterWeapons (20100810183300)
+Migrating to CreateCharacterArmors (20100810183346)
+Migrating to CreateCharacterEquipmentData (20100810191028)
+Migrating to CreateCharacterWeaponData (20100810191049)
+Migrating to CreateCharacterArmorData (20100810191134)
+Migrating to CreateCharacterSkillData (20100810191321)
+Migrating to CreateCharacterProfessionData (20100810191348)
+Migrating to CreateCharacterTemplateData (20100810191358)
+Migrating to CreateCharacterProfessionSkillData (20100810191443)
+Migrating to CreateCharacterTemplateSkillData (20100810191502)
+Migrating to CreateMechas (20100811131502)
+Migrating to CreateMechaServos (20100811131752)
+Migrating to CreateMechaWeapons (20100811131905)
+Migrating to CreateMechaSubassemblies (20100811131945)
+Migrating to CreateMechaSensors (20100811132012)
+Migrating to CreateMechaMovements (20100811132100)
+Migrating to CreateMechaShields (20100811132150)
+Migrating to CreateMechaAdditives (20100811132302)
+Migrating to CreateMechaMultipliers (20100811132335)
+Migrating to CreateMechaModifiers (20100811132701)
+Migrating to CreateMechaServoData (20100811142718)
+  [4;36;1mSQL (78.3ms)[0m   [0;1mCREATE TABLE `mecha_servo_data` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `servo` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100811142718')[0m
+Migrating to CreateMechaServoLevelData (20100811142836)
+  [4;36;1mSQL (220.2ms)[0m   [0;1mCREATE TABLE `mecha_servo_level_data` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `mecha_servo_data_id` int(11), `level` varchar(255), `kills` int(11), `space` float, `cost` int(11), `weight` float, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100811142836')[0m
+Migrating to CreateMechaArmorData (20100811143008)
+  [4;36;1mSQL (146.9ms)[0m   [0;1mCREATE TABLE `mecha_armor_data` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `armor` varchar(255), `stopping_power` int(11), `cost` float, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100811143008')[0m
+Migrating to CreateMechaWeaponData (20100811143205)
+  [4;36;1mSQL (150.7ms)[0m   [0;1mCREATE TABLE `mecha_weapon_data` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `weapon` varchar(255), `weapon_adjustment` int(11), `range` varchar(255), `damage` varchar(255), `shots` varchar(255), `kills` int(11), `space` float, `cost` float, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100811143205')[0m
+Migrating to CreateMechaShieldData (20100811143316)
+  [4;36;1mSQL (107.5ms)[0m   [0;1mCREATE TABLE `mecha_shield_data` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `shield` varchar(255), `stopping_power` int(11), `mounted_space` float, `handheld_space` float, `weight` float, `cost` float, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (18.9ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100811143316')[0m
+Migrating to CreateMechaSubassemblyData (20100811143406)
+  [4;36;1mSQL (149.6ms)[0m   [0;1mCREATE TABLE `mecha_subassembly_data` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `subassembly` varchar(255), `space` float, `kills` int(11), `weight` float, `cost` float, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100811143406')[0m
+Migrating to CreateMechaSensorData (20100811143436)
+  [4;36;1mSQL (139.3ms)[0m   [0;1mCREATE TABLE `mecha_sensor_data` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `sensor` varchar(255), `range` varchar(255), `communication_range` varchar(255), `kills` int(11), `cost` float, `space` float, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (21.3ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100811143436')[0m
+Migrating to CreateMechaMovementData (20100811143528)
+  [4;36;1mSQL (122.0ms)[0m   [0;1mCREATE TABLE `mecha_movement_data` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `movement_system` varchar(255), `multiple` float, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100811143528')[0m
+Migrating to CreateMechaAttributeData (20100811143602)
+  [4;36;1mSQL (121.5ms)[0m   [0;1mCREATE TABLE `mecha_attribute_data` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `attribute` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100811143602')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mSHOW FIELDS FROM `character_armor_data`[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mdescribe `character_armor_data`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW KEYS FROM `character_armor_data`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSHOW FIELDS FROM `character_armors`[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mdescribe `character_armors`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW KEYS FROM `character_armors`[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSHOW FIELDS FROM `character_equipment_data`[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1mdescribe `character_equipment_data`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW KEYS FROM `character_equipment_data`[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW FIELDS FROM `character_equipments`[0m
+  [4;35;1mSQL (1.7ms)[0m   [0mdescribe `character_equipments`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `character_equipments`[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mSHOW FIELDS FROM `character_profession_data`[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mdescribe `character_profession_data`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW KEYS FROM `character_profession_data`[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSHOW FIELDS FROM `character_profession_skill_data`[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mdescribe `character_profession_skill_data`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSHOW KEYS FROM `character_profession_skill_data`[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSHOW FIELDS FROM `character_profession_skills`[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mdescribe `character_profession_skills`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW KEYS FROM `character_profession_skills`[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW FIELDS FROM `character_professions`[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mdescribe `character_professions`[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `character_professions`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSHOW FIELDS FROM `character_skill_data`[0m
+  [4;36;1mSQL (2.7ms)[0m   [0;1mdescribe `character_skill_data`[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW KEYS FROM `character_skill_data`[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW FIELDS FROM `character_skills`[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mdescribe `character_skills`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW KEYS FROM `character_skills`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW FIELDS FROM `character_template_data`[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mdescribe `character_template_data`[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mSHOW KEYS FROM `character_template_data`[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSHOW FIELDS FROM `character_template_skill_data`[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mdescribe `character_template_skill_data`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW KEYS FROM `character_template_skill_data`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW FIELDS FROM `character_templates`[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mdescribe `character_templates`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW KEYS FROM `character_templates`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSHOW FIELDS FROM `character_weapon_data`[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mdescribe `character_weapon_data`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSHOW KEYS FROM `character_weapon_data`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW FIELDS FROM `character_weapons`[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mdescribe `character_weapons`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW KEYS FROM `character_weapons`[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSHOW FIELDS FROM `characters`[0m
+  [4;35;1mSQL (2.1ms)[0m   [0mdescribe `characters`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW KEYS FROM `characters`[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSHOW FIELDS FROM `mecha_additives`[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mdescribe `mecha_additives`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSHOW KEYS FROM `mecha_additives`[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSHOW FIELDS FROM `mecha_armor_data`[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mdescribe `mecha_armor_data`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSHOW KEYS FROM `mecha_armor_data`[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mSHOW FIELDS FROM `mecha_attribute_data`[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mdescribe `mecha_attribute_data`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW KEYS FROM `mecha_attribute_data`[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW FIELDS FROM `mecha_modifiers`[0m
+  [4;35;1mSQL (1.7ms)[0m   [0mdescribe `mecha_modifiers`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW KEYS FROM `mecha_modifiers`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSHOW FIELDS FROM `mecha_movement_data`[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mdescribe `mecha_movement_data`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW KEYS FROM `mecha_movement_data`[0m
+  [4;36;1mSQL (25.5ms)[0m   [0;1mSHOW FIELDS FROM `mecha_movements`[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mdescribe `mecha_movements`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW KEYS FROM `mecha_movements`[0m
+  [4;35;1mSQL (20.6ms)[0m   [0mSHOW FIELDS FROM `mecha_multipliers`[0m
+  [4;36;1mSQL (2.4ms)[0m   [0;1mdescribe `mecha_multipliers`[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mSHOW KEYS FROM `mecha_multipliers`[0m
+  [4;36;1mSQL (26.8ms)[0m   [0;1mSHOW FIELDS FROM `mecha_sensor_data`[0m
+  [4;35;1mSQL (21.1ms)[0m   [0mdescribe `mecha_sensor_data`[0m
+  [4;36;1mSQL (13.2ms)[0m   [0;1mSHOW KEYS FROM `mecha_sensor_data`[0m
+  [4;35;1mSQL (14.4ms)[0m   [0mSHOW FIELDS FROM `mecha_sensors`[0m
+  [4;36;1mSQL (27.5ms)[0m   [0;1mdescribe `mecha_sensors`[0m
+  [4;35;1mSQL (7.2ms)[0m   [0mSHOW KEYS FROM `mecha_sensors`[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSHOW FIELDS FROM `mecha_servo_data`[0m
+  [4;35;1mSQL (20.4ms)[0m   [0mdescribe `mecha_servo_data`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `mecha_servo_data`[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mSHOW FIELDS FROM `mecha_servo_level_data`[0m
+  [4;36;1mSQL (20.9ms)[0m   [0;1mdescribe `mecha_servo_level_data`[0m
+  [4;35;1mSQL (9.0ms)[0m   [0mSHOW KEYS FROM `mecha_servo_level_data`[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mSHOW FIELDS FROM `mecha_servos`[0m
+  [4;35;1mSQL (36.9ms)[0m   [0mdescribe `mecha_servos`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `mecha_servos`[0m
+  [4;35;1mSQL (15.3ms)[0m   [0mSHOW FIELDS FROM `mecha_shield_data`[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1mdescribe `mecha_shield_data`[0m
+  [4;35;1mSQL (16.7ms)[0m   [0mSHOW KEYS FROM `mecha_shield_data`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSHOW FIELDS FROM `mecha_shields`[0m
+  [4;35;1mSQL (16.8ms)[0m   [0mdescribe `mecha_shields`[0m
+  [4;36;1mSQL (22.5ms)[0m   [0;1mSHOW KEYS FROM `mecha_shields`[0m
+  [4;35;1mSQL (18.5ms)[0m   [0mSHOW FIELDS FROM `mecha_subassemblies`[0m
+  [4;36;1mSQL (11.0ms)[0m   [0;1mdescribe `mecha_subassemblies`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW KEYS FROM `mecha_subassemblies`[0m
+  [4;36;1mSQL (9.0ms)[0m   [0;1mSHOW FIELDS FROM `mecha_subassembly_data`[0m
+  [4;35;1mSQL (26.5ms)[0m   [0mdescribe `mecha_subassembly_data`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSHOW KEYS FROM `mecha_subassembly_data`[0m
+  [4;35;1mSQL (2.2ms)[0m   [0mSHOW FIELDS FROM `mecha_weapon_data`[0m
+  [4;36;1mSQL (2.2ms)[0m   [0;1mdescribe `mecha_weapon_data`[0m
+  [4;35;1mSQL (20.6ms)[0m   [0mSHOW KEYS FROM `mecha_weapon_data`[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSHOW FIELDS FROM `mecha_weapons`[0m
+  [4;35;1mSQL (12.6ms)[0m   [0mdescribe `mecha_weapons`[0m
+  [4;36;1mSQL (12.6ms)[0m   [0;1mSHOW KEYS FROM `mecha_weapons`[0m
+  [4;35;1mSQL (15.7ms)[0m   [0mSHOW FIELDS FROM `mechas`[0m
+  [4;36;1mSQL (21.8ms)[0m   [0;1mdescribe `mechas`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW KEYS FROM `mechas`[0m

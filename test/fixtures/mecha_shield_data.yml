@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  shield: MyString
+  stopping_power: 1
+  mounted_space: 1.5
+  handheld_space: 1.5
+  weight: 1.5
+  cost: 1.5
+
+two:
+  shield: MyString
+  stopping_power: 1
+  mounted_space: 1.5
+  handheld_space: 1.5
+  weight: 1.5
+  cost: 1.5

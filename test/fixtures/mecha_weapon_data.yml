@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  weapon: MyString
+  weapon_adjustment: 1
+  range: MyString
+  damage: MyString
+  shots: MyString
+  kills: 1
+  space: 1.5
+  cost: 1.5
+
+two:
+  weapon: MyString
+  weapon_adjustment: 1
+  range: MyString
+  damage: MyString
+  shots: MyString
+  kills: 1
+  space: 1.5
+  cost: 1.5

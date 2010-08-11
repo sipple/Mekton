@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100811132701) do
+ActiveRecord::Schema.define(:version => 20100811143602) do
 
   create_table "character_armor_data", :force => true do |t|
     t.string   "armor"
@@ -149,9 +149,30 @@ ActiveRecord::Schema.define(:version => 20100811132701) do
     t.datetime "updated_at"
   end
 
+  create_table "mecha_armor_data", :force => true do |t|
+    t.string   "armor"
+    t.integer  "stopping_power"
+    t.float    "cost"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "mecha_attribute_data", :force => true do |t|
+    t.string   "attribute"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "mecha_modifiers", :force => true do |t|
     t.integer  "mecha_attribute_data_id"
     t.float    "modifier"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "mecha_movement_data", :force => true do |t|
+    t.string   "movement_system"
+    t.float    "multiple"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -172,8 +193,36 @@ ActiveRecord::Schema.define(:version => 20100811132701) do
     t.datetime "updated_at"
   end
 
+  create_table "mecha_sensor_data", :force => true do |t|
+    t.string   "sensor"
+    t.string   "range"
+    t.string   "communication_range"
+    t.integer  "kills"
+    t.float    "cost"
+    t.float    "space"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "mecha_sensors", :force => true do |t|
     t.integer  "mecha_sensor_data_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "mecha_servo_data", :force => true do |t|
+    t.string   "servo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "mecha_servo_level_data", :force => true do |t|
+    t.integer  "mecha_servo_data_id"
+    t.string   "level"
+    t.integer  "kills"
+    t.float    "space"
+    t.integer  "cost"
+    t.float    "weight"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -188,6 +237,17 @@ ActiveRecord::Schema.define(:version => 20100811132701) do
     t.datetime "updated_at"
   end
 
+  create_table "mecha_shield_data", :force => true do |t|
+    t.string   "shield"
+    t.integer  "stopping_power"
+    t.float    "mounted_space"
+    t.float    "handheld_space"
+    t.float    "weight"
+    t.float    "cost"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "mecha_shields", :force => true do |t|
     t.integer  "mecha_shield_data_id"
     t.integer  "mecha_servo_id"
@@ -198,6 +258,29 @@ ActiveRecord::Schema.define(:version => 20100811132701) do
   create_table "mecha_subassemblies", :force => true do |t|
     t.integer  "mecha_subassembly_data_id"
     t.integer  "mecha_servo_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "mecha_subassembly_data", :force => true do |t|
+    t.string   "subassembly"
+    t.float    "space"
+    t.integer  "kills"
+    t.float    "weight"
+    t.float    "cost"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "mecha_weapon_data", :force => true do |t|
+    t.string   "weapon"
+    t.integer  "weapon_adjustment"
+    t.string   "range"
+    t.string   "damage"
+    t.string   "shots"
+    t.integer  "kills"
+    t.float    "space"
+    t.float    "cost"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
