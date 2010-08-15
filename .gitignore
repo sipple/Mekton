@@ -2,3 +2,5 @@
 config/database.yml
 tmp/
 log/
+db/seed_data/character_profession_skill_data.csv
+db/seed_data/character_template_skill_data.csv
