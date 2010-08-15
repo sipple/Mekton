@@ -27,6 +27,8 @@ def row_hash(field_mapping_hash, row)
   hash
 end
 
+
+# Character Seeds
 seed_model(CharacterArmorData, "character_armor_data.csv",
            {:armor => 0, :stopping_power => 1, :weight => 2, :cost => 3})
 
@@ -39,3 +41,14 @@ seed_model(CharacterSkillData, "character_skill_data.csv", {
 seed_model(CharacterWeaponData, "character_weapon_data.csv", {
         :weapon => 0, :weapon_adjustment => 1, :range => 2, :damage => 3, :shots => 4, :burst_value => 5,
         :concealment => 6, :weight => 7, :cost => 8})
+
+# Mecha Seeds
+seed_model(MechaArmorData, "mecha_armor_data.csv", {
+        :armor => 0, :cost => 1, :stopping_power => 2, :weight => 3})
+
+seed_model(MechaMovementData, "mecha_movement_data.csv", {
+        :movement_system => 0, :multiple => 1})
+
+seed_model(MechaSensorData, "mecha_sensor_data.csv", {
+        :sensor => 0, :cost => 1, :space => 2, :kills => 3, :weight => 4, :range => 5, :communication_range => 6})
+
