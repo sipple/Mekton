@@ -1048,3 +1048,1005 @@ Migrating to AddMechaIdToTables (20100811172520)
   [4;35;1mSQL (1.2ms)[0m   [0mSHOW FIELDS FROM `mechas`[0m
   [4;36;1mSQL (1.6ms)[0m   [0;1mdescribe `mechas`[0m
   [4;35;1mSQL (0.9ms)[0m   [0mSHOW KEYS FROM `mechas`[0m
+  [4;36;1mSQL (279.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (56.5ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (1249.6ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (414.5ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateCharacters (20100810181828)
+Migrating to CreateCharacterProfessions (20100810182534)
+Migrating to CreateCharacterProfessionSkills (20100810182753)
+Migrating to CreateCharacterSkills (20100810182903)
+Migrating to CreateCharacterTemplates (20100810183038)
+Migrating to CreateCharacterEquipments (20100810183206)
+Migrating to CreateCharacterWeapons (20100810183300)
+Migrating to CreateCharacterArmors (20100810183346)
+Migrating to CreateCharacterEquipmentData (20100810191028)
+Migrating to CreateCharacterWeaponData (20100810191049)
+Migrating to CreateCharacterArmorData (20100810191134)
+Migrating to CreateCharacterSkillData (20100810191321)
+Migrating to CreateCharacterProfessionData (20100810191348)
+Migrating to CreateCharacterTemplateData (20100810191358)
+Migrating to CreateCharacterProfessionSkillData (20100810191443)
+Migrating to CreateCharacterTemplateSkillData (20100810191502)
+Migrating to CreateMechas (20100811131502)
+Migrating to CreateMechaServos (20100811131752)
+Migrating to CreateMechaWeapons (20100811131905)
+Migrating to CreateMechaSubassemblies (20100811131945)
+Migrating to CreateMechaSensors (20100811132012)
+Migrating to CreateMechaMovements (20100811132100)
+Migrating to CreateMechaShields (20100811132150)
+Migrating to CreateMechaAdditives (20100811132302)
+Migrating to CreateMechaMultipliers (20100811132335)
+Migrating to CreateMechaModifiers (20100811132701)
+Migrating to CreateMechaServoData (20100811142718)
+Migrating to CreateMechaServoLevelData (20100811142836)
+Migrating to CreateMechaArmorData (20100811143008)
+Migrating to CreateMechaWeaponData (20100811143205)
+Migrating to CreateMechaShieldData (20100811143316)
+Migrating to CreateMechaSubassemblyData (20100811143406)
+Migrating to CreateMechaSensorData (20100811143436)
+Migrating to CreateMechaMovementData (20100811143528)
+Migrating to CreateMechaAttributeData (20100811143602)
+Migrating to AddCharacterIdToTables (20100811162938)
+Migrating to AddMechaIdToTables (20100811172520)
+Migrating to AddAttributeToSkillData (20100814170221)
+  [4;36;1mSQL (4181.4ms)[0m   [0;1mALTER TABLE `character_skill_data` ADD `related_attribute` varchar(255)[0m
+  [4;35;1mSQL (74.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100814170221')[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (409.9ms)[0m   [0mSHOW FIELDS FROM `character_armor_data`[0m
+  [4;36;1mSQL (40.2ms)[0m   [0;1mdescribe `character_armor_data`[0m
+  [4;35;1mSQL (93.3ms)[0m   [0mSHOW KEYS FROM `character_armor_data`[0m
+  [4;36;1mSQL (53.4ms)[0m   [0;1mSHOW FIELDS FROM `character_armors`[0m
+  [4;35;1mSQL (83.3ms)[0m   [0mdescribe `character_armors`[0m
+  [4;36;1mSQL (34.0ms)[0m   [0;1mSHOW KEYS FROM `character_armors`[0m
+  [4;35;1mSQL (70.8ms)[0m   [0mSHOW FIELDS FROM `character_equipment_data`[0m
+  [4;36;1mSQL (76.7ms)[0m   [0;1mdescribe `character_equipment_data`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSHOW KEYS FROM `character_equipment_data`[0m
+  [4;36;1mSQL (46.7ms)[0m   [0;1mSHOW FIELDS FROM `character_equipments`[0m
+  [4;35;1mSQL (5.0ms)[0m   [0mdescribe `character_equipments`[0m
+  [4;36;1mSQL (10.4ms)[0m   [0;1mSHOW KEYS FROM `character_equipments`[0m
+  [4;35;1mSQL (72.3ms)[0m   [0mSHOW FIELDS FROM `character_profession_data`[0m
+  [4;36;1mSQL (15.8ms)[0m   [0;1mdescribe `character_profession_data`[0m
+  [4;35;1mSQL (8.3ms)[0m   [0mSHOW KEYS FROM `character_profession_data`[0m
+  [4;36;1mSQL (135.5ms)[0m   [0;1mSHOW FIELDS FROM `character_profession_skill_data`[0m
+  [4;35;1mSQL (120.9ms)[0m   [0mdescribe `character_profession_skill_data`[0m
+  [4;36;1mSQL (79.3ms)[0m   [0;1mSHOW KEYS FROM `character_profession_skill_data`[0m
+  [4;35;1mSQL (118.9ms)[0m   [0mSHOW FIELDS FROM `character_profession_skills`[0m
+  [4;36;1mSQL (485.6ms)[0m   [0;1mdescribe `character_profession_skills`[0m
+  [4;35;1mSQL (120.2ms)[0m   [0mSHOW KEYS FROM `character_profession_skills`[0m
+  [4;36;1mSQL (11.0ms)[0m   [0;1mSHOW FIELDS FROM `character_professions`[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mdescribe `character_professions`[0m
+  [4;36;1mSQL (2.3ms)[0m   [0;1mSHOW KEYS FROM `character_professions`[0m
+  [4;35;1mSQL (73.9ms)[0m   [0mSHOW FIELDS FROM `character_skill_data`[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mdescribe `character_skill_data`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW KEYS FROM `character_skill_data`[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW FIELDS FROM `character_skills`[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mdescribe `character_skills`[0m
+  [4;36;1mSQL (21.4ms)[0m   [0;1mSHOW KEYS FROM `character_skills`[0m
+  [4;35;1mSQL (40.3ms)[0m   [0mSHOW FIELDS FROM `character_template_data`[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mdescribe `character_template_data`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW KEYS FROM `character_template_data`[0m
+  [4;36;1mSQL (11.4ms)[0m   [0;1mSHOW FIELDS FROM `character_template_skill_data`[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mdescribe `character_template_skill_data`[0m
+  [4;36;1mSQL (24.5ms)[0m   [0;1mSHOW KEYS FROM `character_template_skill_data`[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mSHOW FIELDS FROM `character_templates`[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mdescribe `character_templates`[0m
+  [4;35;1mSQL (15.0ms)[0m   [0mSHOW KEYS FROM `character_templates`[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mSHOW FIELDS FROM `character_weapon_data`[0m
+  [4;35;1mSQL (2.4ms)[0m   [0mdescribe `character_weapon_data`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSHOW KEYS FROM `character_weapon_data`[0m
+  [4;35;1mSQL (11.1ms)[0m   [0mSHOW FIELDS FROM `character_weapons`[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mdescribe `character_weapons`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW KEYS FROM `character_weapons`[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1mSHOW FIELDS FROM `characters`[0m
+  [4;35;1mSQL (16.6ms)[0m   [0mdescribe `characters`[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mSHOW KEYS FROM `characters`[0m
+  [4;35;1mSQL (5.7ms)[0m   [0mSHOW FIELDS FROM `mecha_additives`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mdescribe `mecha_additives`[0m
+  [4;35;1mSQL (12.4ms)[0m   [0mSHOW KEYS FROM `mecha_additives`[0m
+  [4;36;1mSQL (17.5ms)[0m   [0;1mSHOW FIELDS FROM `mecha_armor_data`[0m
+  [4;35;1mSQL (26.5ms)[0m   [0mdescribe `mecha_armor_data`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSHOW KEYS FROM `mecha_armor_data`[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSHOW FIELDS FROM `mecha_attribute_data`[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mdescribe `mecha_attribute_data`[0m
+  [4;35;1mSQL (23.1ms)[0m   [0mSHOW KEYS FROM `mecha_attribute_data`[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSHOW FIELDS FROM `mecha_modifiers`[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mdescribe `mecha_modifiers`[0m
+  [4;36;1mSQL (37.3ms)[0m   [0;1mSHOW KEYS FROM `mecha_modifiers`[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSHOW FIELDS FROM `mecha_movement_data`[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1mdescribe `mecha_movement_data`[0m
+  [4;35;1mSQL (4.3ms)[0m   [0mSHOW KEYS FROM `mecha_movement_data`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSHOW FIELDS FROM `mecha_movements`[0m
+  [4;35;1mSQL (1.7ms)[0m   [0mdescribe `mecha_movements`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW KEYS FROM `mecha_movements`[0m
+  [4;35;1mSQL (37.2ms)[0m   [0mSHOW FIELDS FROM `mecha_multipliers`[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mdescribe `mecha_multipliers`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSHOW KEYS FROM `mecha_multipliers`[0m
+  [4;36;1mSQL (30.1ms)[0m   [0;1mSHOW FIELDS FROM `mecha_sensor_data`[0m
+  [4;35;1mSQL (41.9ms)[0m   [0mdescribe `mecha_sensor_data`[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW KEYS FROM `mecha_sensor_data`[0m
+  [4;35;1mSQL (20.6ms)[0m   [0mSHOW FIELDS FROM `mecha_sensors`[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mdescribe `mecha_sensors`[0m
+  [4;35;1mSQL (11.4ms)[0m   [0mSHOW KEYS FROM `mecha_sensors`[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSHOW FIELDS FROM `mecha_servo_data`[0m
+  [4;35;1mSQL (2.7ms)[0m   [0mdescribe `mecha_servo_data`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW KEYS FROM `mecha_servo_data`[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mSHOW FIELDS FROM `mecha_servo_level_data`[0m
+  [4;36;1mSQL (3.6ms)[0m   [0;1mdescribe `mecha_servo_level_data`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW KEYS FROM `mecha_servo_level_data`[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mSHOW FIELDS FROM `mecha_servos`[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mdescribe `mecha_servos`[0m
+  [4;36;1mSQL (2.2ms)[0m   [0;1mSHOW KEYS FROM `mecha_servos`[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mSHOW FIELDS FROM `mecha_shield_data`[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mdescribe `mecha_shield_data`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSHOW KEYS FROM `mecha_shield_data`[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mSHOW FIELDS FROM `mecha_shields`[0m
+  [4;35;1mSQL (2.2ms)[0m   [0mdescribe `mecha_shields`[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSHOW KEYS FROM `mecha_shields`[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mSHOW FIELDS FROM `mecha_subassemblies`[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mdescribe `mecha_subassemblies`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW KEYS FROM `mecha_subassemblies`[0m
+  [4;36;1mSQL (11.3ms)[0m   [0;1mSHOW FIELDS FROM `mecha_subassembly_data`[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mdescribe `mecha_subassembly_data`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW KEYS FROM `mecha_subassembly_data`[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mSHOW FIELDS FROM `mecha_weapon_data`[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mdescribe `mecha_weapon_data`[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mSHOW KEYS FROM `mecha_weapon_data`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW FIELDS FROM `mecha_weapons`[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mdescribe `mecha_weapons`[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSHOW KEYS FROM `mecha_weapons`[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSHOW FIELDS FROM `mechas`[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mdescribe `mechas`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW KEYS FROM `mechas`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mCharacterArmorData Load (42.3ms)[0m   [0;1mSELECT * FROM `character_armor_data` [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mCharacterArmorData Load (0.2ms)[0m   [0;1mSELECT * FROM `character_armor_data` [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mCharacterArmorData Load (0.2ms)[0m   [0;1mSELECT * FROM `character_armor_data` [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mCharacterArmorData Delete all (41.2ms)[0m   [0;1mDELETE FROM `character_armor_data` [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (759.7ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateCharacters (20100810181828)
+Migrating to CreateCharacterProfessions (20100810182534)
+Migrating to CreateCharacterProfessionSkills (20100810182753)
+Migrating to CreateCharacterSkills (20100810182903)
+Migrating to CreateCharacterTemplates (20100810183038)
+Migrating to CreateCharacterEquipments (20100810183206)
+Migrating to CreateCharacterWeapons (20100810183300)
+Migrating to CreateCharacterArmors (20100810183346)
+Migrating to CreateCharacterEquipmentData (20100810191028)
+Migrating to CreateCharacterWeaponData (20100810191049)
+Migrating to CreateCharacterArmorData (20100810191134)
+Migrating to CreateCharacterSkillData (20100810191321)
+Migrating to CreateCharacterProfessionData (20100810191348)
+Migrating to CreateCharacterTemplateData (20100810191358)
+Migrating to CreateCharacterProfessionSkillData (20100810191443)
+Migrating to CreateCharacterTemplateSkillData (20100810191502)
+Migrating to CreateMechas (20100811131502)
+Migrating to CreateMechaServos (20100811131752)
+Migrating to CreateMechaWeapons (20100811131905)
+Migrating to CreateMechaSubassemblies (20100811131945)
+Migrating to CreateMechaSensors (20100811132012)
+Migrating to CreateMechaMovements (20100811132100)
+Migrating to CreateMechaShields (20100811132150)
+Migrating to CreateMechaAdditives (20100811132302)
+Migrating to CreateMechaMultipliers (20100811132335)
+Migrating to CreateMechaModifiers (20100811132701)
+Migrating to CreateMechaServoData (20100811142718)
+Migrating to CreateMechaServoLevelData (20100811142836)
+Migrating to CreateMechaArmorData (20100811143008)
+Migrating to CreateMechaWeaponData (20100811143205)
+Migrating to CreateMechaShieldData (20100811143316)
+Migrating to CreateMechaSubassemblyData (20100811143406)
+Migrating to CreateMechaSensorData (20100811143436)
+Migrating to CreateMechaMovementData (20100811143528)
+Migrating to CreateMechaAttributeData (20100811143602)
+Migrating to AddCharacterIdToTables (20100811162938)
+Migrating to AddMechaIdToTables (20100811172520)
+Migrating to AddAttributeToSkillData (20100814170221)
+  [4;36;1mSQL (18.9ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (20.8ms)[0m   [0mSHOW FIELDS FROM `character_armor_data`[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mdescribe `character_armor_data`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW KEYS FROM `character_armor_data`[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW FIELDS FROM `character_armors`[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mdescribe `character_armors`[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `character_armors`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW FIELDS FROM `character_equipment_data`[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mdescribe `character_equipment_data`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW KEYS FROM `character_equipment_data`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW FIELDS FROM `character_equipments`[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mdescribe `character_equipments`[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `character_equipments`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW FIELDS FROM `character_profession_data`[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mdescribe `character_profession_data`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSHOW KEYS FROM `character_profession_data`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW FIELDS FROM `character_profession_skill_data`[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mdescribe `character_profession_skill_data`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW KEYS FROM `character_profession_skill_data`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW FIELDS FROM `character_profession_skills`[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mdescribe `character_profession_skills`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW KEYS FROM `character_profession_skills`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW FIELDS FROM `character_professions`[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mdescribe `character_professions`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW KEYS FROM `character_professions`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW FIELDS FROM `character_skill_data`[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mdescribe `character_skill_data`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW KEYS FROM `character_skill_data`[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW FIELDS FROM `character_skills`[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mdescribe `character_skills`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW KEYS FROM `character_skills`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSHOW FIELDS FROM `character_template_data`[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mdescribe `character_template_data`[0m
+  [4;35;1mSQL (1.7ms)[0m   [0mSHOW KEYS FROM `character_template_data`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSHOW FIELDS FROM `character_template_skill_data`[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mdescribe `character_template_skill_data`[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSHOW KEYS FROM `character_template_skill_data`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW FIELDS FROM `character_templates`[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mdescribe `character_templates`[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW KEYS FROM `character_templates`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSHOW FIELDS FROM `character_weapon_data`[0m
+  [4;35;1mSQL (2.3ms)[0m   [0mdescribe `character_weapon_data`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW KEYS FROM `character_weapon_data`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW FIELDS FROM `character_weapons`[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mdescribe `character_weapons`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW KEYS FROM `character_weapons`[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mSHOW FIELDS FROM `characters`[0m
+  [4;35;1mSQL (2.6ms)[0m   [0mdescribe `characters`[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW KEYS FROM `characters`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSHOW FIELDS FROM `mecha_additives`[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1mdescribe `mecha_additives`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW KEYS FROM `mecha_additives`[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW FIELDS FROM `mecha_armor_data`[0m
+  [4;35;1mSQL (2.7ms)[0m   [0mdescribe `mecha_armor_data`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW KEYS FROM `mecha_armor_data`[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSHOW FIELDS FROM `mecha_attribute_data`[0m
+  [4;36;1mSQL (2.6ms)[0m   [0;1mdescribe `mecha_attribute_data`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW KEYS FROM `mecha_attribute_data`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSHOW FIELDS FROM `mecha_modifiers`[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mdescribe `mecha_modifiers`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSHOW KEYS FROM `mecha_modifiers`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW FIELDS FROM `mecha_movement_data`[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mdescribe `mecha_movement_data`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW KEYS FROM `mecha_movement_data`[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW FIELDS FROM `mecha_movements`[0m
+  [4;35;1mSQL (2.3ms)[0m   [0mdescribe `mecha_movements`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW KEYS FROM `mecha_movements`[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSHOW FIELDS FROM `mecha_multipliers`[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mdescribe `mecha_multipliers`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW KEYS FROM `mecha_multipliers`[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSHOW FIELDS FROM `mecha_sensor_data`[0m
+  [4;35;1mSQL (2.2ms)[0m   [0mdescribe `mecha_sensor_data`[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW KEYS FROM `mecha_sensor_data`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSHOW FIELDS FROM `mecha_sensors`[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mdescribe `mecha_sensors`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW KEYS FROM `mecha_sensors`[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW FIELDS FROM `mecha_servo_data`[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mdescribe `mecha_servo_data`[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mSHOW KEYS FROM `mecha_servo_data`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSHOW FIELDS FROM `mecha_servo_level_data`[0m
+  [4;36;1mSQL (2.3ms)[0m   [0;1mdescribe `mecha_servo_level_data`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSHOW KEYS FROM `mecha_servo_level_data`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSHOW FIELDS FROM `mecha_servos`[0m
+  [4;35;1mSQL (2.3ms)[0m   [0mdescribe `mecha_servos`[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW KEYS FROM `mecha_servos`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSHOW FIELDS FROM `mecha_shield_data`[0m
+  [4;36;1mSQL (2.4ms)[0m   [0;1mdescribe `mecha_shield_data`[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mSHOW KEYS FROM `mecha_shield_data`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSHOW FIELDS FROM `mecha_shields`[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mdescribe `mecha_shields`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW KEYS FROM `mecha_shields`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSHOW FIELDS FROM `mecha_subassemblies`[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mdescribe `mecha_subassemblies`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW KEYS FROM `mecha_subassemblies`[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW FIELDS FROM `mecha_subassembly_data`[0m
+  [4;35;1mSQL (1.7ms)[0m   [0mdescribe `mecha_subassembly_data`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW KEYS FROM `mecha_subassembly_data`[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSHOW FIELDS FROM `mecha_weapon_data`[0m
+  [4;36;1mSQL (2.3ms)[0m   [0;1mdescribe `mecha_weapon_data`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSHOW KEYS FROM `mecha_weapon_data`[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW FIELDS FROM `mecha_weapons`[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mdescribe `mecha_weapons`[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mSHOW KEYS FROM `mecha_weapons`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSHOW FIELDS FROM `mechas`[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mdescribe `mechas`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW KEYS FROM `mechas`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mCharacterArmorData Delete all (0.2ms)[0m   [0;1mDELETE FROM `character_armor_data` [0m
+  [4;35;1mCharacterArmorData Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `character_armor_data`[0m
+  [4;36;1mSQL (59.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterArmorData Create (115.3ms)[0m   [0mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Light Mesh', '2010-08-15 01:55:28', 38, '2010-08-15 01:55:28', 0.2, 10)[0m
+  [4;36;1mSQL (20.2ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterArmorData Create (0.2ms)[0m   [0;1mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Medium Mesh', '2010-08-15 01:55:29', 47, '2010-08-15 01:55:29', 0.3, 12)[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterArmorData Create (0.2ms)[0m   [0mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Heavy Mesh', '2010-08-15 01:55:29', 56, '2010-08-15 01:55:29', 0.4, 15)[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterArmorData Create (0.1ms)[0m   [0;1mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Flak Mesh', '2010-08-15 01:55:29', 65, '2010-08-15 01:55:29', 0.5, 18)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterArmorData Create (0.2ms)[0m   [0mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Light Helmet', '2010-08-15 01:55:29', 106, '2010-08-15 01:55:29', 1.6, 20)[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterArmorData Create (26.2ms)[0m   [0;1mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Medium Helmet', '2010-08-15 01:55:29', 117, '2010-08-15 01:55:29', 1.8, 23)[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterArmorData Create (0.3ms)[0m   [0mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Heavy Helmet', '2010-08-15 01:55:29', 128, '2010-08-15 01:55:29', 2.0, 25)[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterArmorData Create (0.3ms)[0m   [0;1mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Light Plate', '2010-08-15 01:55:29', 98, '2010-08-15 01:55:29', 0.5, 23)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterArmorData Create (0.2ms)[0m   [0mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Medium Plate', '2010-08-15 01:55:29', 108, '2010-08-15 01:55:29', 0.6, 23)[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterArmorData Create (0.2ms)[0m   [0;1mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Heavy Plate', '2010-08-15 01:55:29', 119, '2010-08-15 01:55:29', 1.0, 25)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterArmorData Create (0.2ms)[0m   [0mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Standard Suit', '2010-08-15 01:55:29', 260, '2010-08-15 01:55:29', 1.6, 5)[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterArmorData Create (0.2ms)[0m   [0;1mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Industrial Suit', '2010-08-15 01:55:29', 502, '2010-08-15 01:55:29', 3.4, 15)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterArmorData Create (0.1ms)[0m   [0mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Military Suit', '2010-08-15 01:55:29', 785, '2010-08-15 01:55:29', 7.0, 25)[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterArmorData Create (0.1ms)[0m   [0;1mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Shield', '2010-08-15 01:55:29', 142, '2010-08-15 01:55:29', 1.5, 15)[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterArmorData Create (0.2ms)[0m   [0mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Flight Jacket', '2010-08-15 01:55:29', 300, '2010-08-15 01:55:29', 1.2, 12)[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterArmorData Create (0.2ms)[0m   [0;1mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Power Armor', '2010-08-15 01:55:29', 1056, '2010-08-15 01:55:29', 43.0, 28)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterArmorData Create (0.2ms)[0m   [0mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Personal Force Screen', '2010-08-15 01:55:29', 1800, '2010-08-15 01:55:29', 5.0, 3)[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterArmorData Create (0.1ms)[0m   [0;1mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Advanced Force Screen', '2010-08-15 01:55:29', 2500, '2010-08-15 01:55:29', 0.5, 18)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mCharacterArmorData Load (0.3ms)[0m   [0;1mSELECT * FROM `character_armor_data` [0m
+  [4;35;1mCharacterArmorData Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `character_armor_data`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mCharacterArmorData Delete all (11.7ms)[0m   [0;1mDELETE FROM `character_armor_data` [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mCharacterArmorData Delete all (0.2ms)[0m   [0;1mDELETE FROM `character_armor_data` [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mCharacterArmorData Delete all (0.2ms)[0m   [0;1mDELETE FROM `character_armor_data` [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mCharacterArmorData Delete all (0.3ms)[0m   [0;1mDELETE FROM `character_armor_data` [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mCharacterArmorData Delete all (0.2ms)[0m   [0;1mDELETE FROM `character_armor_data` [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mCharacterArmorData Delete all (0.2ms)[0m   [0;1mDELETE FROM `character_armor_data` [0m
+  [4;35;1mCharacterArmorData Columns (53.3ms)[0m   [0mSHOW FIELDS FROM `character_armor_data`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterArmorData Create (0.3ms)[0m   [0mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Light Mesh', '2010-08-15 02:08:12', 38, '2010-08-15 02:08:12', 0.2, 10)[0m
+  [4;36;1mSQL (57.8ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterArmorData Create (0.3ms)[0m   [0;1mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Medium Mesh', '2010-08-15 02:08:12', 47, '2010-08-15 02:08:12', 0.3, 12)[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterArmorData Create (0.3ms)[0m   [0mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Heavy Mesh', '2010-08-15 02:08:12', 56, '2010-08-15 02:08:12', 0.4, 15)[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterArmorData Create (0.2ms)[0m   [0;1mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Flak Mesh', '2010-08-15 02:08:12', 65, '2010-08-15 02:08:12', 0.5, 18)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterArmorData Create (0.2ms)[0m   [0mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Light Helmet', '2010-08-15 02:08:12', 106, '2010-08-15 02:08:12', 1.6, 20)[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterArmorData Create (0.2ms)[0m   [0;1mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Medium Helmet', '2010-08-15 02:08:12', 117, '2010-08-15 02:08:12', 1.8, 23)[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterArmorData Create (0.2ms)[0m   [0mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Heavy Helmet', '2010-08-15 02:08:12', 128, '2010-08-15 02:08:12', 2.0, 25)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterArmorData Create (0.2ms)[0m   [0;1mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Light Plate', '2010-08-15 02:08:12', 98, '2010-08-15 02:08:12', 0.5, 23)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterArmorData Create (0.2ms)[0m   [0mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Medium Plate', '2010-08-15 02:08:12', 108, '2010-08-15 02:08:12', 0.6, 23)[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterArmorData Create (0.1ms)[0m   [0;1mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Heavy Plate', '2010-08-15 02:08:12', 119, '2010-08-15 02:08:12', 1.0, 25)[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterArmorData Create (0.1ms)[0m   [0mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Standard Suit', '2010-08-15 02:08:12', 260, '2010-08-15 02:08:12', 1.6, 5)[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterArmorData Create (0.2ms)[0m   [0;1mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Industrial Suit', '2010-08-15 02:08:12', 502, '2010-08-15 02:08:12', 3.4, 15)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterArmorData Create (0.2ms)[0m   [0mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Military Suit', '2010-08-15 02:08:12', 785, '2010-08-15 02:08:12', 7.0, 25)[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterArmorData Create (0.2ms)[0m   [0;1mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Shield', '2010-08-15 02:08:12', 142, '2010-08-15 02:08:12', 1.5, 15)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterArmorData Create (0.2ms)[0m   [0mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Flight Jacket', '2010-08-15 02:08:12', 300, '2010-08-15 02:08:12', 1.2, 12)[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterArmorData Create (0.2ms)[0m   [0;1mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Power Armor', '2010-08-15 02:08:12', 1056, '2010-08-15 02:08:12', 43.0, 28)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterArmorData Create (0.2ms)[0m   [0mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Personal Force Screen', '2010-08-15 02:08:12', 1800, '2010-08-15 02:08:12', 5.0, 3)[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterArmorData Create (0.2ms)[0m   [0;1mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Advanced Force Screen', '2010-08-15 02:08:12', 2500, '2010-08-15 02:08:12', 0.5, 18)[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mCharacterArmorData Load (0.3ms)[0m   [0;1mSELECT * FROM `character_armor_data` [0m
+  [4;35;1mCharacterArmorData Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `character_armor_data`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mCharacterArmorData Delete all (65.4ms)[0m   [0;1mDELETE FROM `character_armor_data` [0m
+  [4;35;1mCharacterArmorData Columns (25.9ms)[0m   [0mSHOW FIELDS FROM `character_armor_data`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterArmorData Create (0.5ms)[0m   [0mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Light Mesh', '2010-08-15 02:10:40', 38, '2010-08-15 02:10:40', 0.2, 10)[0m
+  [4;36;1mSQL (126.8ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterArmorData Create (0.4ms)[0m   [0;1mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Medium Mesh', '2010-08-15 02:10:42', 47, '2010-08-15 02:10:42', 0.3, 12)[0m
+  [4;35;1mSQL (150.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterArmorData Create (0.3ms)[0m   [0mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Heavy Mesh', '2010-08-15 02:10:42', 56, '2010-08-15 02:10:42', 0.4, 15)[0m
+  [4;36;1mSQL (170.8ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterArmorData Create (0.3ms)[0m   [0;1mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Flak Mesh', '2010-08-15 02:10:42', 65, '2010-08-15 02:10:42', 0.5, 18)[0m
+  [4;35;1mSQL (23.7ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterArmorData Create (0.3ms)[0m   [0mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Light Helmet', '2010-08-15 02:10:42', 106, '2010-08-15 02:10:42', 1.6, 20)[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterArmorData Create (0.2ms)[0m   [0;1mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Medium Helmet', '2010-08-15 02:10:42', 117, '2010-08-15 02:10:42', 1.8, 23)[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterArmorData Create (0.2ms)[0m   [0mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Heavy Helmet', '2010-08-15 02:10:42', 128, '2010-08-15 02:10:42', 2.0, 25)[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterArmorData Create (0.2ms)[0m   [0;1mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Light Plate', '2010-08-15 02:10:42', 98, '2010-08-15 02:10:42', 0.5, 23)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterArmorData Create (0.2ms)[0m   [0mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Medium Plate', '2010-08-15 02:10:42', 108, '2010-08-15 02:10:42', 0.6, 23)[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterArmorData Create (0.1ms)[0m   [0;1mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Heavy Plate', '2010-08-15 02:10:42', 119, '2010-08-15 02:10:42', 1.0, 25)[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterArmorData Create (0.2ms)[0m   [0mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Standard Suit', '2010-08-15 02:10:42', 260, '2010-08-15 02:10:42', 1.6, 5)[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterArmorData Create (0.2ms)[0m   [0;1mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Industrial Suit', '2010-08-15 02:10:42', 502, '2010-08-15 02:10:42', 3.4, 15)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterArmorData Create (0.1ms)[0m   [0mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Military Suit', '2010-08-15 02:10:42', 785, '2010-08-15 02:10:42', 7.0, 25)[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterArmorData Create (0.2ms)[0m   [0;1mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Shield', '2010-08-15 02:10:42', 142, '2010-08-15 02:10:42', 1.5, 15)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterArmorData Create (0.2ms)[0m   [0mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Flight Jacket', '2010-08-15 02:10:42', 300, '2010-08-15 02:10:42', 1.2, 12)[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterArmorData Create (0.2ms)[0m   [0;1mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Power Armor', '2010-08-15 02:10:42', 1056, '2010-08-15 02:10:42', 43.0, 28)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterArmorData Create (0.2ms)[0m   [0mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Personal Force Screen', '2010-08-15 02:10:42', 1800, '2010-08-15 02:10:42', 5.0, 3)[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterArmorData Create (0.2ms)[0m   [0;1mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Advanced Force Screen', '2010-08-15 02:10:42', 2500, '2010-08-15 02:10:42', 0.5, 18)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mCharacterEquipmentData Delete all (0.3ms)[0m   [0;1mDELETE FROM `character_equipment_data` [0m
+  [4;35;1mCharacterEquipmentData Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `character_equipment_data`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterEquipmentData Create (20.7ms)[0m   [0mINSERT INTO `character_equipment_data` (`created_at`, `cost`, `updated_at`, `weight`, `equipment`) VALUES('2010-08-15 02:10:42', 0, '2010-08-15 02:10:42', 10.0, 'Light Mesh')[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterEquipmentData Create (0.3ms)[0m   [0;1mINSERT INTO `character_equipment_data` (`created_at`, `cost`, `updated_at`, `weight`, `equipment`) VALUES('2010-08-15 02:10:42', 0, '2010-08-15 02:10:42', 12.0, 'Medium Mesh')[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterEquipmentData Create (0.2ms)[0m   [0mINSERT INTO `character_equipment_data` (`created_at`, `cost`, `updated_at`, `weight`, `equipment`) VALUES('2010-08-15 02:10:42', 0, '2010-08-15 02:10:42', 15.0, 'Heavy Mesh')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterEquipmentData Create (0.2ms)[0m   [0;1mINSERT INTO `character_equipment_data` (`created_at`, `cost`, `updated_at`, `weight`, `equipment`) VALUES('2010-08-15 02:10:42', 0, '2010-08-15 02:10:42', 18.0, 'Flak Mesh')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterEquipmentData Create (0.3ms)[0m   [0mINSERT INTO `character_equipment_data` (`created_at`, `cost`, `updated_at`, `weight`, `equipment`) VALUES('2010-08-15 02:10:42', 1, '2010-08-15 02:10:42', 20.0, 'Light Helmet')[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterEquipmentData Create (0.2ms)[0m   [0;1mINSERT INTO `character_equipment_data` (`created_at`, `cost`, `updated_at`, `weight`, `equipment`) VALUES('2010-08-15 02:10:42', 1, '2010-08-15 02:10:42', 23.0, 'Medium Helmet')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterEquipmentData Create (0.2ms)[0m   [0mINSERT INTO `character_equipment_data` (`created_at`, `cost`, `updated_at`, `weight`, `equipment`) VALUES('2010-08-15 02:10:42', 2, '2010-08-15 02:10:42', 25.0, 'Heavy Helmet')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterEquipmentData Create (0.1ms)[0m   [0;1mINSERT INTO `character_equipment_data` (`created_at`, `cost`, `updated_at`, `weight`, `equipment`) VALUES('2010-08-15 02:10:42', 0, '2010-08-15 02:10:42', 23.0, 'Light Plate')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterEquipmentData Create (0.1ms)[0m   [0mINSERT INTO `character_equipment_data` (`created_at`, `cost`, `updated_at`, `weight`, `equipment`) VALUES('2010-08-15 02:10:42', 0, '2010-08-15 02:10:42', 23.0, 'Medium Plate')[0m
+  [4;36;1mSQL (19.9ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterEquipmentData Create (0.2ms)[0m   [0;1mINSERT INTO `character_equipment_data` (`created_at`, `cost`, `updated_at`, `weight`, `equipment`) VALUES('2010-08-15 02:10:42', 1, '2010-08-15 02:10:42', 25.0, 'Heavy Plate')[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterEquipmentData Create (0.2ms)[0m   [0mINSERT INTO `character_equipment_data` (`created_at`, `cost`, `updated_at`, `weight`, `equipment`) VALUES('2010-08-15 02:10:42', 1, '2010-08-15 02:10:42', 5.0, 'Standard Suit')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterEquipmentData Create (0.2ms)[0m   [0;1mINSERT INTO `character_equipment_data` (`created_at`, `cost`, `updated_at`, `weight`, `equipment`) VALUES('2010-08-15 02:10:42', 3, '2010-08-15 02:10:42', 15.0, 'Industrial Suit')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterEquipmentData Create (0.1ms)[0m   [0mINSERT INTO `character_equipment_data` (`created_at`, `cost`, `updated_at`, `weight`, `equipment`) VALUES('2010-08-15 02:10:42', 7, '2010-08-15 02:10:42', 25.0, 'Military Suit')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterEquipmentData Create (0.2ms)[0m   [0;1mINSERT INTO `character_equipment_data` (`created_at`, `cost`, `updated_at`, `weight`, `equipment`) VALUES('2010-08-15 02:10:42', 1, '2010-08-15 02:10:42', 15.0, 'Shield')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterEquipmentData Create (0.2ms)[0m   [0mINSERT INTO `character_equipment_data` (`created_at`, `cost`, `updated_at`, `weight`, `equipment`) VALUES('2010-08-15 02:10:42', 1, '2010-08-15 02:10:42', 12.0, 'Flight Jacket')[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterEquipmentData Create (0.1ms)[0m   [0;1mINSERT INTO `character_equipment_data` (`created_at`, `cost`, `updated_at`, `weight`, `equipment`) VALUES('2010-08-15 02:10:42', 43, '2010-08-15 02:10:42', 28.0, 'Power Armor')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterEquipmentData Create (0.1ms)[0m   [0mINSERT INTO `character_equipment_data` (`created_at`, `cost`, `updated_at`, `weight`, `equipment`) VALUES('2010-08-15 02:10:42', 5, '2010-08-15 02:10:42', 3.0, 'Personal Force Screen')[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterEquipmentData Create (0.2ms)[0m   [0;1mINSERT INTO `character_equipment_data` (`created_at`, `cost`, `updated_at`, `weight`, `equipment`) VALUES('2010-08-15 02:10:42', 0, '2010-08-15 02:10:42', 18.0, 'Advanced Force Screen')[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mCharacterEquipmentData Load (60.9ms)[0m   [0;1mSELECT * FROM `character_equipment_data` [0m
+  [4;35;1mCharacterEquipmentData Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `character_equipment_data`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mCharacterArmorData Delete all (30.4ms)[0m   [0;1mDELETE FROM `character_armor_data` [0m
+  [4;35;1mCharacterArmorData Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `character_armor_data`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterArmorData Create (0.3ms)[0m   [0mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Light Mesh', '2010-08-15 02:14:38', 38, '2010-08-15 02:14:38', 0.2, 10)[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterArmorData Create (0.2ms)[0m   [0;1mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Medium Mesh', '2010-08-15 02:14:38', 47, '2010-08-15 02:14:38', 0.3, 12)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterArmorData Create (0.2ms)[0m   [0mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Heavy Mesh', '2010-08-15 02:14:38', 56, '2010-08-15 02:14:38', 0.4, 15)[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterArmorData Create (0.2ms)[0m   [0;1mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Flak Mesh', '2010-08-15 02:14:38', 65, '2010-08-15 02:14:38', 0.5, 18)[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterArmorData Create (0.2ms)[0m   [0mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Light Helmet', '2010-08-15 02:14:38', 106, '2010-08-15 02:14:38', 1.6, 20)[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterArmorData Create (0.2ms)[0m   [0;1mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Medium Helmet', '2010-08-15 02:14:38', 117, '2010-08-15 02:14:38', 1.8, 23)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterArmorData Create (0.2ms)[0m   [0mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Heavy Helmet', '2010-08-15 02:14:38', 128, '2010-08-15 02:14:38', 2.0, 25)[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterArmorData Create (0.2ms)[0m   [0;1mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Light Plate', '2010-08-15 02:14:38', 98, '2010-08-15 02:14:38', 0.5, 23)[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterArmorData Create (0.2ms)[0m   [0mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Medium Plate', '2010-08-15 02:14:38', 108, '2010-08-15 02:14:38', 0.6, 23)[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterArmorData Create (0.1ms)[0m   [0;1mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Heavy Plate', '2010-08-15 02:14:38', 119, '2010-08-15 02:14:38', 1.0, 25)[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterArmorData Create (0.2ms)[0m   [0mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Standard Suit', '2010-08-15 02:14:38', 260, '2010-08-15 02:14:38', 1.6, 5)[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterArmorData Create (0.2ms)[0m   [0;1mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Industrial Suit', '2010-08-15 02:14:38', 502, '2010-08-15 02:14:38', 3.4, 15)[0m
+  [4;35;1mSQL (15.3ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterArmorData Create (0.2ms)[0m   [0mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Military Suit', '2010-08-15 02:14:38', 785, '2010-08-15 02:14:38', 7.0, 25)[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterArmorData Create (0.2ms)[0m   [0;1mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Shield', '2010-08-15 02:14:38', 142, '2010-08-15 02:14:38', 1.5, 15)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterArmorData Create (0.1ms)[0m   [0mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Flight Jacket', '2010-08-15 02:14:38', 300, '2010-08-15 02:14:38', 1.2, 12)[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterArmorData Create (0.2ms)[0m   [0;1mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Power Armor', '2010-08-15 02:14:38', 1056, '2010-08-15 02:14:38', 43.0, 28)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterArmorData Create (0.2ms)[0m   [0mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Personal Force Screen', '2010-08-15 02:14:38', 1800, '2010-08-15 02:14:38', 5.0, 3)[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterArmorData Create (0.2ms)[0m   [0;1mINSERT INTO `character_armor_data` (`armor`, `created_at`, `cost`, `updated_at`, `weight`, `stopping_power`) VALUES('Advanced Force Screen', '2010-08-15 02:14:38', 2500, '2010-08-15 02:14:38', 0.5, 18)[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mCOMMIT[0m
+  [4;36;1mCharacterEquipmentData Delete all (1.2ms)[0m   [0;1mDELETE FROM `character_equipment_data` [0m
+  [4;35;1mCharacterEquipmentData Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `character_equipment_data`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterEquipmentData Create (0.4ms)[0m   [0mINSERT INTO `character_equipment_data` (`created_at`, `cost`, `updated_at`, `weight`, `equipment`) VALUES('2010-08-15 02:14:38', 0, '2010-08-15 02:14:38', 10.0, 'Light Mesh')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterEquipmentData Create (0.2ms)[0m   [0;1mINSERT INTO `character_equipment_data` (`created_at`, `cost`, `updated_at`, `weight`, `equipment`) VALUES('2010-08-15 02:14:38', 0, '2010-08-15 02:14:38', 12.0, 'Medium Mesh')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterEquipmentData Create (0.2ms)[0m   [0mINSERT INTO `character_equipment_data` (`created_at`, `cost`, `updated_at`, `weight`, `equipment`) VALUES('2010-08-15 02:14:38', 0, '2010-08-15 02:14:38', 15.0, 'Heavy Mesh')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterEquipmentData Create (0.2ms)[0m   [0;1mINSERT INTO `character_equipment_data` (`created_at`, `cost`, `updated_at`, `weight`, `equipment`) VALUES('2010-08-15 02:14:38', 0, '2010-08-15 02:14:38', 18.0, 'Flak Mesh')[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterEquipmentData Create (0.2ms)[0m   [0mINSERT INTO `character_equipment_data` (`created_at`, `cost`, `updated_at`, `weight`, `equipment`) VALUES('2010-08-15 02:14:38', 1, '2010-08-15 02:14:38', 20.0, 'Light Helmet')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterEquipmentData Create (0.2ms)[0m   [0;1mINSERT INTO `character_equipment_data` (`created_at`, `cost`, `updated_at`, `weight`, `equipment`) VALUES('2010-08-15 02:14:38', 1, '2010-08-15 02:14:38', 23.0, 'Medium Helmet')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterEquipmentData Create (0.1ms)[0m   [0mINSERT INTO `character_equipment_data` (`created_at`, `cost`, `updated_at`, `weight`, `equipment`) VALUES('2010-08-15 02:14:38', 2, '2010-08-15 02:14:38', 25.0, 'Heavy Helmet')[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterEquipmentData Create (0.1ms)[0m   [0;1mINSERT INTO `character_equipment_data` (`created_at`, `cost`, `updated_at`, `weight`, `equipment`) VALUES('2010-08-15 02:14:38', 0, '2010-08-15 02:14:38', 23.0, 'Light Plate')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterEquipmentData Create (0.2ms)[0m   [0mINSERT INTO `character_equipment_data` (`created_at`, `cost`, `updated_at`, `weight`, `equipment`) VALUES('2010-08-15 02:14:38', 0, '2010-08-15 02:14:38', 23.0, 'Medium Plate')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterEquipmentData Create (0.2ms)[0m   [0;1mINSERT INTO `character_equipment_data` (`created_at`, `cost`, `updated_at`, `weight`, `equipment`) VALUES('2010-08-15 02:14:38', 1, '2010-08-15 02:14:38', 25.0, 'Heavy Plate')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterEquipmentData Create (0.1ms)[0m   [0mINSERT INTO `character_equipment_data` (`created_at`, `cost`, `updated_at`, `weight`, `equipment`) VALUES('2010-08-15 02:14:38', 1, '2010-08-15 02:14:38', 5.0, 'Standard Suit')[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterEquipmentData Create (0.2ms)[0m   [0;1mINSERT INTO `character_equipment_data` (`created_at`, `cost`, `updated_at`, `weight`, `equipment`) VALUES('2010-08-15 02:14:38', 3, '2010-08-15 02:14:38', 15.0, 'Industrial Suit')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterEquipmentData Create (0.2ms)[0m   [0mINSERT INTO `character_equipment_data` (`created_at`, `cost`, `updated_at`, `weight`, `equipment`) VALUES('2010-08-15 02:14:38', 7, '2010-08-15 02:14:38', 25.0, 'Military Suit')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterEquipmentData Create (0.2ms)[0m   [0;1mINSERT INTO `character_equipment_data` (`created_at`, `cost`, `updated_at`, `weight`, `equipment`) VALUES('2010-08-15 02:14:38', 1, '2010-08-15 02:14:38', 15.0, 'Shield')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterEquipmentData Create (0.2ms)[0m   [0mINSERT INTO `character_equipment_data` (`created_at`, `cost`, `updated_at`, `weight`, `equipment`) VALUES('2010-08-15 02:14:38', 1, '2010-08-15 02:14:38', 12.0, 'Flight Jacket')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterEquipmentData Create (0.2ms)[0m   [0;1mINSERT INTO `character_equipment_data` (`created_at`, `cost`, `updated_at`, `weight`, `equipment`) VALUES('2010-08-15 02:14:38', 43, '2010-08-15 02:14:38', 28.0, 'Power Armor')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterEquipmentData Create (0.2ms)[0m   [0mINSERT INTO `character_equipment_data` (`created_at`, `cost`, `updated_at`, `weight`, `equipment`) VALUES('2010-08-15 02:14:38', 5, '2010-08-15 02:14:38', 3.0, 'Personal Force Screen')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterEquipmentData Create (0.2ms)[0m   [0;1mINSERT INTO `character_equipment_data` (`created_at`, `cost`, `updated_at`, `weight`, `equipment`) VALUES('2010-08-15 02:14:38', 0, '2010-08-15 02:14:38', 18.0, 'Advanced Force Screen')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mCharacterSkillData Delete all (0.3ms)[0m   [0;1mDELETE FROM `character_skill_data` [0m
+  [4;35;1mCharacterSkillData Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `character_skill_data`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterSkillData Create (0.3ms)[0m   [0mINSERT INTO `character_skill_data` (`created_at`, `updated_at`, `skill`, `related_attribute`) VALUES('2010-08-15 02:14:38', '2010-08-15 02:14:38', 'Acting', 'Empathy')[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterSkillData Create (0.2ms)[0m   [0;1mINSERT INTO `character_skill_data` (`created_at`, `updated_at`, `skill`, `related_attribute`) VALUES('2010-08-15 02:14:38', '2010-08-15 02:14:38', 'Aircraft/Shuttle Pilot', 'Reflex')[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterSkillData Create (0.2ms)[0m   [0mINSERT INTO `character_skill_data` (`created_at`, `updated_at`, `skill`, `related_attribute`) VALUES('2010-08-15 02:14:38', '2010-08-15 02:14:38', 'Athletics', 'Reflex')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterSkillData Create (0.2ms)[0m   [0;1mINSERT INTO `character_skill_data` (`created_at`, `updated_at`, `skill`, `related_attribute`) VALUES('2010-08-15 02:14:38', '2010-08-15 02:14:38', 'Automatic Weapon', 'Reflex')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterSkillData Create (0.1ms)[0m   [0mINSERT INTO `character_skill_data` (`created_at`, `updated_at`, `skill`, `related_attribute`) VALUES('2010-08-15 02:14:38', '2010-08-15 02:14:38', 'Awareness / Notice', 'Intellegence')[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterSkillData Create (0.1ms)[0m   [0;1mINSERT INTO `character_skill_data` (`created_at`, `updated_at`, `skill`, `related_attribute`) VALUES('2010-08-15 02:14:38', '2010-08-15 02:14:38', 'Basic Repair', 'Tech')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterSkillData Create (0.2ms)[0m   [0mINSERT INTO `character_skill_data` (`created_at`, `updated_at`, `skill`, `related_attribute`) VALUES('2010-08-15 02:14:38', '2010-08-15 02:14:38', 'Blade', 'Reflex')[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterSkillData Create (0.2ms)[0m   [0;1mINSERT INTO `character_skill_data` (`created_at`, `updated_at`, `skill`, `related_attribute`) VALUES('2010-08-15 02:14:38', '2010-08-15 02:14:38', 'Compose or Write', 'Intellegence')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterSkillData Create (0.2ms)[0m   [0mINSERT INTO `character_skill_data` (`created_at`, `updated_at`, `skill`, `related_attribute`) VALUES('2010-08-15 02:14:38', '2010-08-15 02:14:38', 'Dance', 'Reflex')[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterSkillData Create (0.2ms)[0m   [0;1mINSERT INTO `character_skill_data` (`created_at`, `updated_at`, `skill`, `related_attribute`) VALUES('2010-08-15 02:14:38', '2010-08-15 02:14:38', 'Disguise', 'Intellegence')[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterSkillData Create (0.2ms)[0m   [0mINSERT INTO `character_skill_data` (`created_at`, `updated_at`, `skill`, `related_attribute`) VALUES('2010-08-15 02:14:38', '2010-08-15 02:14:38', 'Dodge & Escape', 'Reflex')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterSkillData Create (0.1ms)[0m   [0;1mINSERT INTO `character_skill_data` (`created_at`, `updated_at`, `skill`, `related_attribute`) VALUES('2010-08-15 02:14:38', '2010-08-15 02:14:38', 'Driving', 'Reflex')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterSkillData Create (0.3ms)[0m   [0mINSERT INTO `character_skill_data` (`created_at`, `updated_at`, `skill`, `related_attribute`) VALUES('2010-08-15 02:14:39', '2010-08-15 02:14:39', 'Expert', 'Intellegence')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterSkillData Create (0.2ms)[0m   [0;1mINSERT INTO `character_skill_data` (`created_at`, `updated_at`, `skill`, `related_attribute`) VALUES('2010-08-15 02:14:39', '2010-08-15 02:14:39', 'First Aid', 'Tech')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterSkillData Create (0.1ms)[0m   [0mINSERT INTO `character_skill_data` (`created_at`, `updated_at`, `skill`, `related_attribute`) VALUES('2010-08-15 02:14:39', '2010-08-15 02:14:39', 'Gamble (H)', 'Intellegence')[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterSkillData Create (0.1ms)[0m   [0;1mINSERT INTO `character_skill_data` (`created_at`, `updated_at`, `skill`, `related_attribute`) VALUES('2010-08-15 02:14:39', '2010-08-15 02:14:39', 'Hand to Hand', 'Reflex')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterSkillData Create (0.2ms)[0m   [0mINSERT INTO `character_skill_data` (`created_at`, `updated_at`, `skill`, `related_attribute`) VALUES('2010-08-15 02:14:39', '2010-08-15 02:14:39', 'Handgun', 'Reflex')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterSkillData Create (0.1ms)[0m   [0;1mINSERT INTO `character_skill_data` (`created_at`, `updated_at`, `skill`, `related_attribute`) VALUES('2010-08-15 02:14:39', '2010-08-15 02:14:39', 'Human Perception', 'Empathy')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterSkillData Create (0.2ms)[0m   [0mINSERT INTO `character_skill_data` (`created_at`, `updated_at`, `skill`, `related_attribute`) VALUES('2010-08-15 02:14:39', '2010-08-15 02:14:39', 'Interrogation (H)', 'Cool')[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterSkillData Create (0.1ms)[0m   [0;1mINSERT INTO `character_skill_data` (`created_at`, `updated_at`, `skill`, `related_attribute`) VALUES('2010-08-15 02:14:39', '2010-08-15 02:14:39', 'Interview', 'Empathy')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterSkillData Create (0.2ms)[0m   [0mINSERT INTO `character_skill_data` (`created_at`, `updated_at`, `skill`, `related_attribute`) VALUES('2010-08-15 02:14:39', '2010-08-15 02:14:39', 'Intimidate (H)', 'Cool')[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterSkillData Create (0.2ms)[0m   [0;1mINSERT INTO `character_skill_data` (`created_at`, `updated_at`, `skill`, `related_attribute`) VALUES('2010-08-15 02:14:39', '2010-08-15 02:14:39', 'Jury Rig', 'Tech')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterSkillData Create (0.1ms)[0m   [0mINSERT INTO `character_skill_data` (`created_at`, `updated_at`, `skill`, `related_attribute`) VALUES('2010-08-15 02:14:39', '2010-08-15 02:14:39', 'Know Language', 'Intellegence')[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterSkillData Create (0.1ms)[0m   [0;1mINSERT INTO `character_skill_data` (`created_at`, `updated_at`, `skill`, `related_attribute`) VALUES('2010-08-15 02:14:39', '2010-08-15 02:14:39', 'Leadership', 'Empathy')[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterSkillData Create (0.1ms)[0m   [0mINSERT INTO `character_skill_data` (`created_at`, `updated_at`, `skill`, `related_attribute`) VALUES('2010-08-15 02:14:39', '2010-08-15 02:14:39', 'Mech Fighting', 'Reflex')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterSkillData Create (0.1ms)[0m   [0;1mINSERT INTO `character_skill_data` (`created_at`, `updated_at`, `skill`, `related_attribute`) VALUES('2010-08-15 02:14:39', '2010-08-15 02:14:39', 'Mech Gunnery', 'Reflex')[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterSkillData Create (0.2ms)[0m   [0mINSERT INTO `character_skill_data` (`created_at`, `updated_at`, `skill`, `related_attribute`) VALUES('2010-08-15 02:14:39', '2010-08-15 02:14:39', 'Mech Melee', 'Reflex')[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterSkillData Create (0.2ms)[0m   [0;1mINSERT INTO `character_skill_data` (`created_at`, `updated_at`, `skill`, `related_attribute`) VALUES('2010-08-15 02:14:39', '2010-08-15 02:14:39', 'Mech Missiles', 'Reflex')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterSkillData Create (0.2ms)[0m   [0mINSERT INTO `character_skill_data` (`created_at`, `updated_at`, `skill`, `related_attribute`) VALUES('2010-08-15 02:14:39', '2010-08-15 02:14:39', 'Mech Piloting', 'Reflex')[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterSkillData Create (0.1ms)[0m   [0;1mINSERT INTO `character_skill_data` (`created_at`, `updated_at`, `skill`, `related_attribute`) VALUES('2010-08-15 02:14:39', '2010-08-15 02:14:39', 'Mecha Design (H)', 'Tech')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterSkillData Create (0.1ms)[0m   [0mINSERT INTO `character_skill_data` (`created_at`, `updated_at`, `skill`, `related_attribute`) VALUES('2010-08-15 02:14:39', '2010-08-15 02:14:39', 'Mecha Tech (H)', 'Tech')[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterSkillData Create (0.2ms)[0m   [0;1mINSERT INTO `character_skill_data` (`created_at`, `updated_at`, `skill`, `related_attribute`) VALUES('2010-08-15 02:14:39', '2010-08-15 02:14:39', 'Medical', 'Tech')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterSkillData Create (0.1ms)[0m   [0mINSERT INTO `character_skill_data` (`created_at`, `updated_at`, `skill`, `related_attribute`) VALUES('2010-08-15 02:14:39', '2010-08-15 02:14:39', 'Paint or Draw', 'Tech')[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterSkillData Create (0.1ms)[0m   [0;1mINSERT INTO `character_skill_data` (`created_at`, `updated_at`, `skill`, `related_attribute`) VALUES('2010-08-15 02:14:39', '2010-08-15 02:14:39', 'Personal Grooming', 'Attractiveness')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterSkillData Create (0.2ms)[0m   [0mINSERT INTO `character_skill_data` (`created_at`, `updated_at`, `skill`, `related_attribute`) VALUES('2010-08-15 02:14:39', '2010-08-15 02:14:39', 'Persuasion and Fast Talk (H)', 'Cool')[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterSkillData Create (0.2ms)[0m   [0;1mINSERT INTO `character_skill_data` (`created_at`, `updated_at`, `skill`, `related_attribute`) VALUES('2010-08-15 02:14:39', '2010-08-15 02:14:39', 'Photography & Film', 'Tech')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterSkillData Create (0.2ms)[0m   [0mINSERT INTO `character_skill_data` (`created_at`, `updated_at`, `skill`, `related_attribute`) VALUES('2010-08-15 02:14:39', '2010-08-15 02:14:39', 'Pick Lock (H)', 'Tech')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterSkillData Create (0.1ms)[0m   [0;1mINSERT INTO `character_skill_data` (`created_at`, `updated_at`, `skill`, `related_attribute`) VALUES('2010-08-15 02:14:39', '2010-08-15 02:14:39', 'Pick Pocket (H)', 'Tech')[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterSkillData Create (0.2ms)[0m   [0mINSERT INTO `character_skill_data` (`created_at`, `updated_at`, `skill`, `related_attribute`) VALUES('2010-08-15 02:14:39', '2010-08-15 02:14:39', 'Play Musical Instrument', 'Tech')[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterSkillData Create (0.2ms)[0m   [0;1mINSERT INTO `character_skill_data` (`created_at`, `updated_at`, `skill`, `related_attribute`) VALUES('2010-08-15 02:14:39', '2010-08-15 02:14:39', 'Programming (H)', 'Intellegence')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterSkillData Create (0.2ms)[0m   [0mINSERT INTO `character_skill_data` (`created_at`, `updated_at`, `skill`, `related_attribute`) VALUES('2010-08-15 02:14:39', '2010-08-15 02:14:39', 'Resist Torture/Drugs (H)', 'Cool')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterSkillData Create (0.1ms)[0m   [0;1mINSERT INTO `character_skill_data` (`created_at`, `updated_at`, `skill`, `related_attribute`) VALUES('2010-08-15 02:14:39', '2010-08-15 02:14:39', 'Rifle', 'Reflex')[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterSkillData Create (0.1ms)[0m   [0mINSERT INTO `character_skill_data` (`created_at`, `updated_at`, `skill`, `related_attribute`) VALUES('2010-08-15 02:14:39', '2010-08-15 02:14:39', 'Seduction', 'Empathy')[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterSkillData Create (0.2ms)[0m   [0;1mINSERT INTO `character_skill_data` (`created_at`, `updated_at`, `skill`, `related_attribute`) VALUES('2010-08-15 02:14:39', '2010-08-15 02:14:39', 'Shadowing/Avoid Pursuit (H)', 'Intellegence')[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterSkillData Create (0.1ms)[0m   [0mINSERT INTO `character_skill_data` (`created_at`, `updated_at`, `skill`, `related_attribute`) VALUES('2010-08-15 02:14:39', '2010-08-15 02:14:39', 'Social', 'Empathy')[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterSkillData Create (0.1ms)[0m   [0;1mINSERT INTO `character_skill_data` (`created_at`, `updated_at`, `skill`, `related_attribute`) VALUES('2010-08-15 02:14:39', '2010-08-15 02:14:39', 'Stealth', 'Reflex')[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterSkillData Create (0.1ms)[0m   [0mINSERT INTO `character_skill_data` (`created_at`, `updated_at`, `skill`, `related_attribute`) VALUES('2010-08-15 02:14:39', '2010-08-15 02:14:39', 'Streetwise', 'Cool')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterSkillData Create (0.1ms)[0m   [0;1mINSERT INTO `character_skill_data` (`created_at`, `updated_at`, `skill`, `related_attribute`) VALUES('2010-08-15 02:14:39', '2010-08-15 02:14:39', 'Survival', 'Intellegence')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterSkillData Create (0.1ms)[0m   [0mINSERT INTO `character_skill_data` (`created_at`, `updated_at`, `skill`, `related_attribute`) VALUES('2010-08-15 02:14:39', '2010-08-15 02:14:39', 'Swimming', 'Reflex')[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterSkillData Create (0.1ms)[0m   [0;1mINSERT INTO `character_skill_data` (`created_at`, `updated_at`, `skill`, `related_attribute`) VALUES('2010-08-15 02:14:39', '2010-08-15 02:14:39', 'Teaching', 'Intellegence')[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterSkillData Create (0.2ms)[0m   [0mINSERT INTO `character_skill_data` (`created_at`, `updated_at`, `skill`, `related_attribute`) VALUES('2010-08-15 02:14:39', '2010-08-15 02:14:39', 'Wardrobe & Style', 'Attractiveness')[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterSkillData Create (0.2ms)[0m   [0;1mINSERT INTO `character_skill_data` (`created_at`, `updated_at`, `skill`, `related_attribute`) VALUES('2010-08-15 02:14:39', '2010-08-15 02:14:39', 'Zero Gee', 'Reflex')[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mCOMMIT[0m
+  [4;36;1mCharacterWeaponData Delete all (0.3ms)[0m   [0;1mDELETE FROM `character_weapon_data` [0m
+  [4;35;1mCharacterWeaponData Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `character_weapon_data`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterWeaponData Create (12.8ms)[0m   [0mINSERT INTO `character_weapon_data` (`created_at`, `cost`, `updated_at`, `weight`, `shots`, `damage`, `concealment`, `weapon_adjustment`, `range`, `burst_value`, `weapon`) VALUES('2010-08-15 02:14:39', 0, '2010-08-15 02:14:39', 0.0, 'shots', 'damage', 'concealment', 0, 'range', 'burst_value', 'weapon')[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterWeaponData Create (41.4ms)[0m   [0;1mINSERT INTO `character_weapon_data` (`created_at`, `cost`, `updated_at`, `weight`, `shots`, `damage`, `concealment`, `weapon_adjustment`, `range`, `burst_value`, `weapon`) VALUES('2010-08-15 02:14:39', 70, '2010-08-15 02:14:39', 3.5, 'NA', '2D10+(AP)', 'N', -1, '2', 'NA', 'Battleaxe')[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterWeaponData Create (0.2ms)[0m   [0mINSERT INTO `character_weapon_data` (`created_at`, `cost`, `updated_at`, `weight`, `shots`, `damage`, `concealment`, `weapon_adjustment`, `range`, `burst_value`, `weapon`) VALUES('2010-08-15 02:14:39', 48, '2010-08-15 02:14:39', 0.6, 'NA', '1D6', 'L', -1, 'T', 'NA', 'Bommerang')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterWeaponData Create (0.2ms)[0m   [0;1mINSERT INTO `character_weapon_data` (`created_at`, `cost`, `updated_at`, `weight`, `shots`, `damage`, `concealment`, `weapon_adjustment`, `range`, `burst_value`, `weapon`) VALUES('2010-08-15 02:14:39', 84, '2010-08-15 02:14:39', 3.0, 'NA', '3D6+[AP]', 'N', 0, '2', 'NA', 'Broadsword')[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterWeaponData Create (0.2ms)[0m   [0mINSERT INTO `character_weapon_data` (`created_at`, `cost`, `updated_at`, `weight`, `shots`, `damage`, `concealment`, `weapon_adjustment`, `range`, `burst_value`, `weapon`) VALUES('2010-08-15 02:14:39', 54, '2010-08-15 02:14:39', 3.0, '10', '3D6+[AP]', 'N', -1, '2', 'NA', 'Chainsaw')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterWeaponData Create (0.2ms)[0m   [0;1mINSERT INTO `character_weapon_data` (`created_at`, `cost`, `updated_at`, `weight`, `shots`, `damage`, `concealment`, `weapon_adjustment`, `range`, `burst_value`, `weapon`) VALUES('2010-08-15 02:14:39', 50, '2010-08-15 02:14:39', 0.5, 'NA', '1D6+[AP]', 'J', 0, '1', 'NA', 'Combat Knife')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterWeaponData Create (0.2ms)[0m   [0mINSERT INTO `character_weapon_data` (`created_at`, `cost`, `updated_at`, `weight`, `shots`, `damage`, `concealment`, `weapon_adjustment`, `range`, `burst_value`, `weapon`) VALUES('2010-08-15 02:14:39', 18, '2010-08-15 02:14:39', 0.3, 'NA', '1D6/2+[AP]', 'P', 0, '1', 'AN', 'Dagger')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterWeaponData Create (0.2ms)[0m   [0;1mINSERT INTO `character_weapon_data` (`created_at`, `cost`, `updated_at`, `weight`, `shots`, `damage`, `concealment`, `weapon_adjustment`, `range`, `burst_value`, `weapon`) VALUES('2010-08-15 02:14:39', 470, '2010-08-15 02:14:39', 0.25, '10', '5D6', 'J', 1, '2', 'NA', 'Energy Sword')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterWeaponData Create (0.2ms)[0m   [0mINSERT INTO `character_weapon_data` (`created_at`, `cost`, `updated_at`, `weight`, `shots`, `damage`, `concealment`, `weapon_adjustment`, `range`, `burst_value`, `weapon`) VALUES('2010-08-15 02:14:39', 1010, '2010-08-15 02:14:39', 0.25, '10 turns', '5D6', 'P', 2, '4', 'NA', 'Force Staff')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterWeaponData Create (0.2ms)[0m   [0;1mINSERT INTO `character_weapon_data` (`created_at`, `cost`, `updated_at`, `weight`, `shots`, `damage`, `concealment`, `weapon_adjustment`, `range`, `burst_value`, `weapon`) VALUES('2010-08-15 02:14:39', 210, '2010-08-15 02:14:39', 1.0, '10 shots', '-2', 'J', 0, '2', '1', 'Hand Taser')[0m
+  [4;35;1mSQL (19.8ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterWeaponData Create (0.3ms)[0m   [0mINSERT INTO `character_weapon_data` (`created_at`, `cost`, `updated_at`, `weight`, `shots`, `damage`, `concealment`, `weapon_adjustment`, `range`, `burst_value`, `weapon`) VALUES('2010-08-15 02:14:39', 60, '2010-08-15 02:14:39', 3.0, 'NA', '3D6', 'N', -1, '2', 'NA', 'Mace')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterWeaponData Create (0.3ms)[0m   [0;1mINSERT INTO `character_weapon_data` (`created_at`, `cost`, `updated_at`, `weight`, `shots`, `damage`, `concealment`, `weapon_adjustment`, `range`, `burst_value`, `weapon`) VALUES('2010-08-15 02:14:39', 240, '2010-08-15 02:14:39', 0.5, 'NA', '2D6+[AP]', 'J', 0, '1', 'NA', 'Monoknife')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterWeaponData Create (0.2ms)[0m   [0mINSERT INTO `character_weapon_data` (`created_at`, `cost`, `updated_at`, `weight`, `shots`, `damage`, `concealment`, `weapon_adjustment`, `range`, `burst_value`, `weapon`) VALUES('2010-08-15 02:14:39', 600, '2010-08-15 02:14:39', 1.0, 'NA', '4D6+[AP]', 'L', 1, '2', 'NA', 'Monosword')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterWeaponData Create (0.2ms)[0m   [0;1mINSERT INTO `character_weapon_data` (`created_at`, `cost`, `updated_at`, `weight`, `shots`, `damage`, `concealment`, `weapon_adjustment`, `range`, `burst_value`, `weapon`) VALUES('2010-08-15 02:14:39', 105, '2010-08-15 02:14:39', 0.75, 'NA', '1D10', 'L', 0, '2', 'NA', 'Nunchaku/Tonfa')[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterWeaponData Create (0.2ms)[0m   [0mINSERT INTO `character_weapon_data` (`created_at`, `cost`, `updated_at`, `weight`, `shots`, `damage`, `concealment`, `weapon_adjustment`, `range`, `burst_value`, `weapon`) VALUES('2010-08-15 02:14:39', 120, '2010-08-15 02:14:39', 1.0, 'NA', '1D6', 'N', 2, '4', 'NA', 'Quarterstaff')[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterWeaponData Create (0.2ms)[0m   [0;1mINSERT INTO `character_weapon_data` (`created_at`, `cost`, `updated_at`, `weight`, `shots`, `damage`, `concealment`, `weapon_adjustment`, `range`, `burst_value`, `weapon`) VALUES('2010-08-15 02:14:39', 75, '2010-08-15 02:14:39', 0.75, 'NA', '1D10+[AP]', 'L', 1, '2', 'NA', 'Rapier')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterWeaponData Create (0.2ms)[0m   [0mINSERT INTO `character_weapon_data` (`created_at`, `cost`, `updated_at`, `weight`, `shots`, `damage`, `concealment`, `weapon_adjustment`, `range`, `burst_value`, `weapon`) VALUES('2010-08-15 02:14:39', 21, '2010-08-15 02:14:39', 0.2, 'NA', '1D6/2+[AP]', 'P', 0, 'T', 'NA', 'Shuriken')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterWeaponData Create (0.2ms)[0m   [0;1mINSERT INTO `character_weapon_data` (`created_at`, `cost`, `updated_at`, `weight`, `shots`, `damage`, `concealment`, `weapon_adjustment`, `range`, `burst_value`, `weapon`) VALUES('2010-08-15 02:14:39', 120, '2010-08-15 02:14:39', 2.0, 'NA', '2D6+[AP]', 'N', 2, '4', 'NA', 'Spear')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterWeaponData Create (0.2ms)[0m   [0mINSERT INTO `character_weapon_data` (`created_at`, `cost`, `updated_at`, `weight`, `shots`, `damage`, `concealment`, `weapon_adjustment`, `range`, `burst_value`, `weapon`) VALUES('2010-08-15 02:14:39', 100, '2010-08-15 02:14:39', 1.0, 'NA', '2D6+[AP]', 'L', 1, '2', 'NA', 'Sword')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterWeaponData Create (0.2ms)[0m   [0;1mINSERT INTO `character_weapon_data` (`created_at`, `cost`, `updated_at`, `weight`, `shots`, `damage`, `concealment`, `weapon_adjustment`, `range`, `burst_value`, `weapon`) VALUES('2010-08-15 02:14:39', 15, '2010-08-15 02:14:39', 0.13, 'NA', '1D6/2', 'L', -1, '4', 'NA', 'Whip')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterWeaponData Create (0.2ms)[0m   [0mINSERT INTO `character_weapon_data` (`created_at`, `cost`, `updated_at`, `weight`, `shots`, `damage`, `concealment`, `weapon_adjustment`, `range`, `burst_value`, `weapon`) VALUES('2010-08-15 02:14:39', 64, '2010-08-15 02:14:39', 1.0, '1', '3D6', 'N', -1, '12/01/72', '1', 'Bow')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterWeaponData Create (0.2ms)[0m   [0;1mINSERT INTO `character_weapon_data` (`created_at`, `cost`, `updated_at`, `weight`, `shots`, `damage`, `concealment`, `weapon_adjustment`, `range`, `burst_value`, `weapon`) VALUES('2010-08-15 02:14:39', 304, '2010-08-15 02:14:39', 0.7, '1', '3D6', 'N', -1, '20-200', '1', 'Compound Bow')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterWeaponData Create (0.2ms)[0m   [0mINSERT INTO `character_weapon_data` (`created_at`, `cost`, `updated_at`, `weight`, `shots`, `damage`, `concealment`, `weapon_adjustment`, `range`, `burst_value`, `weapon`) VALUES('2010-08-15 02:14:39', 4, '2010-08-15 02:14:39', 1.0, '1', '2D6', 'N', 0, '15-100', '1', 'Crossbow')[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterWeaponData Create (0.2ms)[0m   [0;1mINSERT INTO `character_weapon_data` (`created_at`, `cost`, `updated_at`, `weight`, `shots`, `damage`, `concealment`, `weapon_adjustment`, `range`, `burst_value`, `weapon`) VALUES('2010-08-15 02:14:39', 170, '2010-08-15 02:14:39', 0.38, '1', '1D10', 'P', -2, '08/01/32', '1', 'Wrist-Crossbow')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterWeaponData Create (0.2ms)[0m   [0mINSERT INTO `character_weapon_data` (`created_at`, `cost`, `updated_at`, `weight`, `shots`, `damage`, `concealment`, `weapon_adjustment`, `range`, `burst_value`, `weapon`) VALUES('2010-08-15 02:14:39', 437, '2010-08-15 02:14:39', 1.5, '8', '3D6', 'J', 1, '15-100', '1', 'Auto-Mag')[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterWeaponData Create (0.2ms)[0m   [0;1mINSERT INTO `character_weapon_data` (`created_at`, `cost`, `updated_at`, `weight`, `shots`, `damage`, `concealment`, `weapon_adjustment`, `range`, `burst_value`, `weapon`) VALUES('2010-08-15 02:14:39', 310, '2010-08-15 02:14:39', 1.0, '15', '2D6', 'J', 1, '15-100', '1', 'Combat Pistol')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterWeaponData Create (0.2ms)[0m   [0mINSERT INTO `character_weapon_data` (`created_at`, `cost`, `updated_at`, `weight`, `shots`, `damage`, `concealment`, `weapon_adjustment`, `range`, `burst_value`, `weapon`) VALUES('2010-08-15 02:14:39', 1256, '2010-08-15 02:14:39', 1.0, '40D6', '1-4D6', 'J', 2, '16-130', '1', 'Energy Pistol')[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterWeaponData Create (0.2ms)[0m   [0;1mINSERT INTO `character_weapon_data` (`created_at`, `cost`, `updated_at`, `weight`, `shots`, `damage`, `concealment`, `weapon_adjustment`, `range`, `burst_value`, `weapon`) VALUES('2010-08-15 02:14:39', 1712, '2010-08-15 02:14:39', 1.1, '5', '5D6', 'J', 2, '18-160', '1', 'Heavy Energy Pistol')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterWeaponData Create (0.2ms)[0m   [0mINSERT INTO `character_weapon_data` (`created_at`, `cost`, `updated_at`, `weight`, `shots`, `damage`, `concealment`, `weapon_adjustment`, `range`, `burst_value`, `weapon`) VALUES('2010-08-15 02:14:39', 96, '2010-08-15 02:14:39', 0.75, '7', '1D10', 'P', 0, '10/01/50', '1', 'Hideout Pistol')[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterWeaponData Create (0.2ms)[0m   [0;1mINSERT INTO `character_weapon_data` (`created_at`, `cost`, `updated_at`, `weight`, `shots`, `damage`, `concealment`, `weapon_adjustment`, `range`, `burst_value`, `weapon`) VALUES('2010-08-15 02:14:39', 1000, '2010-08-15 02:14:39', 2.0, '6', '4D6+[AP]', 'J', 2, '16-130', '1', 'Magnum Revolver')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterWeaponData Create (0.2ms)[0m   [0mINSERT INTO `character_weapon_data` (`created_at`, `cost`, `updated_at`, `weight`, `shots`, `damage`, `concealment`, `weapon_adjustment`, `range`, `burst_value`, `weapon`) VALUES('2010-08-15 02:14:39', 344, '2010-08-15 02:14:39', 0.5, '20', '2D6', 'J', 0, '10/01/50', '1', 'Needle Pistol')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterWeaponData Create (0.2ms)[0m   [0;1mINSERT INTO `character_weapon_data` (`created_at`, `cost`, `updated_at`, `weight`, `shots`, `damage`, `concealment`, `weapon_adjustment`, `range`, `burst_value`, `weapon`) VALUES('2010-08-15 02:14:39', 472, '2010-08-15 02:14:39', 1.0, '20', '2D6', 'J', 0, '15-100', '5', 'Machine Pistol')[0m
+  [4;35;1mSQL (43.8ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterWeaponData Create (0.3ms)[0m   [0mINSERT INTO `character_weapon_data` (`created_at`, `cost`, `updated_at`, `weight`, `shots`, `damage`, `concealment`, `weapon_adjustment`, `range`, `burst_value`, `weapon`) VALUES('2010-08-15 02:14:39', 1120, '2010-08-15 02:14:39', 1.0, '66', '2D6', 'L', 0, '15-100', '8', 'Needle SMG')[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterWeaponData Create (0.3ms)[0m   [0;1mINSERT INTO `character_weapon_data` (`created_at`, `cost`, `updated_at`, `weight`, `shots`, `damage`, `concealment`, `weapon_adjustment`, `range`, `burst_value`, `weapon`) VALUES('2010-08-15 02:14:39', 945, '2010-08-15 02:14:39', 2.0, '50', '2D6', 'L', 1, '20-200', '5', 'SMG')[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterWeaponData Create (0.2ms)[0m   [0mINSERT INTO `character_weapon_data` (`created_at`, `cost`, `updated_at`, `weight`, `shots`, `damage`, `concealment`, `weapon_adjustment`, `range`, `burst_value`, `weapon`) VALUES('2010-08-15 02:14:39', 1155, '2010-08-15 02:14:39', 4.0, '50', '4D6+[AP]', 'N', 0, '28-400', '5', 'Assault Rifle')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterWeaponData Create (0.2ms)[0m   [0;1mINSERT INTO `character_weapon_data` (`created_at`, `cost`, `updated_at`, `weight`, `shots`, `damage`, `concealment`, `weapon_adjustment`, `range`, `burst_value`, `weapon`) VALUES('2010-08-15 02:14:39', 756, '2010-08-15 02:14:39', 3.0, '60D6', '1-6D6', 'N', 2, '30-450', '1', 'Energy Rifle')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterWeaponData Create (0.2ms)[0m   [0mINSERT INTO `character_weapon_data` (`created_at`, `cost`, `updated_at`, `weight`, `shots`, `damage`, `concealment`, `weapon_adjustment`, `range`, `burst_value`, `weapon`) VALUES('2010-08-15 02:14:39', 1454, '2010-08-15 02:14:39', 3.5, '5', '8D6', 'N', 2, '34-580', '1', 'Heavy Energy Rifle')[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterWeaponData Create (0.2ms)[0m   [0;1mINSERT INTO `character_weapon_data` (`created_at`, `cost`, `updated_at`, `weight`, `shots`, `damage`, `concealment`, `weapon_adjustment`, `range`, `burst_value`, `weapon`) VALUES('2010-08-15 02:14:39', 1681, '2010-08-15 02:14:39', 1.5, '66', '3D6', 'N', 1, '20-200', '8', 'Needle Rifle')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterWeaponData Create (0.2ms)[0m   [0mINSERT INTO `character_weapon_data` (`created_at`, `cost`, `updated_at`, `weight`, `shots`, `damage`, `concealment`, `weapon_adjustment`, `range`, `burst_value`, `weapon`) VALUES('2010-08-15 02:14:39', 775, '2010-08-15 02:14:39', 5.0, '10', '5D6', 'N', 2, '32-500', '1', 'Sniper Rifle')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterWeaponData Create (0.2ms)[0m   [0;1mINSERT INTO `character_weapon_data` (`created_at`, `cost`, `updated_at`, `weight`, `shots`, `damage`, `concealment`, `weapon_adjustment`, `range`, `burst_value`, `weapon`) VALUES('2010-08-15 02:14:39', 1040, '2010-08-15 02:14:39', 2.5, '10', '2D10', 'N', 0, '15-100', '3', 'Auto Shotgun')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterWeaponData Create (0.2ms)[0m   [0mINSERT INTO `character_weapon_data` (`created_at`, `cost`, `updated_at`, `weight`, `shots`, `damage`, `concealment`, `weapon_adjustment`, `range`, `burst_value`, `weapon`) VALUES('2010-08-15 02:14:39', 742, '2010-08-15 02:14:39', 2.5, '6', '2D10', 'L', 0, '15-100', '2', 'Shotgun')[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterWeaponData Create (0.2ms)[0m   [0;1mINSERT INTO `character_weapon_data` (`created_at`, `cost`, `updated_at`, `weight`, `shots`, `damage`, `concealment`, `weapon_adjustment`, `range`, `burst_value`, `weapon`) VALUES('2010-08-15 02:14:39', 286, '2010-08-15 02:14:39', 2.5, '2', '2D10X2', 'J', 0, '10/01/50', '-2', '2-Barrell Shotgun')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterWeaponData Create (0.2ms)[0m   [0mINSERT INTO `character_weapon_data` (`created_at`, `cost`, `updated_at`, `weight`, `shots`, `damage`, `concealment`, `weapon_adjustment`, `range`, `burst_value`, `weapon`) VALUES('2010-08-15 02:14:39', 650, '2010-08-15 02:14:39', 50.0, '1', '10K', 'N', 0, '0', '1', 'Anti-Mech Mine')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterWeaponData Create (0.2ms)[0m   [0;1mINSERT INTO `character_weapon_data` (`created_at`, `cost`, `updated_at`, `weight`, `shots`, `damage`, `concealment`, `weapon_adjustment`, `range`, `burst_value`, `weapon`) VALUES('2010-08-15 02:14:39', 4261, '2010-08-15 02:14:39', 35.0, '5', '6K', 'N', 0, '150-140', '1', 'Anti-Mech Beamgun')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterWeaponData Create (0.2ms)[0m   [0mINSERT INTO `character_weapon_data` (`created_at`, `cost`, `updated_at`, `weight`, `shots`, `damage`, `concealment`, `weapon_adjustment`, `range`, `burst_value`, `weapon`) VALUES('2010-08-15 02:14:39', 950, '2010-08-15 02:14:39', 10.0, '1', '8K', 'N', 2, '300-1800', '1', 'Anti-Mech Missile')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterWeaponData Create (0.2ms)[0m   [0;1mINSERT INTO `character_weapon_data` (`created_at`, `cost`, `updated_at`, `weight`, `shots`, `damage`, `concealment`, `weapon_adjustment`, `range`, `burst_value`, `weapon`) VALUES('2010-08-15 02:14:39', 1825, '2010-08-15 02:14:39', 20.0, '10', '50H-AP', 'N', 1, '150-450', '1', 'Armor-Buster Rifle')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterWeaponData Create (0.2ms)[0m   [0mINSERT INTO `character_weapon_data` (`created_at`, `cost`, `updated_at`, `weight`, `shots`, `damage`, `concealment`, `weapon_adjustment`, `range`, `burst_value`, `weapon`) VALUES('2010-08-15 02:14:39', 50, '2010-08-15 02:14:39', 0.25, '1', '5D6/6m', 'N', 0, 'T', 'NA', 'Frag Grenade')[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterWeaponData Create (0.2ms)[0m   [0;1mINSERT INTO `character_weapon_data` (`created_at`, `cost`, `updated_at`, `weight`, `shots`, `damage`, `concealment`, `weapon_adjustment`, `range`, `burst_value`, `weapon`) VALUES('2010-08-15 02:14:39', 6336, '2010-08-15 02:14:39', 5.0, '100', '5D6', 'P', -1, '28-400', '8', 'Gatling Gun')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterWeaponData Create (0.3ms)[0m   [0mINSERT INTO `character_weapon_data` (`created_at`, `cost`, `updated_at`, `weight`, `shots`, `damage`, `concealment`, `weapon_adjustment`, `range`, `burst_value`, `weapon`) VALUES('2010-08-15 02:14:39', 100, '2010-08-15 02:14:39', 0.3, '1', '1D6/6m', 'N', 0, 'T', 'NA', 'Incendiary Grenade')[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCharacterWeaponData Create (0.3ms)[0m   [0;1mINSERT INTO `character_weapon_data` (`created_at`, `cost`, `updated_at`, `weight`, `shots`, `damage`, `concealment`, `weapon_adjustment`, `range`, `burst_value`, `weapon`) VALUES('2010-08-15 02:14:39', 5040, '2010-08-15 02:14:39', 5.0, '100', '5D6', 'P', 0, '32-500', '5', 'Machinegun')[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCharacterWeaponData Create (0.2ms)[0m   [0mINSERT INTO `character_weapon_data` (`created_at`, `cost`, `updated_at`, `weight`, `shots`, `damage`, `concealment`, `weapon_adjustment`, `range`, `burst_value`, `weapon`) VALUES('2010-08-15 02:14:39', 10, '2010-08-15 02:14:39', 0.15, '1', '-3/M6', 'N', 0, 'T', 'NA', 'Sleep Grenade')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mCharacterWeaponData Load (21.5ms)[0m   [0;1mSELECT * FROM `character_weapon_data` [0m
+  [4;35;1mCharacterWeaponData Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `character_weapon_data`[0m

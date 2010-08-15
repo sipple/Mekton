@@ -1,0 +1,18 @@
+"Light Mesh",10,0.2,38
+"Medium Mesh",12,0.3,47
+"Heavy Mesh",15,0.4,56
+"Flak Mesh",18,0.5,65
+"Light Helmet",20,1.6,106
+"Medium Helmet",23,1.8,117
+"Heavy Helmet",25,2,128
+"Light Plate",23,0.5,98
+"Medium Plate",23,0.6,108
+"Heavy Plate",25,1,119
+"Standard Suit",5,1.6,260
+"Industrial Suit",15,3.4,502
+"Military Suit",25,7,785
+"Shield",15,1.5,142
+"Flight Jacket",12,1.2,300
+"Power Armor",28,43,1056
+"Personal Force Screen","3D6",5,1800
+"Advanced Force Screen",18,0.5,2500
