@@ -1,0 +1,101 @@
+"servo","level","cost","space","kills","weight","Add+"
+"Torso","Super Light",2,2,2,1,
+"Torso","Light Weight",4,4,4,2,
+"Torso","Striker",6,6,6,3,
+"Torso","Medium Striker",8,8,8,4,
+"Torso","Heavy Striker",10,10,10,5,
+"Torso","Medium Weight",12,12,12,6,
+"Torso","Light Heavy",14,14,14,7,
+"Torso","Medium Heavy",16,16,16,8,
+"Torso","Armored Heavy",18,18,18,9,
+"Torso","Super Heavy",20,20,20,10,
+"Torso","Mega Heavy",22,22,22,11,
+"Right Arm","Super Light",2,2,2,0.5,0
+"Right Arm","Light Weight",3,3,3,1,0
+"Right Arm","Striker",4,4,4,1.5,0
+"Right Arm","Medium Striker",5,5,5,2,1
+"Right Arm","Heavy Striker",6,6,6,2.5,1
+"Right Arm","Medium Weight",7,7,7,3,1
+"Right Arm","Light Heavy",8,8,8,3.5,2
+"Right Arm","Medium Heavy",9,9,9,4,2
+"Right Arm","Armored Heavy",10,10,10,4.5,2
+"Right Arm","Super Heavy",11,11,11,5,3
+"Right Arm","Mega Heavy",12,12,12,5.5,3
+"Left Arm","Super Light",2,2,2,0.5,0
+"Left Arm","Light Weight",3,3,3,1,0
+"Left Arm","Striker",4,4,4,1.5,0
+"Left Arm","Medium Striker",5,5,5,2,1
+"Left Arm","Heavy Striker",6,6,6,2.5,1
+"Left Arm","Medium Weight",7,7,7,3,1
+"Left Arm","Light Heavy",8,8,8,3.5,2
+"Left Arm","Medium Heavy",9,9,9,4,2
+"Left Arm","Armored Heavy",10,10,10,4.5,2
+"Left Arm","Super Heavy",11,11,11,5,3
+"Left Arm","Mega Heavy",12,12,12,5.5,3
+"Right Leg","Super Light",2,2,2,0.5,0
+"Right Leg","Light Weight",3,3,3,1,0
+"Right Leg","Striker",4,4,4,1.5,1
+"Right Leg","Medium Striker",5,5,5,2,1
+"Right Leg","Heavy Striker",6,6,6,2.5,2
+"Right Leg","Medium Weight",7,7,7,3,2
+"Right Leg","Light Heavy",8,8,8,3.5,3
+"Right Leg","Medium Heavy",9,9,9,4,3
+"Right Leg","Armored Heavy",10,10,10,4.5,4
+"Right Leg","Super Heavy",11,11,11,5,4
+"Right Leg","Mega Heavy",12,12,12,5.5,5
+"Left Leg","Super Light",2,2,2,0.5,0
+"Left Leg","Light Weight",3,3,3,1,0
+"Left Leg","Striker",4,4,4,1.5,1
+"Left Leg","Medium Striker",5,5,5,2,1
+"Left Leg","Heavy Striker",6,6,6,2.5,2
+"Left Leg","Medium Weight",7,7,7,3,2
+"Left Leg","Light Heavy",8,8,8,3.5,3
+"Left Leg","Medium Heavy",9,9,9,4,3
+"Left Leg","Armored Heavy",10,10,10,4.5,4
+"Left Leg","Super Heavy",11,11,11,5,4
+"Left Leg","Mega Heavy",12,12,12,5.5,5
+"Head","Super Light",1,1,1,0.5,
+"Head","Light Weight",2,2,2,1,
+"Head","Striker",3,3,3,1.5,
+"Head","Medium Striker",4,4,4,2,
+"Head","Heavy Striker",5,5,5,2.5,
+"Head","Medium Weight",6,6,6,3,
+"Head","Light Heavy",7,7,7,3.5,
+"Head","Medium Heavy",8,8,8,4,
+"Head","Armored Heavy",9,9,9,4.5,
+"Head","Super Heavy",10,10,10,5,
+"Head","Mega Heavy",11,11,11,5.5,
+"Pod","Super Light",1,2,0,0,
+"Pod","Light Weight",2,4,0,0,
+"Pod","Striker",3,6,0,0,
+"Pod","Medium Striker",4,8,0,0,
+"Pod","Heavy Striker",5,10,0,0,
+"Pod","Medium Weight",6,12,0,0,
+"Pod","Light Heavy",7,14,0,0,
+"Pod","Medium Heavy",8,16,0,0,
+"Pod","Armored Heavy",9,18,0,0,
+"Pod","Super Heavy",10,20,0,0,
+"Pod","Mega Heavy",11,22,0,0,
+"Wing","Super Light",1,1,1,0.5,
+"Wing","Light Weight",2,2,2,1,
+"Wing","Striker",3,3,3,1.5,
+"Wing","Medium Striker",4,4,4,2,
+"Wing","Heavy Striker",5,5,5,2.5,
+"Wing","Medium Weight",6,6,6,3,
+"Wing","Light Heavy",7,7,7,3.5,
+"Wing","Medium Heavy",8,8,8,4,
+"Wing","Armored Heavy",9,9,9,4.5,
+"Wing","Super Heavy",10,10,10,5,
+"Wing","Mega Heavy",11,11,11,5.5,
+"Tail","Super Light",1,1,1,0.5,
+"Tail","Light Weight",2,2,2,1,
+"Tail","Striker",3,3,3,1.5,
+"Tail","Medium Striker",4,4,4,2,
+"Tail","Heavy Striker",5,5,5,2.5,
+"Tail","Medium Weight",6,6,6,3,
+"Tail","Light Heavy",7,7,7,3.5,
+"Tail","Medium Heavy",8,8,8,4,
+"Tail","Armored Heavy",9,9,9,4.5,
+"Tail","Super Heavy",10,10,10,5,
+"Hand","Hand",2,1,0,0.05,
+"Tail","Mega Heavy",11,11,11,5.5,

@@ -1,0 +1,12 @@
+"armor","cost","stopping_power","weight"
+"Super Light",1,1,0.5
+"Light Weight",2,2,1
+"Striker",3,3,1.5
+"Medium Striker",4,4,2
+"Heavy Striker",5,5,2.5
+"Medium Weight",6,6,3
+"Light Heavy",7,7,3.5
+"Medium Heavy",8,8,4
+"Armored Heavy",9,9,4.5
+"Super Heavy",10,10,5
+"Mega Heavy",11,11,5.5

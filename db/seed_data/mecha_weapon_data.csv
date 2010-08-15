@@ -1,0 +1,31 @@
+"weapon","range","weapon_adjustment","damage","kills","burst_value","shots","weight","space","cost"
+"Light Beam Gun",4,1,1,1,"na","U",0.5,1,2
+"Medium Beam Gun",7,1,3,3,"na","U",1.5,4,5
+"Heavy Beam Gun",10,1,6,6,"na","U",3,9,9
+"Beam Cannon",8,2,4,4,"na","U",2,9,9
+"Heavy Beam Cannon",8,2,8,8,"na","U",4,15,16
+"Nova Cannon",15,1,15,1,"na",1,0.5,10,29
+"Pulse Cannon",8,0,4,4,6,1,2,11,20
+"Beam Sweeper",4,-1,2,2,"Sp","U",1,6,15
+"Light Cannon",5,0,3,3,"na",10,1.5,3,3
+"Medium Cannon",7,0,6,6,"na",10,3,6,6
+"Heavy Cannon",9,0,9,9,"na",10,4.5,9,9
+"Giant Cannon",17,0,12,12,"na",10,6,15,15
+"Autocannon",4,-2,2,2,8,"10 Burst",1,5,6
+"Heavy Autocannon",7,-1,6,6,4,"10 Burst",3,10,13
+"Epoxy Gun",5,2,6,6,"na",3,3,7,12
+"Rocked Pod",5,-1,2,3,"na",20,1.5,4,4
+"Rocket Launcher",7,0,4,3,"na",10,1.5,4,4
+"Missile Pod",13,1,6,2,"na",5,1,5,5
+"Heavy Missile",24,2,12,1,"na",1,0.5,3,3
+"Sword",1,1,5,5,"na","U",2.5,4,4
+"Axe",1,0,6,6,"na","U",3,3,3
+"Mace",1,0,8,8,"na","U",4,4,4
+"Drill",1,-1,4,4,"na","U",2,3,3
+"Saw",1,-1,6,6,"na","U",3,5,5
+"Shock-Whip",1,-2,2,2,"na","U",1,4,4
+"Energy Sword",1,1,6,2,"na","U",1,6,6
+"Energy Axe",1,0,7,2,"na","U",1,6,6
+"Nova Sword",1,3,15,4,"na",2,2,8,14
+"Energy Lance",1,2,8,2,"na","U",1,8,14
+"Extra Ammo",,,,,,,0,1,1
