@@ -101,6 +101,17 @@ seed_model(CharacterWeaponData, "character_weapon_data.csv", {
         :weapon => 0, :weapon_adjustment => 1, :range => 2, :damage => 3, :shots => 4, :burst_value => 5,
         :concealment => 6, :weight => 7, :cost => 8})
 
+# CharacterProfessioNData and CharacterTemplateData have to seed after seeding the needed skills to the database
+set_skill_ids('character_profession_skill_data_template.csv', "character_profession_skill_data.csv", 1)
+seed_linked_model(CharacterProfessionData, 'character_profession_data.csv', [CharacterProfessionSkillData], {
+        CharacterProfessionSkillData => "character_profession_skill_data.csv"}, {CharacterProfessionSkillData => {
+        :character_skill_data_id => 1, :bonus => 2}, CharacterProfessionData => {:profession => 0}}, "profession")
+
+set_skill_ids('character_template_skill_data_template.csv', 'character_template_skill_data.csv', 1)
+seed_linked_model(CharacterTemplateData, 'character_template_data.csv', [CharacterTemplateSkillData], {
+        CharacterTemplateSkillData => 'character_template_skill_data.csv'}, {CharacterTemplateData => {
+        :template => 0}, CharacterTemplateSkillData => {:character_skill_data_id => 1, :bonus => 2}}, "template")
+
 # Mecha Seeds
 seed_model(MechaArmorData, "mecha_armor_data.csv", {
         :armor => 0, :cost => 1, :stopping_power => 2, :weight => 3})
@@ -127,15 +138,6 @@ seed_model(MechaWeaponData, "mecha_weapon_data.csv", {
         :weapon => 0, :range => 1, :weapon_adjustment => 2, :damage => 3, :kills => 4, :burst_value => 5,
         :shots => 6, :weight => 7, :space => 8, :cost => 9})
 
-set_skill_ids('character_profession_skill_data_template.csv', "character_profession_skill_data.csv", 1)
-seed_linked_model(CharacterProfessionData, 'character_profession_data.csv', [CharacterProfessionSkillData], {
-        CharacterProfessionSkillData => "character_profession_skill_data.csv"}, {CharacterProfessionSkillData => {
-        :character_skill_data_id => 1, :bonus => 2}, CharacterProfessionData => {:profession => 0}}, "profession")
-
-set_skill_ids('character_template_skill_data_template.csv', 'character_template_skill_data.csv', 1)
-seed_linked_model(CharacterTemplateData, 'character_template_data.csv', [CharacterTemplateSkillData], {
-        CharacterTemplateSkillData => 'character_template_skill_data.csv'}, {CharacterTemplateData => {
-        :template => 0}, CharacterTemplateSkillData => {:character_skill_data_id => 1, :bonus => 2}}, "template")
 
 
 
