@@ -92,3 +92,17 @@ seed_linked_model(MechaServoData, "mecha_servo_data.csv", [MechaServoLevelData],
                 :servo => 0}, MechaServoLevelData => {
                 :level => 1, :cost => 2, :space => 3, :kills => 4, :weight => 5}}, 'servo')
 
+seed_model(MechaShieldData, "mecha_shield_data.csv", {
+        :shield => 0, :defense_adjustment => 1, :stopping_power => 2, :cost => 3, :mounted_space => 4,
+        :handheld_space => 5, :weight => 6})
+
+seed_model(MechaSubassemblyData, "mecha_subassembly_data.csv", {
+        :subassembly => 0, :cost => 1, :space => 2})
+
+seed_model(MechaWeaponData, "mecha_weapon_data.csv", {
+        :weapon => 0, :range => 1, :weapon_adjustment => 2, :damage => 3, :kills => 4, :burst_value => 5,
+        :shots => 6, :weight => 7, :space => 8, :cost => 9})
+
+
+
+

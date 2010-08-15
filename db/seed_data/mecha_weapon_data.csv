@@ -1,4 +1,3 @@
-"weapon","range","weapon_adjustment","damage","kills","burst_value","shots","weight","space","cost"
 "Light Beam Gun",4,1,1,1,"na","U",0.5,1,2
 "Medium Beam Gun",7,1,3,3,"na","U",1.5,4,5
 "Heavy Beam Gun",10,1,6,6,"na","U",3,9,9
