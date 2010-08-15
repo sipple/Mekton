@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100815184338) do
+ActiveRecord::Schema.define(:version => 20100815200042) do
 
   create_table "character_armor_data", :force => true do |t|
     t.string   "armor"
@@ -102,6 +102,14 @@ ActiveRecord::Schema.define(:version => 20100815184338) do
     t.datetime "updated_at"
   end
 
+  create_table "character_template_skills", :force => true do |t|
+    t.integer  "character_template_skill_data_id"
+    t.integer  "bonus"
+    t.integer  "character_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "character_templates", :force => true do |t|
     t.integer  "character_template_data_id"
     t.datetime "created_at"
@@ -147,6 +155,7 @@ ActiveRecord::Schema.define(:version => 20100815184338) do
     t.integer  "education"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "tech_ability"
   end
 
   create_table "mecha_additives", :force => true do |t|

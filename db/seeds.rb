@@ -12,6 +12,30 @@ def csv(file)
   CSV::Reader.parse(File.open("#{RAILS_ROOT}/db/seed_data/#{file}", 'r'))
 end
 
+def set_skill_ids(template_file, output_file, skill_row_index)
+
+  new_csv_file = File.open("#{RAILS_ROOT}/db/seed_data/#{output_file}", 'wb')
+
+  CSV::Writer.generate(new_csv_file) do |new_csv|
+    csv(template_file).each do |row|
+
+      new_csv_row = []
+      row.each_index do |index|
+
+        if index == skill_row_index
+          skill = CharacterSkillData.find(:first, :conditions => "skill = '#{row[index]}'")
+          new_csv_row << skill.id
+        else
+          new_csv_row << row[index]
+        end
+      end
+      new_csv << new_csv_row
+    end
+    new_csv_file.close
+  end
+end
+
+
 def seed_model(model, file, field_mapping_hash)
   model.delete_all
   csv(file).each do |row|
@@ -102,6 +126,18 @@ seed_model(MechaSubassemblyData, "mecha_subassembly_data.csv", {
 seed_model(MechaWeaponData, "mecha_weapon_data.csv", {
         :weapon => 0, :range => 1, :weapon_adjustment => 2, :damage => 3, :kills => 4, :burst_value => 5,
         :shots => 6, :weight => 7, :space => 8, :cost => 9})
+
+set_skill_ids('character_profession_skill_data_template.csv', "character_profession_skill_data.csv", 1)
+seed_linked_model(CharacterProfessionData, 'character_profession_data.csv', [CharacterProfessionSkillData], {
+        CharacterProfessionSkillData => "character_profession_skill_data.csv"}, {CharacterProfessionSkillData => {
+        :character_skill_data_id => 1, :bonus => 2}, CharacterProfessionData => {:profession => 0}}, "profession")
+
+set_skill_ids('character_template_skill_data_template.csv', 'character_template_skill_data.csv', 1)
+seed_linked_model(CharacterTemplateData, 'character_template_data.csv', [CharacterTemplateSkillData], {
+        CharacterTemplateSkillData => 'character_template_skill_data.csv'}, {CharacterTemplateData => {
+        :template => 0}, CharacterTemplateSkillData => {:character_skill_data_id => 1, :bonus => 2}}, "template")
+
+
 
 
 

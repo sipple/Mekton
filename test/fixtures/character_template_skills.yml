@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  character_template_skill_data_id: 1
+  bonus: 1
+  character_id: 1
+
+two:
+  character_template_skill_data_id: 1
+  bonus: 1
+  character_id: 1
