@@ -1,0 +1,59 @@
+<% character = local_assigns[:character] %>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="4">Character Stats</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="stat-value"><%=character.intelligence%></td><td class="stat-label">Intelligence</td>
+      <td class="stat-value"><%=character.melee_damage_mod%></td><td class="stat-label">Melee Damage Mod</td>
+    </tr>
+    <tr>
+      <td class="stat-value"><%=character.cool%></td><td class="stat-label">Cool</td>
+      <td class="stat-value"><%=character.stability%></td><td class="stat-label">Stability</td>
+    </tr>
+    <tr>
+      <td class="stat-value"><%=character.reflexes%></td><td class="stat-label">Reflexes</td>
+      <td class="stat-value"><%=character.run%></td><td class="stat-label">Run</td>
+    </tr>
+    <tr>
+      <td class="stat-value"><%=character.attractiveness%></td><td class="stat-label">Attractiveness</td>
+      <td class="stat-value"><%=character.jump%></td><td class="stat-label">Jump</td>
+    </tr>
+    <tr>
+      <td class="stat-value"><%=character.empathy%></td><td class="stat-label">Empathy</td>
+      <td class="stat-value"><%=character.running_jump%></td><td class="stat-label">Running Jump</td>
+    </tr>
+    <tr>
+      <td class="stat-value"><%=character.tech_ability%></td><td class="stat-label">Tech Ability</td>
+      <td class="stat-value"><%=character.anime_leap%></td><td class="stat-label">Anime Leap</td>
+    </tr>
+     <tr>
+      <td class="stat-value"><%=character.luck%></td><td class="stat-label">Luck</td>
+      <td class="stat-value"><%=character.stun%></td><td class="stat-label">Stun</td>
+    </tr>
+    <tr>
+      <td class="stat-value"><%=character.move_allowance%></td><td class="stat-label">Move Allowance</td>
+      <td class="stat-value"><%=character.lift%></td><td class="stat-label">Lift</td>
+    </tr>
+    <tr>
+      <td class="stat-value"><%=character.body_type%></td><td class="stat-label">Body Type</td>
+      <td class="stat-value"><%=character.ev%></td><td class="stat-label">EV</td>
+    </tr>
+    <tr>
+      <td class="stat-value"><%=character.education%></td><td class="stat-label">Education</td>
+      <td class="stat-value"><%=character.throw_distance%></td><td class="stat-label">Throw</td>
+    </tr>
+    <tr>
+      <td class="stat-label top-border" colspan="2">Hit Damage Capacities</td>
+      <td class="stat-value top-border"><%=character.limbs%></td><td class="stat-label top-border">Limbs</td>
+    </tr>
+    <tr>
+      <td class="stat-value"><%=character.head%></td><td class="stat-label">Head</td>
+      <td class="stat-value"><%=character.torso%></td><td class="stat-label">Torso</td>
+    </tr>
+  </tbody>
+</table>

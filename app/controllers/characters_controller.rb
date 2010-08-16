@@ -14,7 +14,6 @@ class CharactersController < ApplicationController
   # GET /characters/1.xml
   def show
     @character = Character.find(params[:id])
-    @skill_points = @character.intelligence + @character.education + 10
 
     respond_to do |format|
       format.html # show.html.erb

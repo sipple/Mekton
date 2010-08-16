@@ -37,17 +37,7 @@
         <%= @character.money %>
       </div>
         <div id="character-stats">
-          <div class="top-label label shaded">Character Stats</div>
-          <div class="stat-value"><%=@character.intelligence%></div> <div class="stat-label label">Intelligence</div>
-          <div class="stat-value"><%=@character.cool%></div> <div class="stat-label label">Cool</div>
-          <div class="stat-value"><%=@character.reflexes%></div> <div class="stat-label label">Reflexes</div>
-          <div class="stat-value"><%=@character.attractiveness%></div> <div class="stat-label label">Attractiveness</div>
-          <div class="stat-value"><%=@character.empathy%></div> <div class="stat-label label">Empathy</div>
-          <div class="stat-value"><%=@character.tech_ability%></div> <div class="stat-label label">Tech Ability</div>
-          <div class="stat-value"><%=@character.luck%></div> <div class="stat-label label">Luck</div>
-          <div class="stat-value"><%=@character.move_allowance%></div> <div class="stat-label label">Move Allowance</div>
-          <div class="stat-value"><%=@character.body_type%></div> <div class="stat-label label">Body Type</div>
-          <div class="stat-value"><%=@character.education%></div> <div class="stat-label label">Education</div>
+    <%= render :partial => "character_stats", :locals => {:character => @character } %>
         </div>
     </div>
   <div id="character-weapons">
@@ -64,6 +54,6 @@
   </div>
 
 
-    Skill Points:<%= @skill_points %>
+    Skill Points:<%= @character.skill_points %>
 
 </div>
