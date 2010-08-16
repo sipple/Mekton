@@ -1,2 +1,56 @@
-<h1>Characters#new</h1>
-<p>Find me in app/views/characters/new.html.erb</p>
+<%= javascript_include_tag "lib/characters/new" %>
+
+<h1>New Character</h1>
+
+<% form_for(@character, :html => {:id => 'new_character_form'}) do |f| %>
+   <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+
+    <h2>Character Stats</h2>
+    <p>
+      <%= f.label :intelligence %><br />
+      <%= f.text_field :intelligence %>
+    </p>
+    <p>
+      <%= f.label :cool %><br />
+      <%= f.text_field :cool %>
+    </p>
+    <p>
+      <%= f.label :reflexes %><br />
+      <%= f.text_field :reflexes %>
+    </p>
+    <p>
+      <%= f.label :attractiveness %><br />
+      <%= f.text_field :attractiveness %>
+    </p>
+    <p>
+      <%= f.label :empathy %><br />
+      <%= f.text_field :empathy %>
+    </p>
+    <p>
+      <%= f.label :tech_ability %><br />
+      <%= f.text_field :tech_ability %>
+    </p>
+    <p>
+      <%= f.label :luck %><br />
+      <%= f.text_field :luck %>
+    </p>
+    <p>
+      <%= f.label :move_allowance %><br />
+      <%= f.text_field :move_allowance %>
+    </p>
+    <p>
+      <%= f.label :body_type %><br />
+      <%= f.text_field :body_type %>
+    </p>
+    <p>
+      <%= f.label :education %><br />
+      <%= f.text_field :education %>
+    </p>
+
+    <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
