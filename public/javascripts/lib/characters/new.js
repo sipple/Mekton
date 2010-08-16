@@ -7,6 +7,32 @@ function stats()
     };
 }
 
+function toInt(selector)  {
+    return isNaN(parseInt(selector.val())) ? 0: parseInt(selector.val());
+    
+}
+
+function stat_points_spent() {
+    var points = 0;
+    points += toInt($('#character_intelligence'));
+    points += toInt($('#character_cool'));
+    points += toInt($('#character_reflexes'));
+    points += toInt($('#character_attractiveness'));
+    points += toInt($('#character_empathy'));
+    points += toInt($('#character_tech_ability'));
+    points += toInt($('#character_luck'));
+    points += toInt($('#character_move_allowance'));
+    points += toInt($('#character_body_type'));
+    points += toInt($('#character_education'));
+    return points;
+    
+}
+
+function reset_stat_points_spent() {
+    $('#character_points_spent').html( stat_points_spent());
+}
+
+
 $(document).ready(function() {
 
   var newCharacterForm = $('#new_character_form');
@@ -30,5 +56,39 @@ $(document).ready(function() {
         }
     };
     newCharacterForm.validate(validationRules);
+
+    $('#character_intelligence').change(function() {
+        reset_stat_points_spent();
+    });
+    $('#character_cool').change(function() {
+        reset_stat_points_spent();
+    });
+    $('#character_reflexes').change(function() {
+        reset_stat_points_spent();
+    });
+    $('#character_attractiveness').change(function() {
+        reset_stat_points_spent();
+    });
+    $('#character_empathy').change(function() {
+        reset_stat_points_spent();
+    });
+    $('#character_tech_ability').change(function() {
+        reset_stat_points_spent();
+    });
+    $('#character_luck').change(function() {
+        reset_stat_points_spent();
+    });
+    $('#character_move_allowance').change(function() {
+        reset_stat_points_spent();
+    });
+    $('#character_body_type').change(function() {
+        reset_stat_points_spent();
+    });
+    $('#character_education').change(function() {
+        reset_stat_points_spent();
+    });
+
+
+    $('#character_points_spent').html( stat_points_spent());
 
 });
