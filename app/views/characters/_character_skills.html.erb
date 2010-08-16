@@ -1,0 +1,26 @@
+<table>
+  <thead>
+    <tr>
+      <th>Skill</th>
+      <th>Level</th>
+      <th>P/T</th>
+      <th>IP</th>
+      <th>Attr</th>
+      <th>Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% local_assigns[:character_skills].each do |skill|
+        skill_data = skill.character_skill_data
+    %>
+        <tr>
+          <td><%= skill_data.skill %></td>
+          <td><%= skill.level %></td>
+          <td><%= skill.profession_and_template_bonus %></td>
+          <td><%= skill.ip_earned %></td>
+          <td><%= skill.attribute_bonus %></td>
+          <td><%= skill.total %></td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>

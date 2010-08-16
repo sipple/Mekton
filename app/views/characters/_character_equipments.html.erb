@@ -1,0 +1,22 @@
+<table>
+  <thead>
+    <tr>
+      <th>Equipment</th>
+      <th>Wgt</th>
+      <th>Qty</th>
+      <th>Cost</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% local_assigns[:character_equipments].each do |equipment|
+        equipment_data = equipment.character_equipment_data
+    %>
+        <tr>
+          <td><%= equipment_data.equipment %></td>
+          <td><%= equipment_data.weight %></td>
+          <td><%= equipment.quantity %></td>
+          <td><%= equipment.cost %></td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>

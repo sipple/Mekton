@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100815200042) do
+ActiveRecord::Schema.define(:version => 20100816124414) do
 
   create_table "character_armor_data", :force => true do |t|
     t.string   "armor"
@@ -156,6 +156,7 @@ ActiveRecord::Schema.define(:version => 20100815200042) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "tech_ability"
+    t.string   "character_type"
   end
 
   create_table "mecha_additives", :force => true do |t|

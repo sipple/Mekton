@@ -14,6 +14,7 @@ class CharactersController < ApplicationController
   # GET /characters/1.xml
   def show
     @character = Character.find(params[:id])
+    @skill_points = @character.intelligence + @character.education + 10
 
     respond_to do |format|
       format.html # show.html.erb
@@ -40,7 +41,7 @@ class CharactersController < ApplicationController
   # POST /characters
   # POST /characters.xml
   def create
-    @character = Character.new(params[:test])
+    @character = Character.new(params[:character])
 
     respond_to do |format|
       if @character.save

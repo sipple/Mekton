@@ -1,2 +1,69 @@
-<h1>Characters#show</h1>
-<p>Find me in app/views/characters/show.html.erb</p>
+<div id="character-left">
+    <div id= "character-personal">
+      <div class="side-label label shaded">
+         Name:
+      </div>
+      <div class="shaded">
+        <%= @character.name %>
+      </div>
+      <div id="portrait">
+
+      </div>
+    </div>
+    <div id="character-equipments">
+    <%= render :partial => "character_equipments", :locals => {:character => @character,
+                                                           :character_equipments => @character.character_equipments} %>
+  </div>
+</div>
+
+<div id="character-right">
+    <div id="character-header">
+        <div class="top-label label shaded">
+          Rookie/Professional
+        </div>
+      <div id="character-type">
+        <%= @character.character_type %>
+      </div>
+          <div class="side-label label shaded">
+          Age
+        </div>
+      <div id="character-age">
+        <%= @character.age %>
+      </div>
+         <div class="side-label label shaded">
+          Money
+        </div>
+      <div id="character-money">
+        <%= @character.money %>
+      </div>
+        <div id="character-stats">
+          <div class="top-label label shaded">Character Stats</div>
+          <div class="stat-value"><%=@character.intelligence%></div> <div class="stat-label label">Intelligence</div>
+          <div class="stat-value"><%=@character.cool%></div> <div class="stat-label label">Cool</div>
+          <div class="stat-value"><%=@character.reflexes%></div> <div class="stat-label label">Reflexes</div>
+          <div class="stat-value"><%=@character.attractiveness%></div> <div class="stat-label label">Attractiveness</div>
+          <div class="stat-value"><%=@character.empathy%></div> <div class="stat-label label">Empathy</div>
+          <div class="stat-value"><%=@character.tech_ability%></div> <div class="stat-label label">Tech Ability</div>
+          <div class="stat-value"><%=@character.luck%></div> <div class="stat-label label">Luck</div>
+          <div class="stat-value"><%=@character.move_allowance%></div> <div class="stat-label label">Move Allowance</div>
+          <div class="stat-value"><%=@character.body_type%></div> <div class="stat-label label">Body Type</div>
+          <div class="stat-value"><%=@character.education%></div> <div class="stat-label label">Education</div>
+        </div>
+    </div>
+  <div id="character-weapons">
+    <%= render :partial => "character_weapons", :locals => {:character => @character,
+                                                           :character_weapons => @character.character_weapons} %>
+  </div>
+  <div id="character-armors">
+    <%= render :partial => "character_armors", :locals => {:character => @character,
+                                                           :character_armors => @character.character_armors} %>
+  </div>
+  <div id="character-skills">
+    <%= render :partial => "character_skills", :locals => {:character => @character,
+                                                           :character_skills => @character.character_skills} %>
+  </div>
+
+
+    Skill Points:<%= @skill_points %>
+
+</div>

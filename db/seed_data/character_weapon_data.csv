@@ -1,4 +1,3 @@
-"weapon","weapon_adjustment","range","damage","shots","burst_value","concealment","weight","cost","TL"
 "Battleaxe",-1,2,"2D10+(AP)","NA","NA","N",3.5,70,2
 "Bommerang",-1,"T","1D6","NA","NA","L",0.6,48,2
 "Broadsword",0,2,"3D6+[AP]","NA","NA","N",3,84,2

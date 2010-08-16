@@ -91,8 +91,8 @@ end
 seed_model(CharacterArmorData, "character_armor_data.csv",
            {:armor => 0, :stopping_power => 1, :weight => 2, :cost => 3})
 
-seed_model(CharacterEquipmentData, "character_armor_data.csv",
-          {:equipment => 0, :weight => 1, :cost => 2})
+  seed_model(CharacterEquipmentData, "character_equipment_data.csv",
+            {:equipment => 0, :weight => 1, :cost => 2})
 
 seed_model(CharacterSkillData, "character_skill_data.csv", {
         :skill => 0, :related_attribute => 1})
