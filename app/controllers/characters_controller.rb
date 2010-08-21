@@ -60,10 +60,14 @@ class CharactersController < ApplicationController
   def update
     @character = Character.find(params[:id])
 
+    @character.send("#{params[:field]}=", params[:value])
+    
+
     respond_to do |format|
-      if @character.update_attributes(params[:test])
+      if @character.save
         flash[:notice] = 'Test was successfully updated.'
         format.html { redirect_to(@character) }
+        format.json {render :text => full_character_json(@character)}
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

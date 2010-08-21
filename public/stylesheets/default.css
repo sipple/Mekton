@@ -97,3 +97,7 @@ table {
 .top-border {
     border-top: 1px solid black;
 }
+
+.hidden {
+    display: none;
+}
