@@ -29,6 +29,7 @@ function updateSecondaryStats(character) {
   updateDiv($("#lift"), character.lift);
   updateDiv($("#ev"), character.ev);
   updateDiv($("#throw_distance"), character.throw_distance);
+  updateDiv($("#skill-points-available"), character.skill_points);
 }
 
 function updateDiv(div, value) {

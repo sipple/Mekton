@@ -52,11 +52,9 @@
                                                            :character_armors => @character.character_armors} %>
   </div>
   <div id="character-skills-div" class="character-section">
+    <div id="skill-points">Skill Points: <span id="skill-points-available"><%= @character.skill_points %></span></div>
     <%= render :partial => "character_skills", :locals => {:character => @character,
                                                            :character_skills => @character.character_skills} %>
   </div>
-
-
-    Skill Points:<%= @character.skill_points %>
 
 </div>

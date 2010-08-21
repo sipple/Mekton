@@ -11,13 +11,14 @@
   <tbody>
     <% local_assigns[:character_armors].each do |armor|
         armor_data = armor.character_armor_data
+        armor_id = "armor_#{armor.id}"
     %>
-        <tr>
-          <td><%= armor_data.armor %></td>
-          <td><%= armor.location %></td>
-          <td><%= armor_data.stopping_power %></td>
-          <td><%= armor_data.cost %></td>
-          <td><%= armor_data.weight %></td>
+        <tr id="<%= armor_id %>">
+          <td><%= static("#{armor_id}_armor", armor_data.armor) %></td>
+          <td><%= static("#{armor_id}_location", armor.location) %></td>
+          <td><%= static("#{armor_id}_stopping_power", armor_data.stopping_power) %></td>
+          <td><%= static("#{armor_id}_cost", armor_data.cost) %></td>
+          <td><%= static("#{armor_id}_weight", armor_data.weight) %></td>
         </tr>
     <% end %>
   </tbody>
