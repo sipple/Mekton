@@ -1,5 +1,6 @@
+<%= javascript_include_tag "lib/characters/show" %>
 <div id="character-left">
-    <div id= "character-personal">
+    <div id= "character-personal" class="character-section">
       <div class="side-label label shaded">
          Name:
       </div>
@@ -10,14 +11,14 @@
 
       </div>
     </div>
-    <div id="character-equipments">
+    <div id="character-equipments-div" class="character-section">
     <%= render :partial => "character_equipments", :locals => {:character => @character,
                                                            :character_equipments => @character.character_equipments} %>
   </div>
 </div>
 
 <div id="character-right">
-    <div id="character-header">
+    <div id="character-header" class="character-section">
         <div class="top-label label shaded">
           Rookie/Professional
         </div>
@@ -36,19 +37,19 @@
       <div id="character-money">
         <%= @character.money %>
       </div>
-        <div id="character-stats">
+      </div>
+        <div id="character-stats-div" class="character-section">
     <%= render :partial => "character_stats", :locals => {:character => @character } %>
         </div>
-    </div>
-  <div id="character-weapons">
+  <div id="character-weapons-div" class="character-section">
     <%= render :partial => "character_weapons", :locals => {:character => @character,
                                                            :character_weapons => @character.character_weapons} %>
   </div>
-  <div id="character-armors">
+  <div id="character-armors-div" class="character-section">
     <%= render :partial => "character_armors", :locals => {:character => @character,
                                                            :character_armors => @character.character_armors} %>
   </div>
-  <div id="character-skills">
+  <div id="character-skills-div" class="character-section">
     <%= render :partial => "character_skills", :locals => {:character => @character,
                                                            :character_skills => @character.character_skills} %>
   </div>

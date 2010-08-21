@@ -17,6 +17,7 @@ class CharactersController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
+      format.json { render :text => full_character_json(@character)}
       format.xml  { render :xml => @character }
     end
   end
@@ -66,6 +67,7 @@ class CharactersController < ApplicationController
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
+        format.json { render :text => full_character_json(@character)}
         format.xml  { render :xml => @character.errors, :status => :unprocessable_entity }
       end
     end
@@ -82,4 +84,20 @@ class CharactersController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  private
+
+  def full_character_json(character)
+    character.to_json(:methods => [:head, :torso, :limbs, :stun, :lift, :throw_distance, :skill_points,
+                                  :melee_damage_mod, :ev, :stability, :run, :jump, :running_jump, :anime_leap],
+                      :include => {:character_armors => {:include => :character_armor_data},
+                                   :character_equipments => {:include => :character_equipment_data},
+                                   :character_professions => {:include =>:character_profession_data},
+                                   :character_skills => {
+                                           :methods => [:total, :profession_and_template_bonus, :attribute_bonus],
+                                           :include => :character_skill_data},
+                                   :character_template => {:include => :character_template_data},
+                                   :character_weapons => {:include => :character_weapon_data}})
+  end
+
 end
