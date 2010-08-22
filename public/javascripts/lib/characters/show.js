@@ -40,27 +40,45 @@ function updateDiv(div, value) {
   }
 }
 
+function addItem(element) {
+  var id_elements = element.attr('id').split('-');
+  var model = id_elements[0];
+
+  $.ajax({
+    url: $('#character_id').text() + '/' + model,
+    type: 'POST',
+    data: "character_id=" + $('#character_id').text(),
+    complete: function(xhr, textStatus){
+      var addRow = $('#' + element.attr('id')).before(xhr.responseText);
+      bindDeletes(addRow.prev());
+    }
+  });
+}
+
 function deleteItem(element) {
   
   var id_elements = element.attr('id').split('-');
   var model = id_elements[0];
   var id = id_elements[1];
 
-  console.log(element);
-  console.log($('#' + element.attr('id') + '-armor'));
-  console.log("Are you sure you want to delete this?");
   if (confirm("Are you sure you want to delete this?"))
   {
     $.ajax({
-      url: model + '/' + id + '.json',
+      url: $('#character_id').text() + '/' + model + '/' + id + '.json',
       type:'DELETE',
       complete: function(xhr, textStatus){
-        
+        element.fadeOut(1000, function (){
+          element.remove();
+        });
       }
     });
   }
+}
 
-  
+function bindDeletes(scope) {
+  $('.delete', scope).click(function(){
+    deleteItem($(this).parents('tr'));
+  });
 }
 
 $(document).ready(function() {
@@ -71,9 +89,10 @@ $(document).ready(function() {
     name: 'value'
   });
 
-  $('.delete').click(function(){
-    var hash = $(this).parents('tr').attr('id').split('-');
-    deleteItem($(this).parents('tr'));
+  bindDeletes(this);
+
+  $('.add').click(function() {
+    addItem($(this).parents('tr'));
   });
 
 });

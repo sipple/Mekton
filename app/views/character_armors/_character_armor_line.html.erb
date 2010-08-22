@@ -1,0 +1,13 @@
+<%
+   armor_data = local_assigns[:character_armor].character_armor_data
+   armor_id = "character_armors-#{local_assigns[:character_armor].id}"
+%>
+
+<tr id="<%= armor_id %>">
+  <td><%= static("#{armor_id}-armor", (armor_data.armor if armor_data)) %></td>
+  <td><%= static("#{armor_id}-location", local_assigns[:character_armor].location) %></td>
+  <td><%= static("#{armor_id}-stopping_power", (armor_data.stopping_power if armor_data)) %></td>
+  <td><%= static("#{armor_id}-cost", (armor_data.cost if armor_data)) %></td>
+  <td><%= static("#{armor_id}-weight", (armor_data.weight if armor_data)) %></td>
+  <td><%= image_tag("delete.png", :alt=>"Delete", :class=>"icon delete") %></td>
+</tr>

@@ -9,18 +9,11 @@
     </tr>
   </thead>
   <tbody>
-    <% local_assigns[:character_armors].each do |armor|
-        armor_data = armor.character_armor_data
-        armor_id = "character_armors-#{armor.id}"
-    %>
-        <tr id="<%= armor_id %>">
-          <td><%= static("#{armor_id}-armor", armor_data.armor) %></td>
-          <td><%= static("#{armor_id}-location", armor.location) %></td>
-          <td><%= static("#{armor_id}-stopping_power", armor_data.stopping_power) %></td>
-          <td><%= static("#{armor_id}-cost", armor_data.cost) %></td>
-          <td><%= static("#{armor_id}-weight", armor_data.weight) %></td>
-          <td><%= image_tag("delete.png", :alt=>"Delete", :class=>"icon delete") %></td>
-        </tr>
+    <% local_assigns[:character_armors].each do |armor| %>
+        <%= render :partial => '/character_armors/character_armor_line', :locals => {:character_armor => armor} %>
     <% end %>
+  <tr id="character_armors-add">
+     <td><%= image_tag("add.png", :alt=>"Add Armor", :class=>"icon add") %></td>
+  </tr>
   </tbody>
 </table>
