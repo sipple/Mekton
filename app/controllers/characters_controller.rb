@@ -89,6 +89,17 @@ class CharactersController < ApplicationController
     end
   end
 
+  def select_options
+
+    # We're expecting a field name like 'character_armors-1-armor'
+    # When we split on '-', the first value will be the model, and the second the id
+    field_id_hash = params[:id].split('-')
+    select_options = Mekton::SelectOptions.new
+    options = select_options.get_options(field_id_hash[0], field_id_hash[1])
+
+    render :text => options.to_json
+  end
+
   private
 
   def full_character_json(character)

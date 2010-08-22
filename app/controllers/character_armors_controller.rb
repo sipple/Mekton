@@ -3,6 +3,18 @@ class CharacterArmorsController < ApplicationController
   end
 
   def show
+    @character_armor = CharacterArmor.find(params[:id])
+    armor_data = CharacterArmorData.all.collect {|armor_data| {armor_data.id => armor_data.armor}}
+    armor_data = {"" => ""}
+    if @character_armor.character_armor_data_id
+      armor_data << {"selected" => @character_armor.character_armor_data_id}
+    else
+      armor_data << {"selected" => ""}
+    end
+
+    respond_to do |format|
+       format.json { render :text => armor_data.to_json }
+    end
   end
 
   def edit

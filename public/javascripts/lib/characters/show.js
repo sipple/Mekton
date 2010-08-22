@@ -1,4 +1,6 @@
 
+var characterTableModels = ['character_armors'];
+
 function submitCharacterUpdate(value, settings) {
 
   $.ajax({
@@ -12,7 +14,10 @@ function submitCharacterUpdate(value, settings) {
   });
 
   return value
-  
+}
+
+function submitRowSelectUpdate(value, settings) {
+  return value;
 }
 
 function updateSecondaryStats(character) {
@@ -56,7 +61,7 @@ function addItem(element) {
 }
 
 function deleteItem(element) {
-  
+
   var id_elements = element.attr('id').split('-');
   var model = id_elements[0];
   var id = id_elements[1];
@@ -81,6 +86,14 @@ function bindDeletes(scope) {
   });
 }
 
+function bindEditableSelectRows(scope) {
+  $('.editable-row-select', scope).editable(submitRowSelectUpdate, {
+    method:'GET',
+    type: 'select',
+    loadurl: $('#character_id').text() + '/select_options'
+  });
+}
+
 $(document).ready(function() {
 
   $('.edit').editable(submitCharacterUpdate, {
@@ -89,6 +102,9 @@ $(document).ready(function() {
     name: 'value'
   });
 
+  for(var model in characterTableModels) {
+    bindEditableSelectRows(this);
+  }
   bindDeletes(this);
 
   $('.add').click(function() {
