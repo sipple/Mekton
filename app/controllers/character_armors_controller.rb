@@ -3,18 +3,6 @@ class CharacterArmorsController < ApplicationController
   end
 
   def show
-    @character_armor = CharacterArmor.find(params[:id])
-    armor_data = CharacterArmorData.all.collect {|armor_data| {armor_data.id => armor_data.armor}}
-    armor_data = {"" => ""}
-    if @character_armor.character_armor_data_id
-      armor_data << {"selected" => @character_armor.character_armor_data_id}
-    else
-      armor_data << {"selected" => ""}
-    end
-
-    respond_to do |format|
-       format.json { render :text => armor_data.to_json }
-    end
   end
 
   def edit
@@ -39,6 +27,14 @@ class CharacterArmorsController < ApplicationController
   end
 
   def update
+    @character_armor = CharacterArmor.find(params[:id])
+    @character_armor.send("#{params[:field]}=", params[:value])
+
+    respond_to do |format|
+      if @character_armor.save
+        format.json { render :text => character_armor_json(@character_armor)}
+      end
+    end
   end
 
   def destroy
@@ -51,6 +47,19 @@ class CharacterArmorsController < ApplicationController
       format.json {render :text => 'Success'}
       format.xml  { head :ok }
     end
+  end
+
+  private
+
+  def character_armor_json(character_armor)
+    armor_data = character_armor.character_armor_data
+    json_hash = Hash.new
+    json_hash["character_armor_data_id"] = armor_data.armor
+    json_hash["location"] = character_armor.location
+    json_hash["stopping_power"] = armor_data.stopping_power
+    json_hash["cost"] = armor_data.cost
+    json_hash["weight"] = armor_data.weight
+    json_hash.to_json
   end
 
 end

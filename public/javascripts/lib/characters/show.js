@@ -17,7 +17,25 @@ function submitCharacterUpdate(value, settings) {
 }
 
 function submitRowSelectUpdate(value, settings) {
-  return value;
+  var field_id_hash = this.id.split('-');
+  var model = field_id_hash[0];
+  var id = field_id_hash[1];
+  var field = field_id_hash[2];
+
+  $.ajax({
+    url: $('#character_id').text() + '/' + model + '/' + id + '.json',
+    type: 'PUT',
+    data: 'field=' + field + "&value=" + value,
+    complete: function(xhr, textStatus) {
+      var response = $.parseJSON(xhr.responseText);
+
+      for(var field in response) {
+        updateDiv($("#" + model + '-' + id + '-' + field), response[field])
+      }
+    }
+  });
+
+  return "Updating...";
 }
 
 function updateSecondaryStats(character) {
@@ -90,7 +108,8 @@ function bindEditableSelectRows(scope) {
   $('.editable-row-select', scope).editable(submitRowSelectUpdate, {
     method:'GET',
     type: 'select',
-    loadurl: $('#character_id').text() + '/select_options'
+    loadurl: $('#character_id').text() + '/select_options',
+    onblur:'submit'
   });
 }
 
