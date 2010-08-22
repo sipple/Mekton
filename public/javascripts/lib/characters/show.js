@@ -40,6 +40,28 @@ function updateDiv(div, value) {
   }
 }
 
+function deleteItem(element) {
+  
+  var id_elements = element.attr('id').split('-');
+  var model = id_elements[0];
+  var id = id_elements[1];
+
+  console.log(element);
+  console.log($('#' + element.attr('id') + '-armor'));
+  console.log("Are you sure you want to delete this?");
+  if (confirm("Are you sure you want to delete this?"))
+  {
+    $.ajax({
+      url: model + '/' + id + '.json',
+      type:'DELETE',
+      complete: function(xhr, textStatus){
+        
+      }
+    });
+  }
+
+  
+}
 
 $(document).ready(function() {
 
@@ -47,6 +69,11 @@ $(document).ready(function() {
     method: 'PUT',
     id: 'field',
     name: 'value'
-  })
+  });
+
+  $('.delete').click(function(){
+    var hash = $(this).parents('tr').attr('id').split('-');
+    deleteItem($(this).parents('tr'));
+  });
 
 });

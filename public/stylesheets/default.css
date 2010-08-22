@@ -101,3 +101,7 @@ table {
 .hidden {
     display: none;
 }
+
+.icon {
+    width: 15px;
+}
