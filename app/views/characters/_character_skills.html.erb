@@ -10,17 +10,11 @@
     </tr>
   </thead>
   <tbody>
-    <% local_assigns[:character_skills].each do |skill|
-        skill_data = skill.character_skill_data
-    %>
-        <tr>
-          <td><%= skill_data.skill %></td>
-          <td><%= skill.level %></td>
-          <td><%= skill.profession_and_template_bonus %></td>
-          <td><%= skill.ip_earned %></td>
-          <td><%= skill.attribute_bonus %></td>
-          <td><%= skill.total %></td>
-        </tr>
+    <% local_assigns[:character_skills].each do |skill| %>
+        <%= render :partial => '/character_skills/character_skill_line', :locals => {:character_skill => skill} %>
     <% end %>
+  <tr id="character_skills-add">
+     <td><%= image_tag("add.png", :alt=>"Add Skill", :class=>"icon add") %></td>
+  </tr>
   </tbody>
 </table>

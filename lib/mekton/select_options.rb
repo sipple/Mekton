@@ -10,6 +10,7 @@ module Mekton
         when "character_armors" then options = get_armor_options(id, hash)
         when "character_weapons" then options = get_weapon_options(id, hash)
         when "character_equipments" then options = get_equipment_options(id, hash)
+        when "character_skills" then options = get_skill_options(id, hash)
         
       end
 
@@ -52,6 +53,18 @@ module Mekton
       end
 
       hash
+    end
+
+    def get_skill_options(id, hash)
+      character_skill = CharacterSkill.find(id)
+      CharacterSkillData.all(:order => 'skill').each {|skill_data| hash[skill_data.id.to_s] = skill_data.skill}
+      if character_skill.character_skill_data_id
+        hash["selected"] = character_skill.character_skill_data_id
+      else
+        hash["selected"] = ""
+      end
+
+      hash      
     end
 
   end

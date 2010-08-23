@@ -17,8 +17,13 @@ class CharacterSkill < ActiveRecord::Base
   end
 
   def attribute_bonus
-    attribute = self.character_skill_data.related_attribute
-    self.character.send(attribute.downcase)
+    if self.character_skill_data
+      attribute = self.character_skill_data.related_attribute
+      self.character.send(attribute.downcase)
+    else
+      0
+    end
+
   end
 
   def total
