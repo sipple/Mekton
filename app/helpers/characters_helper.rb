@@ -7,6 +7,10 @@ module CharactersHelper
     "<div class=\"editable-row-select\" id=\"#{id}\">#{value}</div>"
   end
 
+  def editable_row_field(id, value)
+    "<div class=\"editable-row-field\" id=\"#{id}\">#{value}</div>"
+  end
+
   def static(id, value)
     "<div id=\"#{id}\">#{value}</div>"
   end

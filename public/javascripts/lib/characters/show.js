@@ -16,7 +16,7 @@ function submitCharacterUpdate(value, settings) {
   return value
 }
 
-function submitRowSelectUpdate(value, settings) {
+function submitRowUpdate(value, settings) {
   var field_id_hash = this.id.split('-');
   var model = field_id_hash[0];
   var id = field_id_hash[1];
@@ -30,7 +30,7 @@ function submitRowSelectUpdate(value, settings) {
       var response = $.parseJSON(xhr.responseText);
 
       for(var field in response) {
-        updateDiv($("#" + model + '-' + id + '-' + field), response[field])
+        updateDiv($("#" + model + '-' + id + '-' + field), response[field]);
       }
     }
   });
@@ -58,7 +58,13 @@ function updateSecondaryStats(character) {
 function updateDiv(div, value) {
   if(div.text() != value)
   {
-    div.html(value);
+    console.log(value);
+    if (div.hasClass('editable-row-field') && value == null) {
+      div.html('Click to edit');
+    }
+    else {
+      div.html(value);
+    }
     div.effect("highlight", {}, 3000);
   }
 }
@@ -74,6 +80,8 @@ function addItem(element) {
     complete: function(xhr, textStatus){
       var addRow = $('#' + element.attr('id')).before(xhr.responseText);
       bindDeletes(addRow.prev());
+      bindEditableSelectRows(addRow.prev());
+      bindEditableFieldRows(addRow.prev());
     }
   });
 }
@@ -105,12 +113,20 @@ function bindDeletes(scope) {
 }
 
 function bindEditableSelectRows(scope) {
-  $('.editable-row-select', scope).editable(submitRowSelectUpdate, {
+  $('.editable-row-select', scope).editable(submitRowUpdate, {
     method:'GET',
     type: 'select',
     loadurl: $('#character_id').text() + '/select_options',
     onblur:'submit'
   });
+}
+
+function bindEditableFieldRows(scope) {
+  $('.editable-row-field', scope).editable(submitRowUpdate, {
+    method: 'PUT',
+    id: 'field',
+    name: 'value'
+  })
 }
 
 $(document).ready(function() {
@@ -121,9 +137,8 @@ $(document).ready(function() {
     name: 'value'
   });
 
-  for(var model in characterTableModels) {
-    bindEditableSelectRows(this);
-  }
+  bindEditableSelectRows(this);
+  bindEditableFieldRows(this);
   bindDeletes(this);
 
   $('.add').click(function() {
