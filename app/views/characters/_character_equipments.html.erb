@@ -8,15 +8,11 @@
     </tr>
   </thead>
   <tbody>
-    <% local_assigns[:character_equipments].each do |equipment|
-        equipment_data = equipment.character_equipment_data
-    %>
-        <tr id="equipment_<%= equipment.id %>">
-          <td><%= equipment_data.equipment %></td>
-          <td><%= equipment_data.weight %></td>
-          <td><%= equipment.quantity %></td>
-          <td><%= equipment.cost %></td>
-        </tr>
+    <% local_assigns[:character_equipments].each do |equipment| %>
+        <%= render :partial => '/character_equipments/character_equipment_line', :locals => {:character_equipment => equipment} %>
     <% end %>
+  <tr id="character_equipments-add">
+     <td><%= image_tag("add.png", :alt=>"Add Equipment", :class=>"icon add") %></td>
+  </tr>
   </tbody>
 </table>

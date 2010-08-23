@@ -1,0 +1,13 @@
+<% 
+   equipment = local_assigns[:character_equipment]
+   equipment_data = local_assigns[:character_equipment].character_equipment_data
+   equipment_id = "character_equipments-#{local_assigns[:character_equipment].id}"
+%>
+
+<tr id="<%= equipment_id%>">
+    <td><%=editable_row_select("#{equipment_id}-character_equipment_data_id", (equipment_data.equipment if equipment_data)) %></td>
+    <td><%= static("#{equipment_id}-weight", (equipment_data.weight if equipment_data)) %></td>
+    <td><%= editable_row_field("#{equipment_id}-quantity", equipment.quantity) %></td>
+    <td><%= static("#{equipment_id}-cost", equipment.cost ) %></td>
+    <td><%= image_tag("delete.png", :alt=>"Delete", :class=>"icon delete") %></td>
+</tr>

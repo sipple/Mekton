@@ -9,6 +9,7 @@ module Mekton
       case model
         when "character_armors" then options = get_armor_options(id, hash)
         when "character_weapons" then options = get_weapon_options(id, hash)
+        when "character_equipments" then options = get_equipment_options(id, hash)
         
       end
 
@@ -34,6 +35,18 @@ module Mekton
       CharacterWeaponData.all(:order => 'weapon').each {|weapon_data| hash[weapon_data.id.to_s] = weapon_data.weapon}
       if character_weapon.character_weapon_data_id
         hash["selected"] = character_weapon.character_weapon_data_id
+      else
+        hash["selected"] = ""
+      end
+
+      hash
+    end
+
+    def get_equipment_options(id, hash)
+      character_equipment = CharacterEquipment.find(id)
+      CharacterEquipmentData.all(:order => 'equipment').each {|equipment_data| hash[equipment_data.id.to_s] = equipment_data.equipment}
+      if character_equipment.character_equipment_data_id
+        hash["selected"] = character_equipment.character_equipment_data_id
       else
         hash["selected"] = ""
       end
