@@ -58,7 +58,6 @@ function updateSecondaryStats(character) {
 function updateDiv(div, value) {
   if(div.text() != value)
   {
-    console.log(value);
     if (div.hasClass('editable-row-field') && value == null) {
       div.html('Click to edit');
     }

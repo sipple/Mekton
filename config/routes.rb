@@ -13,6 +13,7 @@ ActionController::Routing::Routes.draw do |map|
   #   map.resources :products
   map.resources :characters do |character|
     character.resources :character_armors
+    character.resources :character_weapons
   end
 
   map.character_select_options 'characters/:character_id/select_options', :controller => 'characters', :action => 'select_options'

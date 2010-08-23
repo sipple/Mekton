@@ -1,0 +1,2 @@
+module CharacterWeaponsHelper
+end

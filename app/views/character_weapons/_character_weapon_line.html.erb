@@ -1,0 +1,19 @@
+<%
+   weapon = local_assigns[:character_weapon]
+   weapon_data = local_assigns[:character_weapon].character_weapon_data
+   weapon_id = "character_weapons-#{local_assigns[:character_weapon].id}"
+%>
+
+<tr id="<%= weapon_id %>">
+  <td><%=editable_row_select("#{weapon_id}-character_weapon_data_id", (weapon_data.weapon if weapon_data)) %></td>
+  <td><%= static("#{weapon_id}-weapon_adjustment", (weapon_data.weapon_adjustment if weapon_data)) %></td>
+  <td><%= static("#{weapon_id}-range", (weapon_data.range if weapon_data)) %></td>
+  <td><%= static("#{weapon_id}-damage", (weapon_data.damage if weapon_data)) %></td>
+  <td><%= static("#{weapon_id}-shots", (weapon_data.shots if weapon_data)) %></td>
+  <td><%= static("#{weapon_id}-burst_value", (weapon_data.burst_value if weapon_data)) %></td>
+  <td><%= static("#{weapon_id}-concealment", (weapon_data.concealment if weapon_data)) %></td>
+  <td><%= static("#{weapon_id}-weight", (weapon_data.weight if weapon_data)) %></td>
+  <td><%= editable_row_field("#{weapon_id}-quantity", weapon.quantity) %></td>
+  <td><%= static("#{weapon_id}-cost", weapon.cost) %></td>
+  <td><%= image_tag("delete.png", :alt=>"Delete", :class=>"icon delete") %></td>
+</tr>

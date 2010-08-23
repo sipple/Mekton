@@ -14,21 +14,11 @@
     </tr>
   </thead>
   <tbody>
-    <% local_assigns[:character_weapons].each do |weapon|
-        weapon_data = weapon.character_weapon_data
-    %>
-        <tr>
-          <td><%= weapon_data.weapon %></td>
-          <td><%= weapon_data.weapon_adjustment %></td>
-          <td><%= weapon_data.range %></td>
-          <td><%= weapon_data.damage %></td>
-          <td><%= weapon_data.shots %></td>
-          <td><%= weapon_data.burst_value %></td>
-          <td><%= weapon_data.concealment %></td>
-          <td><%= weapon_data.weight %></td>
-          <td><%= weapon.quantity %></td>
-          <td><%= weapon.cost %></td>
-        </tr>
+    <% local_assigns[:character_weapons].each do |weapon| %>
+        <%= render :partial => '/character_weapons/character_weapon_line', :locals => {:character_weapon => weapon} %>
     <% end %>
+  <tr id="character_weapons-add">
+     <td><%= image_tag("add.png", :alt=>"Add Weapon", :class=>"icon add") %></td>
+  </tr>
   </tbody>
 </table>
