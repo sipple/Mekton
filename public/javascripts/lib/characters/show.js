@@ -10,6 +10,7 @@ function submitCharacterUpdate(value, settings) {
     complete: function(xhr, textStatus) {
       var response =  $.parseJSON(xhr.responseText);
       updateSecondaryStats(response.character);
+      updateSkills(response.character);
     }
   });
 
@@ -54,6 +55,16 @@ function updateSecondaryStats(character) {
   updateDiv($("#throw_distance"), character.throw_distance);
   updateDiv($("#skill-points-available"), character.skill_points);
 }
+
+function updateSkills(character) {
+  var skills = character.character_skills
+  for(var skill in skills) {
+    updateDiv($("#character_skills-" + skills[skill].id + "-profession_and_template_bonus"), skills[skill].profession_and_template_bonus);
+    updateDiv($("#character_skills-" + skills[skill].id + "-attribute_bonus"), skills[skill].attribute_bonus);
+    updateDiv($("#character_skills-" + skills[skill].id + "-total"), skills[skill].total);
+  }
+}
+
 
 function updateDiv(div, value) {
   if(div.text() != value)
