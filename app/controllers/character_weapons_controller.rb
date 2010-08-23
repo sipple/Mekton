@@ -57,8 +57,10 @@ class CharacterWeaponsController < ApplicationController
     json_hash["weapon_adjustment"] = weapon_data.weapon_adjustment
     json_hash["range"] = weapon_data.range
     json_hash["damage"] = weapon_data.damage
+    json_hash["shots"] = weapon_data.shots
     json_hash["burst_value"] = weapon_data.burst_value
     json_hash["concealment"] = weapon_data.concealment
+    json_hash["weight"] = weapon_data.damage
     json_hash["quantity"] = character_weapon.quantity
     json_hash["cost"] = character_weapon.cost
     json_hash.to_json
