@@ -10,12 +10,19 @@ class CharacterProfessionDataController < ApplicationController
   end
 
   def new
+    @profession = CharacterProfessionData.new
   end
 
   def edit
   end
 
   def create
+    @profession = CharacterProfessionData.new(:profession => params[:character_profession_data][:profession])
+
+    if @profession.save
+      redirect_to(@profession)
+    end
+
   end
 
   def update

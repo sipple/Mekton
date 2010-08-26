@@ -1,2 +1,9 @@
-<h1>CharacterProfessionData#new</h1>
-<p>Find me in app/views/character_profession_data/new.html.erb</p>
+<h1>New Profession</h1>
+<% form_for(@profession, :url => {:action => "create"}) do |f| %>
+    <p>Profession Name:
+      <%= f.text_field :profession %>
+    </p>
+    <p>
+      <%= f.submit "Submit" %>
+    </p>
+<% end %>
