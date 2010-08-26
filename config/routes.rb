@@ -18,6 +18,10 @@ ActionController::Routing::Routes.draw do |map|
     character.resources :character_skills
   end
 
+  map.resources :character_profession_data do |profession|
+    profession.resources :character_profession_skill_data
+  end
+
   map.character_select_options 'characters/:character_id/select_options', :controller => 'characters', :action => 'select_options'
 
   # Sample resource route with options:

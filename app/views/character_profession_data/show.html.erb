@@ -1,0 +1,27 @@
+<%= javascript_include_tag "lib/character_profession_data/show" %>
+
+<h1><%=@profession.profession%></h1>
+<div class="hidden" id="character_profession_data_id"><%= @profession.id %></div>
+<h3>Skills</h3>
+<table>
+    <% cell = 1
+       @skill_list.each do |skill| %>
+      <%= "<tr>" if cell == 1 %>
+        <td>
+            <%= skill_checkbox @profession.id, skill.skill, skill.id %>
+        </td>
+        <td>
+           <%= skill.skill %>
+        </td>
+      <td>
+        <%= skill_bonus_textbox @profession.id, skill.skill, skill.id %>
+      </td>
+      <% if cell == 3 %>
+       <%=   "</tr>" %>
+      <% cell = 1
+      else
+        cell += 1
+      end %>
+    <% end %>
+
+</table>

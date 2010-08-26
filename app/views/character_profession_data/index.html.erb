@@ -1,0 +1,13 @@
+<h1>Character Professions</h1>
+
+<ul>
+
+<% @professions.each do |profession| %>
+    <li>
+      <%= link_to profession.profession, profession %>
+    </li>
+<% end %>
+
+</ul>
+
+<%= link_to 'New Profession', new_character_profession_data_path %>
