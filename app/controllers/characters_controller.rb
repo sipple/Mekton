@@ -45,7 +45,7 @@ class CharactersController < ApplicationController
 
     respond_to do |format|
       if @character.save
-        flash[:notice] = 'Test was successfully created.'
+        flash[:notice] = 'Character was successfully created.'
         format.html { redirect_to(@character) }
         format.xml  { render :xml => @character, :status => :created, :location => @character }
       else
@@ -65,7 +65,7 @@ class CharactersController < ApplicationController
 
     respond_to do |format|
       if @character.save
-        flash[:notice] = 'Test was successfully updated.'
+        flash[:notice] = 'Character was successfully updated.'
         format.html { redirect_to(@character) }
         format.json {render :text => full_character_json(@character)}
         format.xml  { head :ok }
