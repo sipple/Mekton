@@ -18,7 +18,12 @@ class MechasController < ApplicationController
   # GET /mechas/new
   # GET /mechas/new.xml
   def new
+    @mecha = Mecha.new
 
+    respond_to do |format|
+      format.html #new.html.erb
+      format.xml {render :xml => @mecha}
+    end
   end
 
   # GET /mechas/1/edit

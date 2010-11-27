@@ -1,0 +1,17 @@
+<%= javascript_include_tag "lib/mechas/new" %>
+
+<h1>New Mecha</h1>
+
+<% form_for(@mecha, :html => {:id => 'new_mecha_form'}) do |f| %>
+    <p>
+        <%= f.label :name %><br />
+        <%= f.text_field :name %>
+    </p>
+    <p>
+      <%= f.label 'Pilot' %><br />
+      <%= f.select :character_id, Character.all.map {|character| [character.name, character.id] } %>
+    </p>
+    <p>
+        <%= f.submit 'Create' %>
+    </p>
+<% end %>
