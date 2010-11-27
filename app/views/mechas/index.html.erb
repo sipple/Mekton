@@ -1,0 +1,9 @@
+<h1>Mechas</h1>
+
+<ul>
+  <% @mechas.each do |mecha| %>
+    <li><%= link_to mecha.name, mecha %></li>
+  <% end %>
+</ul>
+
+<%= link_to "New Mecha", new_mecha_url %>

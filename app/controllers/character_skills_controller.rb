@@ -55,7 +55,6 @@ class CharacterSkillsController < ApplicationController
     json_hash = Hash.new
     json_hash["character_skill_data_id"] = skill_data.skill
     json_hash["level"] = character_skill.level
-    json_hash["profession_and_template_bonus"] = character_skill.profession_and_template_bonus
     json_hash["ip_earned"] = character_skill.ip_earned
     json_hash["attribute_bonus"] = character_skill.attribute_bonus
     json_hash["total"] = character_skill.total
