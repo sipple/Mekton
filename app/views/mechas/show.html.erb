@@ -8,7 +8,12 @@
   <div class="mecha-section">
     <div class="mecha-subleft">
      <div id="mecha-maneuver_pool" class="mecha-section">
-       
+       <div class="side-label label shaded">
+         Maneuver Pool
+       </div>
+       <div>
+         <%= @mecha_pilot.mecha_piloting >= 5 ? (@mecha_pilot.mecha_piloting - 5) : 0 %>
+       </div>
      </div>
      <div id="mecha-combat_skills" class="mecha-section">
        

@@ -9,5 +9,10 @@ class Mecha < ActiveRecord::Base
   has_many :mecha_subassemblies
   has_many :mecha_weapons
 
+
+  def weight
+    # self.mecha_objects.all.sum(&:field)
+  end
+
   
 end

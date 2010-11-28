@@ -13,6 +13,7 @@ class MechasController < ApplicationController
   # GET /mechas/1.xml
   def show
     @mecha = Mecha.find(params[:id])
+    @mecha_pilot = Character.find(@mecha.character_id)
 
     respond_to do |format|
       format.html #show.html.erb

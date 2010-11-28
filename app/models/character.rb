@@ -81,5 +81,13 @@ class Character < ActiveRecord::Base
     self.move_allowance * 2
   end
 
+  def mecha_piloting
+    piloting_skill = self.character_skills.
+            find(:first, :conditions => "character_skill_data_id = #{CharacterSkillData.mecha_piloting.id}")
+
+    piloting_skill.nil? ? 0 : piloting_skill.level
+
+  end
+
 
 end
