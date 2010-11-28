@@ -1,5 +1,5 @@
 <%= javascript_include_tag "lib/mechas/new" %>
-
+<% content_for :title, 'New Mecha' %>
 <h1>New Mecha</h1>
 
 <% form_for(@mecha, :html => {:id => 'new_mecha_form'}) do |f| %>
