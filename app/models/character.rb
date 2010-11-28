@@ -89,5 +89,9 @@ class Character < ActiveRecord::Base
 
   end
 
+  def maneuver_pool
+    self.mecha_piloting >= 5 ? (self.mecha_piloting - 5) : 0
+  end
+
 
 end
