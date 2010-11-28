@@ -12,6 +12,13 @@ class MechasController < ApplicationController
   # GET /mechas/1
   # GET /mechas/1.xml
   def show
+    @mecha = Mecha.find(params[:id])
+
+    respond_to do |format|
+      format.html #show.html.erb
+      format.json {render :text => full_mecha_json(@mecha)}
+      format.xml {render :xml => @mecha}
+    end
 
   end
 
@@ -61,4 +68,11 @@ class MechasController < ApplicationController
   def destroy
     
   end
+
+  private
+
+  def full_mecha_json(mecha)
+    mecha.to_json
+  end
+
 end

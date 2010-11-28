@@ -50,12 +50,12 @@ table {
   list-style: square;
 }
 
-#character-left {
+#character-left, #mecha-right {
     float: left;
     width: 300px;
 }
 
-#character-right {
+#character-right, #mecha-left {
     float: left;
     width: 600px;
 }
@@ -66,9 +66,15 @@ table {
     border: 1px solid black;
 }
 
-.character-section {
+.character-section, .mecha-section {
     margin: 10px 5px 10px 5px;
     clear: both;
+}
+
+.mecha-subleft, .mecha-subright {
+    float: left;
+    width: 45%;
+    margin: 10px 5px 10px 5px;
 }
 
 .stat-label, .label {
