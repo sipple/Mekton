@@ -103,6 +103,13 @@ table {
     font-weight: bold;
 }
 
+.mecha-table {
+    width: 100%;
+}
+
+.mecha-table td {
+    text-align: center;
+}
 .shaded {
     background-color:#eeeeee;
 }

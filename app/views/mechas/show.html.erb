@@ -3,7 +3,7 @@
 <div class="hidden" id="mecha_id"><%= @mecha.id %></div>
 <div id="mecha-left">
   <div id="mecha-stats" class="mecha-section">
-    
+      <%= render :partial => 'mecha_stats', :locals => {:mecha => @mecha} %>
   </div>
   <div class="mecha-section">
     <div class="mecha-subleft">
@@ -16,9 +16,6 @@
        </div>
      </div>
      <div id="mecha-combat_skills" class="mecha-section">
-       <div class="top-label shaded label">
-         Mecha Combat Skills
-       </div>
        <%= render :partial => 'mecha_combat_skills', :locals => {:mecha => @mecha} %>
      </div>
     </div>

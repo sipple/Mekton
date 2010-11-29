@@ -1,0 +1,32 @@
+<% mecha = local_assigns[:mecha] %>
+
+<table id="mecha-stats-table" class="mecha-table">
+  <thead class="shaded">
+    <tr>
+      <th colspan="5">Mecha Stats</th>
+    </tr>
+    <tr>
+      <th>Configuration</th>
+      <th>MV</th>
+      <th>MR</th>
+      <th>Land MA</th>
+      <th>Flight MA</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Humanoid Mecha</td>
+      <td><%= mecha.mv %></td>
+      <td><%= mecha.mecha_reflexes %></td>
+      <td><%= mecha.land_ma %></td>
+      <td><%= mecha.flight_ma %></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>Ground Effects: <%= mecha.land_ma %></td>
+      <td>Mechafighter: <%= mecha.flight_ma * 2 %></td>
+    </tr>
+  </tbody>
+</table>
