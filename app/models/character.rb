@@ -82,11 +82,39 @@ class Character < ActiveRecord::Base
   end
 
   def mecha_piloting
-    piloting_skill = self.character_skills.
+    skill = self.character_skills.
             find(:first, :conditions => "character_skill_data_id = #{CharacterSkillData.mecha_piloting.id}")
 
-    piloting_skill.nil? ? 0 : piloting_skill.level
+    skill.nil? ? 0 : skill.level
 
+  end
+
+  def mecha_fighting
+    skill = self.character_skills.
+            find(:first, :conditions => "character_skill_data_id = #{CharacterSkillData.mecha_fighting.id}")
+
+    skill.nil? ? 0 : skill.level
+  end
+
+  def mecha_melee
+    skill = self.character_skills.
+            find(:first, :conditions => "character_skill_data_id = #{CharacterSkillData.mecha_melee.id}")
+
+    skill.nil? ? 0 : skill.level
+  end
+
+  def mecha_gunnery
+    skill = self.character_skills.
+            find(:first, :conditions => "character_skill_data_id = #{CharacterSkillData.mecha_gunnery.id}")
+
+    skill.nil? ? 0 : skill.level
+  end
+
+  def mecha_missiles
+    skill = self.character_skills.
+            find(:first, :conditions => "character_skill_data_id = #{CharacterSkillData.mecha_missiles.id}")
+
+    skill.nil? ? 0 : skill.level
   end
 
   def maneuver_pool

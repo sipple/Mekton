@@ -96,6 +96,13 @@ table {
     margin-right: 10px;
 }
 
+.cell-label, .cell-value {
+    padding-right: 10px;
+}
+.cell-label {
+    font-weight: bold;
+}
+
 .shaded {
     background-color:#eeeeee;
 }
