@@ -2,18 +2,17 @@
    servo_data = local_assigns[:mecha_servo].mecha_servo_data
    servo_level_data = local_assigns[:mecha_servo].mecha_servo_level_data
    armor_data = local_assigns[:mecha_servo].mecha_armor_data
-   servo_id = "character_armors-#{local_assigns[:mecha_servo].id}"
+   servo_id = "mecha_servos-#{local_assigns[:mecha_servo].id}"
 %>
 
 <tr id="<%= servo_id %>">
+  <td><%= static("#{servo_id}-mecha_armor-stopping_power", (armor_data.stopping_power if armor_data)) %></td>
+  <td><%= static("#{servo_id}-kills", (servo_level_data.kills if servo_level_data)) %></td>
   <td><%= editable_row_select("#{servo_id}-mecha_servo_data_id", (servo_data.servo if servo_data)) %></td>
   <td><%= editable_row_select("#{servo_id}-mecha_servo_level_data_id", (servo_level_data.level if servo_level_data)) %></td>
   <td><%= static("#{servo_id}-space", (servo_level_data.space if servo_level_data)) %></td>
-  <td><%= static("#{servo_id}-kills", (servo_level_data.kills if servo_level_data)) %></td>
   <td><%= static("#{servo_id}-cost", (servo_level_data.cost if servo_level_data)) %></td>
-  <td><%= static("#{servo_id}-weight", (servo_level_data.weight if servo_level_data)) %></td>
   <td><%= editable_row_select("#{servo_id}-mecha_armor-mecha_armor_data_id", (armor_data.armor if armor_data)) %></td>
-  <td><%= static("#{servo_id}-mecha_armor-stopping_power", (armor_data.stopping_power if armor_data)) %></td>
   <td><%= static("#{servo_id}-mecha_armor-cost", (armor_data.cost if armor_data)) %></td>
   <td><%= static("#{servo_id}-mecha_armor-weight", (armor_data.weight if armor_data)) %></td>
   <td><%= image_tag("delete.png", :alt=>"Delete", :class=>"icon delete") %></td>

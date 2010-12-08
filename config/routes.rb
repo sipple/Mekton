@@ -28,6 +28,7 @@ ActionController::Routing::Routes.draw do |map|
   end
 
   map.character_select_options 'characters/:character_id/select_options', :controller => 'characters', :action => 'select_options'
+  map.mecha_select_options 'mechas/:mecha_id/select_options', :controller => 'mechas', :action => 'select_options'
 
   # Sample resource route with options:
   #   map.resources :products, :member => { :short => :get, :toggle => :post }, :collection => { :sold => :get }

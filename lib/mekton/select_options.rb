@@ -59,5 +59,16 @@ module Mekton
       hash      
     end
 
+    def get_mecha_servos_options(id, hash)
+      mecha_servo = MechaServo.find(id)
+      MechaServoData.all(:order => 'servo').each {|servo_data| hash[servo_data.id.to_s] = servo_data.servo}
+      if mecha_servo.mecha_servo_data_id
+        hash["selected"] = mecha_servo.mecha_servo_data_id
+      else
+        hash["selected"] = ""
+      end
+      hash
+    end
+
   end
 end

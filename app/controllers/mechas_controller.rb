@@ -70,6 +70,17 @@ class MechasController < ApplicationController
     
   end
 
+  def select_options
+
+    # We're expecting a field name like 'mecha_servos-1-servo'
+    # When we split on '-', the first value will be the model, and the second the id
+    field_id_hash = params[:id].split('-')
+    select_options = Mekton::SelectOptions.new
+    options = select_options.get_options(field_id_hash[0], field_id_hash[1])
+
+    render :text => options.to_json
+  end
+
   private
 
   def full_mecha_json(mecha)
