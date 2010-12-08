@@ -23,6 +23,7 @@ ActionController::Routing::Routes.draw do |map|
   end
 
   map.resources :mechas do |mecha|
+    mecha.resources :mecha_servos
     
   end
 

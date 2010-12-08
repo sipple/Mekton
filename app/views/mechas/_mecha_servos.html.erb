@@ -19,6 +19,11 @@
     </tr>
   </thead>
   <tbody>
-  
+    <% local_assigns[:mecha_servos].each do |servo| %>
+        <%= render :partial => 'mecha_servos/mecha_servo_line', :locals => {:mecha_servo => servo} %>
+    <% end %>
+    <tr id="mecha_servos-add">
+        <td><%= image_tag("add.png", :alt=>"Add Servo", :class=>"icon add") %></td>
+    </tr>
   </tbody>
 </table>
