@@ -76,7 +76,13 @@ class MechasController < ApplicationController
     # When we split on '-', the first value will be the model, and the second the id
     field_id_hash = params[:id].split('-')
     select_options = Mekton::SelectOptions.new
-    options = select_options.get_options(field_id_hash[0], field_id_hash[1])
+
+    if (field_id_hash[0] == "mecha_servos" && field_id_hash[2].include?("_id"))
+      model_match = field_id_hash[2].match('^(.*)_id')
+      options = select_options.get_options(model_match.captures[0], field_id_hash[1])
+    else
+      options = select_options.get_options(field_id_hash[0], field_id_hash[1])
+    end
 
     render :text => options.to_json
   end
@@ -84,7 +90,9 @@ class MechasController < ApplicationController
   private
 
   def full_mecha_json(mecha)
-    mecha.to_json
+    mecha.to_json(:methods => [],
+                  :include => {:mecha_servos => {:include => [:mecha_servo_data, :mecha_servo_level_data, :mecha_armor_data]}},
+                  :mecha_weapons => {:include => :mecha_weapon_data})
   end
 
 end

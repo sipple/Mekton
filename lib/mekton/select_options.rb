@@ -59,11 +59,35 @@ module Mekton
       hash      
     end
 
-    def get_mecha_servos_options(id, hash)
+    def get_mecha_servo_data_options(id, hash)
       mecha_servo = MechaServo.find(id)
       MechaServoData.all(:order => 'servo').each {|servo_data| hash[servo_data.id.to_s] = servo_data.servo}
       if mecha_servo.mecha_servo_data_id
         hash["selected"] = mecha_servo.mecha_servo_data_id
+      else
+        hash["selected"] = ""
+      end
+      hash
+    end
+
+    def get_mecha_servo_level_data_options(id, hash)
+      mecha_servo = MechaServo.find(id)
+      mecha_servo.mecha_servo_data.mecha_servo_level_data.all(:order => 'kills').
+          each {|servo_level_data| hash[servo_level_data.id.to_s] = servo_level_data.level}
+
+      if mecha_servo.mecha_servo_level_data_id
+        hash["selected"] = mecha_servo.mecha_servo_level_data_id
+      else
+        hash["selected"] = ""
+      end
+      hash
+    end
+
+    def get_mecha_armor_data_options(id, hash)
+      mecha_servo = MechaServo.find(id)
+      MechaArmorData.all(:order => 'stopping_power').each {|armor_data| hash[armor_data.id.to_s] = armor_data.armor}
+      if mecha_servo.mecha_armor_data_id
+        hash["selected"] = mecha_servo.mecha_armor_data_id
       else
         hash["selected"] = ""
       end
