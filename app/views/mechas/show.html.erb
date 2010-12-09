@@ -1,6 +1,7 @@
 <%= javascript_include_tag 'lib/mechas/show' %>
 
 <div class="hidden" id="mecha_id"><%= @mecha.id %></div>
+<div id="mecha-sheet">
 <div id="mecha-left">
   <div id="mecha-stats" class="mecha-section">
       <%= render :partial => 'mecha_stats', :locals => {:mecha => @mecha} %>
@@ -55,6 +56,7 @@
     
   </div>
 </div>
-<div id="mecha-armaments" class="mecha-section">
-  Armaments
+    <div id="mecha-armaments" class="mecha-section">
+      <%= render :partial => 'mecha_weapons', :locals => {:mecha => @mecha, :mecha_weapons => @mecha.mecha_weapons} %>
+    </div>
 </div>

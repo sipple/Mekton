@@ -1,0 +1,34 @@
+<% mecha = local_assigns[:mecha] %>
+
+<table id="mecha-weapons-table" class="mecha-table">
+  <thead class="shaded">
+    <tr>
+        <th colspan="13">
+            Armaments
+        </th>
+    </tr>
+    <tr>
+      <th>Weapon</th>
+      <th>WA</th>
+      <th>Range</th>
+      <th>Damage</th>
+      <th>Shots</th>
+      <th>Kills</th>
+      <th>Loc</th>
+      <th>Cost</th>
+      <th>Space</th>
+      <th>WT</th>
+      <th>BV</th>
+      <th>Qty</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% local_assigns[:mecha_weapons].each do |weapon| %>
+        <%= render :partial => 'mecha_weapons/mecha_weapon_line', :locals => {:mecha_weapon => weapon} %>
+    <% end %>
+    <tr id="mecha_weapons-add">
+        <td><%= image_tag("add.png", :alt=>"Add Weapon", :class=>"icon add") %></td>
+    </tr>
+  </tbody>
+</table>

@@ -73,8 +73,8 @@ class MechaServosController < ApplicationController
       json_hash["weight"] = servo_level_data.weight
     end
     if armor_data
-      json_hash["mecha_armor-mecha_armor_data_id"] = armor_data.armor
-      json_hash["mecha_armor-stopping_power"] = armor_data.stopping_power
+      json_hash["mecha_armor_data_id"] = armor_data.armor
+      json_hash["stopping_power"] = armor_data.stopping_power
       json_hash["armor_cost"] = armor_data.cost
       json_hash["armor_weight"] = armor_data.weight
     end

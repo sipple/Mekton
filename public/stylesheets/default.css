@@ -50,6 +50,10 @@ table {
   list-style: square;
 }
 
+#mecha-sheet {
+  width: 900px;
+}
+
 #character-left, #mecha-right {
     float: left;
     width: 300px;

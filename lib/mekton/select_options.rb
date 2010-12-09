@@ -94,5 +94,16 @@ module Mekton
       hash
     end
 
+    def get_mecha_weapon_data_options(id, hash)
+      mecha_weapon = MechaWeapon.find(id)
+      MechaWeaponData.all(:order => 'weapon').each {|weapon_data| hash[weapon_data.id.to_s] = weapon_data.weapon}
+      if mecha_weapon.mecha_weapon_data_id
+        hash["selected"] = mecha_weapon.mecha_weapon_data_id
+      else
+        hash["selected"] = ""
+      end
+      hash
+    end
+
   end
 end

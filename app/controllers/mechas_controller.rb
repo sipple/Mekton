@@ -77,7 +77,7 @@ class MechasController < ApplicationController
     field_id_hash = params[:id].split('-')
     select_options = Mekton::SelectOptions.new
 
-    if (field_id_hash[0] == "mecha_servos" && field_id_hash[2].include?("_id"))
+    if (field_id_hash[2].include?("_id"))
       model_match = field_id_hash[2].match('^(.*)_id')
       options = select_options.get_options(model_match.captures[0], field_id_hash[1])
     else
