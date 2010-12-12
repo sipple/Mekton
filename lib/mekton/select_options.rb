@@ -126,5 +126,17 @@ module Mekton
       end
       hash
     end
+
+    def get_mecha_shield_data_options(id, hash)
+      mecha_shield = MechaShield.find(id)
+      MechaShieldData.all(:order => 'stopping_power').each {|shield_data| hash[shield_data.id.to_s] = shield_data.shield}
+      if mecha_shield.mecha_shield_data_id
+        hash["selected"] = mecha_shield.mecha_shield_data_id
+      else
+        hash["selected"] = ""
+      end
+      hash
+    end
+
   end
 end

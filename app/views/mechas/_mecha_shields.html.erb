@@ -1,0 +1,27 @@
+<% mecha = local_assigns[:mecha] %>
+
+<table id="mecha-shields-table" class="mecha-table">
+  <thead class="shaded">
+    <tr>
+        <th colspan="6">
+            Shields
+        </th>
+    </tr>
+    <tr>
+      <th>Shield</th>
+      <th>DA</th>
+      <th>SP</th>
+      <th>Loc</th>
+      <th>Sp</th>
+      <th>Cp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% local_assigns[:mecha_shields].each do |shield| %>
+        <%= render :partial => 'mecha_shields/mecha_shield_line', :locals => {:mecha_shield => shield} %>
+    <% end %>
+    <tr id="mecha_shields-add">
+        <td><%= image_tag("add.png", :alt=>"Add Shield", :class=>"icon add") %></td>
+    </tr>
+  </tbody>
+</table>
