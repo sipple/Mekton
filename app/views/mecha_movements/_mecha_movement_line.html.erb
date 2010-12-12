@@ -1,0 +1,14 @@
+<%
+   movement = local_assigns[:mecha_movement]
+   movement_data = local_assigns[:mecha_movement].mecha_movement_data
+   movement_id = "mecha_movements-#{local_assigns[:mecha_movement].id}"
+%>
+
+<tr id="<%= movement_id %>">
+  <td><%= editable_row_select("#{movement_id}-mecha_movement_data_id", (movement_data.movement_system if movement_data)) %></td>
+  <td><%= editable_row_field("#{movement_id}-location", (movement.location)) %></td>
+  <td><%= editable_row_field("#{movement_id}-speed", (movement.speed)) %></td>
+  <td><%= static("#{movement_id}-cost", (movement.cost)) %></td>
+  <td><%= static("#{movement_id}-space", (movement.space)) %></td>
+  <td><%= image_tag("delete.png", :alt=>"Delete", :class=>"icon delete") %></td>
+</tr>

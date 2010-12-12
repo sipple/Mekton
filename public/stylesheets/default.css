@@ -2,8 +2,11 @@ body { background-color: #fff; color: #333; }
 
 body, p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
-  font-size:   13px;
+  font-size:   12px;
   line-height: 18px;
+}
+th {
+  font-size: 13px;
 }
 
 pre {
@@ -77,8 +80,7 @@ table {
 
 .mecha-subleft, .mecha-subright {
     float: left;
-    width: 45%;
-    margin: 10px 5px 10px 5px;
+    width: 50%;
 }
 
 .stat-label, .label {

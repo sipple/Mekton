@@ -138,5 +138,16 @@ module Mekton
       hash
     end
 
+    def get_mecha_movement_data_options(id, hash)
+      mecha_movement = MechaMovement.find(id)
+      MechaMovementData.all(:order => 'multiple').each {|movement_data| hash[movement_data.id.to_s] = movement_data.movement_system}
+      if mecha_movement.mecha_movement_data_id
+        hash["selected"] = mecha_movement.mecha_movement_data_id
+      else
+        hash["selected"] = ""
+      end
+      hash
+    end
+
   end
 end

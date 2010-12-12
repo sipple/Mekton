@@ -1,0 +1,26 @@
+<% mecha = local_assigns[:mecha] %>
+
+<table id="mecha-movements-table" class="mecha-table">
+  <thead class="shaded">
+    <tr>
+        <th colspan="5">
+            Movement Systems
+        </th>
+    </tr>
+    <tr>
+      <th>Type</th>
+      <th>Loc</th>
+      <th>Speed</th>
+      <th>Cp</th>
+      <th>Sp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% local_assigns[:mecha_movements].each do |movement| %>
+        <%= render :partial => 'mecha_movements/mecha_movement_line', :locals => {:mecha_movement => movement} %>
+    <% end %>
+    <tr id="mecha_movements-add">
+        <td><%= image_tag("add.png", :alt=>"Add Movement", :class=>"icon add") %></td>
+    </tr>
+  </tbody>
+</table>
