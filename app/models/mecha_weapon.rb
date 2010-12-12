@@ -4,15 +4,15 @@ class MechaWeapon < ActiveRecord::Base
   belongs_to :mecha_servo
 
   def cost
-    (self.quantity || 0) * self.mecha_weapon_data.cost if self.mecha_weapon_data
+    self.mecha_weapon_data ? ((self.quantity || 0) * self.mecha_weapon_data.cost) : 0
   end
 
   def space
-    (self.quantity || 0) * self.mecha_weapon_data.space if self.mecha_weapon_data
+    self.mecha_weapon_data ? ((self.quantity || 0) * self.mecha_weapon_data.space) : 0
   end
 
   def weight
-    (self.quantity || 0) * self.mecha_weapon_data.weight if self.mecha_weapon_data
+    self.mecha_weapon_data ? ((self.quantity || 0) * self.mecha_weapon_data.weight) : 0
   end
 
 end

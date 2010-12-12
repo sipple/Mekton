@@ -37,7 +37,7 @@
     </div>
     <div class="mecha-subright">
       <div id="mecha-sensors" class="mecha-section">
-        
+        <%= render :partial => 'mecha_sensors', :locals => {:mecha => @mecha, :mecha_sensors => @mecha.mecha_sensors} %>
       </div>
     </div>
   </div>

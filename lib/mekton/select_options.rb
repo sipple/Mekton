@@ -105,5 +105,16 @@ module Mekton
       hash
     end
 
+    def get_mecha_sensor_data_options(id, hash)
+      mecha_sensor = MechaSensor.find(id)
+      MechaSensorData.all(:order => 'sensor').each {|sensor_data| hash[sensor_data.id.to_s] = sensor_data.sensor}
+      if mecha_sensor.mecha_sensor_data_id
+        hash["selected"] = mecha_sensor.mecha_sensor_data_id
+      else
+        hash["selected"] = ""
+      end
+      hash
+    end
+
   end
 end

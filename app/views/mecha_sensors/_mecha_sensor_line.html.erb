@@ -1,0 +1,15 @@
+<%
+   sensor = local_assigns[:mecha_sensor]
+   sensor_data = local_assigns[:mecha_sensor].mecha_sensor_data
+   sensor_id = "mecha_sensors-#{local_assigns[:mecha_sensor].id}"
+%>
+
+<tr id="<%= sensor_id %>">
+  <td><%= editable_row_select("#{sensor_id}-mecha_sensor_data_id", (sensor_data.sensor if sensor_data)) %></td>
+  <td><%= editable_row_field("#{sensor_id}-location", (sensor.location)) %></td>
+  <td><%= static("#{sensor_id}-range", (sensor_data.range if sensor_data)) %></td>
+  <td><%= static("#{sensor_id}-kills", (sensor_data.kills if sensor_data)) %></td>
+  <td><%= static("#{sensor_id}-cost", (sensor.cost)) %></td>
+  <td><%= static("#{sensor_id}-space", (sensor_data.space if sensor_data)) %></td>
+  <td><%= image_tag("delete.png", :alt=>"Delete", :class=>"icon delete") %></td>
+</tr>
