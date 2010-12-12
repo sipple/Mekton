@@ -66,6 +66,7 @@ class MechaWeaponsController < ApplicationController
     json_hash["quantity"] = mecha_weapon.quantity
     json_hash["notes"] = mecha_weapon.notes
     json_hash["location"] = mecha_weapon.location
+    json_hash["mecha"] = mecha_weapon.mecha.mecha_json
 
     json_hash.to_json
   end

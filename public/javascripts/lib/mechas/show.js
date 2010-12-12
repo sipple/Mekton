@@ -15,6 +15,19 @@ function submitMechaUpdate(value, settings) {
 
   return value
 }
+
+function submitNameUpdate(value, settings) {
+  $.ajax({
+    url: $('#mecha_id').text() + '.json',
+    type: 'PUT',
+    data: "field=name&value=" + value,
+    complete: function(xhr, textStatus) {
+      var response = $.parseJSON(xhr.responseText);
+    }
+  });
+  return value;
+}
+
 function submitRowUpdate(value, settings) {
   var field_id_hash = this.id.split('-');
   var model = field_id_hash[0];
@@ -31,6 +44,8 @@ function submitRowUpdate(value, settings) {
       for(var field in response) {
         updateDiv($("#" + model + '-' + id + '-' + field), response[field]);
       }
+
+      updatePrimaryStats($.parseJSON(response.mecha).mecha);
     }
   });
 
@@ -48,6 +63,23 @@ function updateSkills(mecha) {
   //  updateDiv($("#character_skills-" + skills[skill].id + "-attribute_bonus"), skills[skill].attribute_bonus);
   //  updateDiv($("#character_skills-" + skills[skill].id + "-total"), skills[skill].total);
   //}
+}
+
+function updatePrimaryStats(mecha) {
+  updateDiv($("#mecha_piloting"), mecha.mecha_piloting);
+  updateDiv($("#mecha_fighting"), mecha.mecha_fighting);
+  updateDiv($("#mecha_melee"), mecha.mecha_melee);
+  updateDiv($("#mecha_gunnery"), mecha.mecha_gunnery);
+  updateDiv($("#mecha_missiles"), mecha.mecha_missiles);
+  updateDiv($("#mv"), mecha.mv);
+  updateDiv($("#mecha_reflexes"), mecha.mecha_reflexes);
+  updateDiv($("#land_ma"), mecha.land_ma);
+  updateDiv($("#flight_ma"), mecha.flight_ma);
+  updateDiv($("#wings_flight_ma"), (mecha.flight_ma + 2));
+  updateDiv($("#ge_land_ma"), mecha.land_ma);
+  updateDiv($('#mecha_weight'), mecha.weight);
+  updateDiv($('#mecha_cost'), mecha.cost);
+
 }
 
 
@@ -127,6 +159,12 @@ function bindDeletes(scope) {
 $(document).ready(function(){
 
   $('.edit').editable(submitMechaUpdate, {
+    method: 'PUT',
+    id: 'field',
+    name: 'value'
+  });
+
+  $('#mecha_name').editable(submitNameUpdate, {
     method: 'PUT',
     id: 'field',
     name: 'value'

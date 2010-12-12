@@ -21,8 +21,12 @@ class Mecha < ActiveRecord::Base
     @weight
   end
 
+  def cost
+    0
+  end
+
   def mv
-    case weight
+    case weight.floor
       when 0..19
         -1
       when 20..29
@@ -47,7 +51,7 @@ class Mecha < ActiveRecord::Base
   end
 
   def land_ma
-    case weight
+    case weight.floor
       when 0..19
         6
       when 20..39
@@ -87,6 +91,12 @@ class Mecha < ActiveRecord::Base
 
   def mecha_missiles
     self.character.mecha_missiles + self.mecha_reflexes
+  end
+
+  def mecha_json
+    self.to_json(:methods => [:weight, :cost, :mecha_reflexes, :mecha_piloting, :mecha_fighting,
+                                   :mecha_melee, :mecha_gunnery, :mecha_missiles, :flight_ma,
+                                   :land_ma, :mv])
   end
 
 

@@ -1,0 +1,21 @@
+<% mecha = local_assigns[:mecha] %>
+
+<table id="mecha-profile-table" class="mecha-table">
+  <thead class="shaded">
+    <tr>
+      <th colspan="3">Mecha profile</th>
+    </tr>
+    <tr>
+      <th>Name</th>
+      <th>Weight</th>
+      <th>Cost</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><div id="mecha_name"><%= mecha.name %></div></td>
+      <td><div id="mecha_weight"><%= mecha.weight %></div></td>
+      <td><div id="mecha_cost"><%= mecha.cost %></div></td>
+    </tr>
+  </tbody>
+</table>

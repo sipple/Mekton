@@ -16,17 +16,17 @@
   <tbody>
     <tr>
       <td>Humanoid Mecha</td>
-      <td><%= mecha.mv %></td>
-      <td><%= mecha.mecha_reflexes %></td>
-      <td><%= mecha.land_ma %></td>
-      <td><%= mecha.flight_ma %></td>
+      <td><div id="mv"><%= mecha.mv %></div></td>
+      <td><div id="mecha_reflexes"><%= mecha.mecha_reflexes %></div></td>
+      <td><div id="land_ma"><%= mecha.land_ma %></div></td>
+      <td><div id="flight_ma"><%= mecha.flight_ma %></div></td>
     </tr>
     <tr>
       <td></td>
       <td></td>
       <td></td>
-      <td>Ground Effects: <%= mecha.land_ma %></td>
-      <td>Mechafighter: <%= mecha.flight_ma * 2 %></td>
+      <td>Ground Effects: <div id="ge_land_ma"><%= mecha.land_ma %></div></td>
+      <td>Mechafighter: <div id="wings_flight_ma"><%= mecha.flight_ma + 2 %></div></td>
     </tr>
   </tbody>
 </table>

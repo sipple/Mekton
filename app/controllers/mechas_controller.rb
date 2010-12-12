@@ -61,6 +61,13 @@ class MechasController < ApplicationController
   # PUT /mechas/1
   # PUT /mechas/1.xml
   def update
+    @mecha = Mecha.find(params[:id])
+    @mecha.send("#{params[:field]}=", params[:value])
+    respond_to do |format|
+      if @mecha.save
+        format.json {render :text => full_mecha_json(@mecha)}
+      end
+    end
 
   end
 

@@ -78,6 +78,8 @@ class MechaServosController < ApplicationController
       json_hash["armor_cost"] = armor_data.cost
       json_hash["armor_weight"] = armor_data.weight
     end
+    json_hash["mecha"] = mecha_servo.mecha.mecha_json
+
     json_hash.to_json
   end
 
