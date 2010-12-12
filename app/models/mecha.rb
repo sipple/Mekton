@@ -14,11 +14,11 @@ class Mecha < ActiveRecord::Base
   BASE_LAND_MA = 6
   BASE_FLIGHT_MA = 0
   BASE_MV = -1
-
+  MECHA_SYSTEMS = [:mecha_servos, :mecha_weapons, :mecha_shields, :mecha_subassemblies, :mecha_sensors]
 
   def weight
-    # self.mecha_objects.all.sum(&:field)
-    0
+    @weight = @weight || weight_for(MECHA_SYSTEMS)
+    @weight
   end
 
   def mv
@@ -87,6 +87,18 @@ class Mecha < ActiveRecord::Base
 
   def mecha_missiles
     self.character.mecha_missiles + self.mecha_reflexes
+  end
+
+
+  private
+
+  # takes an array of symbols for the models you want to calculate wieght for. i.e. [:mecha_servos, :mecha_armos]
+  def weight_for systems
+    weight = 0
+    systems.each do |system|
+      weight += self.send(system).all.sum(&:weight)
+    end
+    weight
   end
   
 end
