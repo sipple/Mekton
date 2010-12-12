@@ -8,6 +8,10 @@ class MechaServo < ActiveRecord::Base
     servo_weight + armor_weight
   end
 
+  def cost
+    servo_cost + armor_cost
+  end
+
   def servo_weight
     self.mecha_servo_level_data ? self.mecha_servo_level_data.weight : 0
   end
@@ -16,4 +20,11 @@ class MechaServo < ActiveRecord::Base
     self.mecha_armor_data ? self.mecha_armor_data.weight : 0
   end
 
+  def servo_cost
+    self.mecha_servo_level_data ? self.mecha_servo_level_data.cost : 0
+  end
+
+  def armor_cost
+    self.mecha_armor_data ? self.mecha_armor_data.cost : 0
+  end
 end

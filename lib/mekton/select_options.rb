@@ -116,5 +116,15 @@ module Mekton
       hash
     end
 
+    def get_mecha_subassembly_data_options(id, hash)
+      mecha_subassembly = MechaSubassembly.find(id)
+      MechaSubassemblyData.all(:order => 'subassembly').each {|subassembly_data| hash[subassembly_data.id.to_s] = subassembly_data.subassembly}
+      if mecha_subassembly.mecha_subassembly_data_id
+        hash["selected"] = mecha_subassembly.mecha_subassembly_data_id
+      else
+        hash["selected"] = ""
+      end
+      hash
+    end
   end
 end

@@ -1,0 +1,14 @@
+<%
+   subassembly = local_assigns[:mecha_subassembly]
+   subassembly_data = local_assigns[:mecha_subassembly].mecha_subassembly_data
+   subassembly_id = "mecha_subassemblies-#{local_assigns[:mecha_subassembly].id}"
+%>
+
+<tr id="<%= subassembly_id %>">
+  <td><%= editable_row_select("#{subassembly_id}-mecha_subassembly_data_id", (subassembly_data.subassembly if subassembly_data)) %></td>
+  <td><%= editable_row_field("#{subassembly_id}-location", (subassembly.location)) %></td>
+  <td><%= static("#{subassembly_id}-kills", (subassembly_data.kills if subassembly_data)) %></td>
+  <td><%= static("#{subassembly_id}-cost", (subassembly.cost)) %></td>
+  <td><%= static("#{subassembly_id}-space", (subassembly_data.space if subassembly_data)) %></td>
+  <td><%= image_tag("delete.png", :alt=>"Delete", :class=>"icon delete") %></td>
+</tr>

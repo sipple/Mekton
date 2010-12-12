@@ -1,0 +1,26 @@
+<% mecha = local_assigns[:mecha] %>
+
+<table id="mecha-subassemblies-table" class="mecha-table">
+  <thead class="shaded">
+    <tr>
+        <th colspan="5">
+            Subassemblies
+        </th>
+    </tr>
+    <tr>
+      <th>Subassembly</th>
+      <th>Loc</th>
+      <th>Space</th>
+      <th>Cp</th>
+      <th>K</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% local_assigns[:mecha_subassemblies].each do |subassembly| %>
+        <%= render :partial => 'mecha_subassemblies/mecha_subassembly_line', :locals => {:mecha_subassembly => subassembly} %>
+    <% end %>
+    <tr id="mecha_subassemblies-add">
+        <td><%= image_tag("add.png", :alt=>"Add Subassembly", :class=>"icon add") %></td>
+    </tr>
+  </tbody>
+</table>

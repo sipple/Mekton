@@ -6,4 +6,8 @@ class MechaShield < ActiveRecord::Base
     self.mecha_shield_data ? self.mecha_shield_data.weight : 0
   end
 
+  def cost
+    self.mecha_shield_data ? self.mecha_shield_data.cost : 0
+  end
+
 end

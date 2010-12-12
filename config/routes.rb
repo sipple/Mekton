@@ -26,6 +26,7 @@ ActionController::Routing::Routes.draw do |map|
     mecha.resources :mecha_servos
     mecha.resources :mecha_weapons
     mecha.resources :mecha_sensors
+    mecha.resources :mecha_subassemblies
   end
 
   map.character_select_options 'characters/:character_id/select_options', :controller => 'characters', :action => 'select_options'

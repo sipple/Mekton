@@ -50,7 +50,7 @@
     <%= render :partial => 'mecha_profile', :locals => {:mecha => @mecha} %>
   </div>
   <div id="mecha-subassemblies" class="mecha-section">
-    
+    <%= render :partial => 'mecha_subassemblies', :locals => {:mecha => @mecha, :mecha_subassemblies => @mecha.mecha_subassemblies} %>
   </div>
   <div id="mecha-shields" class="mecha-section">
     

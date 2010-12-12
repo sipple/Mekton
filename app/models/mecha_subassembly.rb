@@ -6,4 +6,8 @@ class MechaSubassembly < ActiveRecord::Base
     self.mecha_subassembly_data ? self.mecha_subassembly_data.weight : 0
   end
 
+  def cost
+    self.mecha_subassembly_data ? self.mecha_subassembly_data.cost : 0
+  end
+
 end
