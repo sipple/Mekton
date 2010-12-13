@@ -1,0 +1,12 @@
+<%
+   multiplier = local_assigns[:mecha_multiplier]
+   multiplier_data = local_assigns[:mecha_multiplier].mecha_multiplier_data
+   multiplier_id = "mecha_multipliers-#{local_assigns[:mecha_multiplier].id}"
+%>
+
+<tr id="<%= multiplier_id %>">
+  <td><%= editable_row_select("#{multiplier_id}-mecha_multiplier_data_id", (multiplier_data.multiplier if multiplier_data)) %></td>
+  <td><%= editable_row_field("#{multiplier_id}-quantity", (multiplier.quantity)) %></td>
+  <td><%= static("#{multiplier_id}-cost", (multiplier.cost)) %></td>
+  <td><%= image_tag("delete.png", :alt=>"Delete", :class=>"icon delete") %></td>
+</tr>

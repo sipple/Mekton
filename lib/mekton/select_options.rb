@@ -149,5 +149,15 @@ module Mekton
       hash
     end
 
+    def get_mecha_multiplier_data_options(id, hash)
+      mecha_multiplier = MechaMultiplier.find(id)
+      MechaMultiplierData.all(:order => 'multiplier').each {|multiplier_data| hash[multiplier_data.id.to_s] = multiplier_data.multiplier}
+      if mecha_multiplier.mecha_multiplier_data_id
+        hash["selected"] = mecha_multiplier.mecha_multiplier_data_id
+      else
+        hash["selected"] = ""
+      end
+      hash
+    end
   end
 end

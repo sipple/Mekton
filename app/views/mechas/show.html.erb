@@ -22,7 +22,7 @@
     </div>
     <div class="mecha-subright">
      <div id="mecha-multipliers" class="mecha-section">
-       
+       <%= render :partial => 'mecha_multipliers', :locals => {:mecha => @mecha, :mecha_multipliers => @mecha.mecha_multipliers} %>
      </div>
     </div>
   </div>

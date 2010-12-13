@@ -10,6 +10,10 @@ class MechaMovement < ActiveRecord::Base
     movement_cost_and_space.round
   end
 
+  def weight
+    0
+  end
+
   private
 
   def movement_cost_and_space

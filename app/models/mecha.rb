@@ -14,7 +14,7 @@ class Mecha < ActiveRecord::Base
   BASE_LAND_MA = 6
   BASE_FLIGHT_MA = 0
   BASE_MV = -1
-  MECHA_SYSTEMS = [:mecha_servos, :mecha_weapons, :mecha_shields, :mecha_subassemblies, :mecha_sensors]
+  MECHA_SYSTEMS = [:mecha_movements, :mecha_servos, :mecha_weapons, :mecha_shields, :mecha_subassemblies, :mecha_sensors]
 
   def weight
     @weight = @weight || weight_for(MECHA_SYSTEMS)
@@ -22,7 +22,11 @@ class Mecha < ActiveRecord::Base
   end
 
   def cost
-    0
+    (base_cost * total_multipliers).round
+  end
+
+  def base_cost
+    cost_for MECHA_SYSTEMS
   end
 
   def mv
@@ -109,6 +113,20 @@ class Mecha < ActiveRecord::Base
       weight += self.send(system).all.sum(&:weight)
     end
     weight
+  end
+
+  def cost_for systems
+    cost = 0
+    systems.each do |system|
+      cost += self.send(system).all.sum(&:cost)
+    end
+    cost
+  end
+
+  def total_multipliers
+    multipliers = 1
+    multipliers += self.mecha_multipliers.all.sum(&:multiple)
+    multipliers
   end
   
 end
