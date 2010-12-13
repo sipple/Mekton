@@ -33,6 +33,10 @@ class Mecha < ActiveRecord::Base
     self.character.maneuver_pool + (self.character.maneuver_pool * (self.mp_bonus / 100 || 0)).round
   end
 
+  def mp_bonus
+    super || 0
+  end
+
   def mv
     (self.mv_bonus || 0) + base_mv
   end
