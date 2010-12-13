@@ -153,7 +153,9 @@ class Mecha < ActiveRecord::Base
 
   def total_multipliers
     multipliers = 1
-    multipliers += self.mecha_multipliers.all.sum(&:multiple)
+    self.mecha_multipliers.each do |multiplier|
+      multipliers += multiplier.quantity * multiplier.multiple
+    end
     multipliers
   end
   

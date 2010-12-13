@@ -10,4 +10,8 @@ class MechaMultiplier < ActiveRecord::Base
     self.mecha_multiplier_data ? self.mecha_multiplier_data.multiple : 0
   end
 
+  def quantity
+    super || 1
+  end
+
 end
