@@ -32,6 +32,9 @@ ActionController::Routing::Routes.draw do |map|
     mecha.resources :mecha_multipliers
   end
 
+  map.resources :mecha_weapon_data
+  map.resources :mecha_multiplier_data
+
   map.character_select_options 'characters/:character_id/select_options', :controller => 'characters', :action => 'select_options'
   map.mecha_select_options 'mechas/:mecha_id/select_options', :controller => 'mechas', :action => 'select_options'
 

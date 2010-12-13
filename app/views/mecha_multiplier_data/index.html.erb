@@ -1,0 +1,11 @@
+<h1>Mecha multiplier</h1>
+<ul>
+  <% @multipliers.each do |multiplier| %>
+    <li><%= link_to multiplier.multiplier, edit_mecha_multiplier_data_path(multiplier) %></li>
+  <% end %>
+
+</ul>
+
+<p>
+  <%= link_to "New Multiplier", new_mecha_multiplier_data_path %>
+</p>

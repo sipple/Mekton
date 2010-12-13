@@ -1,0 +1,45 @@
+<h1>Create a Mecha Weapon</h1>
+
+<% form_for(:mecha_weapon_data, @weapon, :url => {:action => 'create'}) do |f| %>
+<p>
+Weapon Name:<br />
+  <%= f.text_field :weapon %>
+</p>
+  <p>
+Weapon Adjustment:<br />
+    <%= f.text_field :weapon_adjustment %>
+</p>
+  <p>
+Range:<br />
+    <%= f.text_field :range %>
+</p>
+  <p>
+Damage:<br />
+    <%= f.text_field :damage %>
+</p>
+  <p>
+Kills:<br />
+    <%= f.text_field :kills %>
+</p>
+  <p>
+Space:<br />
+    <%= f.text_field :space %>
+</p>
+    <p>
+Cost: <br />
+      <%= f.text_field :cost %>
+</p>
+    <p>
+Weight:<br />
+      <%= f.text_field :weight %>
+</p>
+    <p>
+Burst Value:<br />
+      <%= f.text_field :burst_value %>
+</p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+
+
+<% end %>

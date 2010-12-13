@@ -1,0 +1,17 @@
+<h1>Create a Mecha Weapon</h1>
+
+<% form_for(:mecha_multiplier_data, @multiplier, :url => {:action => 'create'}) do |f| %>
+<p>
+Multiplier Name:<br />
+  <%= f.text_field :multiplier %>
+</p>
+  <p>
+Multiple:<br />
+    <%= f.text_field :multiple %>
+</p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+
+
+<% end %>
