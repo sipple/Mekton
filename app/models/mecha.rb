@@ -70,7 +70,19 @@ class Mecha < ActiveRecord::Base
   end
 
   def flight_ma
-    0
+    speed = 0
+    self.mecha_movements.all.each do |movement|
+      speed += (movement.speed || 0) unless movement.movement_system == "Ground Effects"
+    end
+    speed
+  end
+
+  def ground_effects
+    speed = 0
+    self.mecha_movements.all.each do |movement|
+      speed += (movement.speed || 0) if movement.movement_system == "Ground Effects"
+    end
+    speed
   end
 
   def mecha_reflexes
@@ -100,7 +112,7 @@ class Mecha < ActiveRecord::Base
   def mecha_json
     self.to_json(:methods => [:weight, :cost, :mecha_reflexes, :mecha_piloting, :mecha_fighting,
                                    :mecha_melee, :mecha_gunnery, :mecha_missiles, :flight_ma,
-                                   :land_ma, :mv])
+                                   :land_ma, :mv, :ground_effects])
   end
 
 

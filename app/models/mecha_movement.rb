@@ -14,6 +14,11 @@ class MechaMovement < ActiveRecord::Base
     0
   end
 
+
+  def movement_system
+    self.mecha_movement_data ? self.mecha_movement_data.movement_system : nil
+  end
+
   private
 
   def movement_cost_and_space

@@ -76,7 +76,7 @@ function updatePrimaryStats(mecha) {
   updateDiv($("#land_ma"), mecha.land_ma);
   updateDiv($("#flight_ma"), mecha.flight_ma);
   updateDiv($("#wings_flight_ma"), (mecha.flight_ma + 2));
-  updateDiv($("#ge_land_ma"), mecha.land_ma);
+  updateDiv($("#ground_effects"), mecha.ground_effects);
   updateDiv($('#mecha_weight'), mecha.weight);
   updateDiv($('#mecha_cost'), mecha.cost);
 
