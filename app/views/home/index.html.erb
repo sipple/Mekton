@@ -7,7 +7,7 @@
 you'll need to create a character as a pilot, first.  Also, for the time being, if you create a mecha, you can't
 change the pilot you created it with. I'll get that fixed soon.</p>
 
-<p>You'll see fields on the sheet that say "Click to edit".  Guess what you do to edit those?</p>
+<p>You'll see fields on the sheet that say "Click to edit".  Guess what you do to edit those.</p>
 
 <p>A few points about these cool javascript editable fields, though. For now, to save a value you've
 typed into a text box, you need to hit <strong>Enter</strong>. For the select/drop-down boxes, you can just
@@ -19,8 +19,13 @@ more multipliers, which can have some crazy effects, choosing a multiplier just 
 say, Maneuver Verniers, you'll add the benefits you get (+1 to MV per vernier purchased) to the new <strong>Mecha
 Modifiers</strong> section.</p>
 
-<p>Coming soon: A place to add any custom weapon stats you have, along with other custom Stuff we might have
-created.</p>
+<p>You'll also notice that you can't sacrifice kills for space on the new sheet. You'll do this a little differently, now.
+You can create new Servo Levels (Like, say, a Custom Armored Heavy Torso, or whatever you want to call it), and you can
+give these servo levels whatever stats you want. So, if you want to mess with the space and kills of a servo, you'll
+do it like you would a custom weapon.</p>
+
+<p>Speaking of which, you can create custom weapons, too. Add them under the Mecha Weapons area below, and they'll
+be available on your character sheet.</p>
 
 <p>Send me any bugs you find.</p>
 
@@ -35,5 +40,6 @@ created.</p>
   <li><%= link_to "All Mecha", mechas_path %></li>
   <li><%= link_to "New Mecha", new_mecha_path %></li>
   <li><%= link_to "Mecha Weapons", mecha_weapon_data_index_path %></li>
+  <li><%= link_to "Mecha Servo Levels", mecha_servo_level_data_index_path %></li>
   <li><%= link_to "Mecha Multipliers", mecha_multiplier_data_index_path %></li>
 </ul>

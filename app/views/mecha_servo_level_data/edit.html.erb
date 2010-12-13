@@ -1,0 +1,33 @@
+<h1><%= "#{@level.level} #{@level.mecha_servo_data.servo}" %></h1>
+
+<% form_for @level do |f| %>
+<p>
+Servo:<br />
+  <%= f.select :mecha_servo_data_id, MechaServoData.all.collect {|s| [s.servo, s.id]} %>
+</p>
+  <p>
+Level:<br />
+    <%= f.text_field :level %>
+</p>
+  <p>
+Kills:<br />
+    <%= f.text_field :kills %>
+</p>
+  <p>
+Space:<br />
+    <%= f.text_field :space %>
+</p>
+    <p>
+Cost: <br />
+      <%= f.text_field :cost %>
+</p>
+    <p>
+Weight:<br />
+      <%= f.text_field :weight %>
+</p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+
+
+<% end %>

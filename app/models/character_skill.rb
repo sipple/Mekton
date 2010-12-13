@@ -19,7 +19,7 @@ class CharacterSkill < ActiveRecord::Base
   def attribute_bonus
     if self.character_skill_data
       attribute = self.character_skill_data.related_attribute
-      self.character.send(attribute.downcase)
+      self.character.send(attribute.gsub(" ", "").underscore)
     else
       0
     end

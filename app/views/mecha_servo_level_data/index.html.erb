@@ -1,0 +1,11 @@
+<h1>Mecha Servo Levels</h1>
+<ul>
+  <% @levels.each do |level| %>
+    <li><%= link_to "#{level.level} #{level.mecha_servo_data.servo}", edit_mecha_servo_level_data_path(level) %></li>
+  <% end %>
+
+</ul>
+
+<p>
+  <%= link_to "New Servo Level", new_mecha_servo_level_data_path %>
+</p>

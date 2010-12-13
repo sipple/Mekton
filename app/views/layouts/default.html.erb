@@ -1,6 +1,7 @@
 <html>
   <head>
     <%= stylesheet_link_tag "default", :media => "all" %>
+    <%= stylesheet_link_tag "print", :media => 'print' %>
     <%= javascript_include_tag "jquery" %>
     <%= javascript_include_tag "jquery.validate" %>
     <%= javascript_include_tag "jquery.jeditable" %>
@@ -8,6 +9,11 @@
     <title><%=h yield(:title) %></title>
   </head>
   <body>
+    <div id="header">
+    <%= "#{link_to "Home", root_path}" %>
+  </div>
   <%= yield %>
+  <div id="footer">
+  </div>
   </body>
 </html>
