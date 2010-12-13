@@ -97,9 +97,10 @@ class MechasController < ApplicationController
   private
 
   def full_mecha_json(mecha)
-    mecha.to_json(:methods => [],
-                  :include => {:mecha_servos => {:include => [:mecha_servo_data, :mecha_servo_level_data, :mecha_armor_data]}},
-                  :mecha_weapons => {:include => :mecha_weapon_data})
+    json_hash = Hash.new
+    json_hash["mecha"] = mecha.mecha_json
+    json_hash.to_json
   end
+
 
 end

@@ -29,7 +29,15 @@ class Mecha < ActiveRecord::Base
     cost_for MECHA_SYSTEMS
   end
 
+  def maneuver_pool
+    self.character.maneuver_pool + (self.character.maneuver_pool * (self.mp_bonus / 100 || 0)).round
+  end
+
   def mv
+    (self.mv_bonus || 0) + base_mv
+  end
+
+  def base_mv
     case weight.floor
       when 0..19
         -1
@@ -55,6 +63,10 @@ class Mecha < ActiveRecord::Base
   end
 
   def land_ma
+    (self.ma_bonus || 0) + base_land_ma
+  end
+
+  def base_land_ma
     case weight.floor
       when 0..19
         6
@@ -74,7 +86,7 @@ class Mecha < ActiveRecord::Base
     self.mecha_movements.all.each do |movement|
       speed += (movement.speed || 0) unless movement.movement_system == "Ground Effects"
     end
-    speed
+    speed + (self.ma_bonus || 0)
   end
 
   def ground_effects
@@ -82,7 +94,7 @@ class Mecha < ActiveRecord::Base
     self.mecha_movements.all.each do |movement|
       speed += (movement.speed || 0) if movement.movement_system == "Ground Effects"
     end
-    speed
+    speed + (self.ma_bonus || 0)
   end
 
   def mecha_reflexes
@@ -112,7 +124,7 @@ class Mecha < ActiveRecord::Base
   def mecha_json
     self.to_json(:methods => [:weight, :cost, :mecha_reflexes, :mecha_piloting, :mecha_fighting,
                                    :mecha_melee, :mecha_gunnery, :mecha_missiles, :flight_ma,
-                                   :land_ma, :mv, :ground_effects])
+                                   :land_ma, :mv, :ground_effects, :maneuver_pool])
   end
 
 

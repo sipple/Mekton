@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101212235832) do
+ActiveRecord::Schema.define(:version => 20101213023526) do
 
   create_table "character_armor_data", :force => true do |t|
     t.string   "armor"
@@ -343,6 +343,9 @@ ActiveRecord::Schema.define(:version => 20101212235832) do
     t.integer  "mecha_servo_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "mv_bonus"
+    t.integer  "ma_bonus"
+    t.integer  "mp_bonus"
   end
 
 end

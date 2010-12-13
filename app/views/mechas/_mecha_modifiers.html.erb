@@ -1,0 +1,21 @@
+<% mecha = local_assigns[:mecha] %>
+
+<table id="mecha-modifiers-table" class="mecha-table">
+  <thead class="shaded">
+    <tr>
+      <th colspan="3">Mecha modifiers</th>
+    </tr>
+    <tr>
+      <th>MV</th>
+      <th>MA</th>
+      <th>Maneuver Pool (% bonus)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><div id="mv_bonus" class="modifier"><%= mecha.mv_bonus %></div></td>
+      <td><div id="ma_bonus" class="modifier"><%= mecha.ma_bonus %></div></td>
+      <td><div id="mp_bonus" class="modifier"><%= mecha.mp_bonus %></div></td>
+    </tr>
+  </tbody>
+</table>

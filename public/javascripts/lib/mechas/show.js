@@ -8,8 +8,7 @@ function submitMechaUpdate(value, settings) {
     data: "field=" + this.id + "&value=" + value,
     complete: function(xhr, textStatus) {
       var response =  $.parseJSON(xhr.responseText);
-      updateSecondaryStats(response.mecha);
-      updateSkills(response.mecha);
+      updatePrimaryStats($.parseJSON(response.mecha).mecha);
     }
   });
 
@@ -79,6 +78,7 @@ function updatePrimaryStats(mecha) {
   updateDiv($("#ground_effects"), mecha.ground_effects);
   updateDiv($('#mecha_weight'), mecha.weight);
   updateDiv($('#mecha_cost'), mecha.cost);
+  updateDiv($('#maneuver_pool'), mecha.maneuver_pool);
 
 }
 
@@ -165,6 +165,11 @@ $(document).ready(function(){
   });
 
   $('#mecha_name').editable(submitNameUpdate, {
+    method: 'PUT',
+    id: 'field',
+    name: 'value'
+  });
+  $('.modifier').editable(submitMechaUpdate, {
     method: 'PUT',
     id: 'field',
     name: 'value'

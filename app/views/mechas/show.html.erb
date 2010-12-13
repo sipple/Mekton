@@ -13,8 +13,8 @@
        <div class="side-label label shaded">
          Maneuver Pool
        </div>
-       <div>
-         <%= @mecha_pilot.maneuver_pool %>
+       <div id="maneuver_pool">
+         <%= @mecha.maneuver_pool %>
        </div>
      </div>
      <div id="mecha-combat_skills" class="mecha-section">
@@ -24,6 +24,9 @@
     <div class="mecha-subright">
      <div id="mecha-multipliers" class="mecha-section">
        <%= render :partial => 'mecha_multipliers', :locals => {:mecha => @mecha, :mecha_multipliers => @mecha.mecha_multipliers} %>
+     </div>
+     <div id="mecha-modifiers" class="mecha-section">
+       <%= render :partial => 'mecha_modifiers', :locals => {:mecha => @mecha} %>
      </div>
     </div>
   </div>
