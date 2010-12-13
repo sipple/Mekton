@@ -76,6 +76,7 @@ table {
 .character-section, .mecha-section {
     margin: 10px 5px 10px 5px;
     clear: both;
+    border: 1px solid black;
 }
 
 .mecha-subleft, .mecha-subright {
