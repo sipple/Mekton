@@ -1,0 +1,11 @@
+<h1>Mecha Subasemblies</h1>
+<ul>
+  <% @subassemblies.each do |subassembly| %>
+    <li><%= link_to subassembly.subassembly, edit_mecha_subassembly_data_path(subassembly) %></li>
+  <% end %>
+
+</ul>
+
+<p>
+  <%= link_to "New Subassembly", new_mecha_subassembly_data_path %>
+</p>

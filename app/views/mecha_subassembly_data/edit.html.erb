@@ -1,0 +1,29 @@
+<h1><%= @subassembly.subassembly %></h1>
+
+<% form_for @subassembly do |f| %>
+<p>
+Subassembly Name:<br />
+  <%= f.text_field :subassembly %>
+</p>
+  <p>
+Space:<br />
+    <%= f.text_field :space %>
+</p>
+    <p>
+Cost: <br />
+      <%= f.text_field :cost %>
+</p>
+    <p>
+Weight:<br />
+      <%= f.text_field :weight %>
+</p>
+    <p>
+Kills:<br />
+      <%= f.text_field :kills %>
+</p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+
+
+<% end %>
