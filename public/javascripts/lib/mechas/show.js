@@ -174,6 +174,15 @@ $(document).ready(function(){
     id: 'field',
     name: 'value'
   });
+  $('.editable-text-area').editable(submitMechaUpdate, {
+   type      : 'textarea',
+    method: 'PUT',
+    id: 'field',
+    name: 'value',
+    cancel    : 'Cancel',
+    submit    : 'OK',
+   rows       : 4
+  });
 
   bindEditableSelectRows(this);
   bindEditableFieldRows(this);

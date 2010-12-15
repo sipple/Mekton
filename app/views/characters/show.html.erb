@@ -17,6 +17,10 @@
     <%= render :partial => "character_equipments", :locals => {:character => @character,
                                                            :character_equipments => @character.character_equipments} %>
   </div>
+  <div id="character-notes-div" class="character-section">
+    <strong>Notes</strong><br/>
+    <%= editable_text_area('notes', @character.notes) %>
+  </div>
 </div>
 
 <div id="character-right">
@@ -24,20 +28,20 @@
         <div class="top-label label shaded">
           Rookie/Professional
         </div>
-      <div id="character-type">
+      <div id="character-type" class="side-stat">
         <%= @character.character_type %>
       </div>
           <div class="side-label label shaded">
           Age
         </div>
-      <div id="character-age">
-        <%= @character.age %>
+      <div id="character-age" class="side-stat">
+        <%= editable('age', @character.age) %>
       </div>
          <div class="side-label label shaded">
           Money
         </div>
-      <div id="character-money">
-        <%= @character.money %>
+      <div id="character-money" class="side-stat">
+        <%= editable('money', @character.money)%>
       </div>
       </div>
         <div id="character-stats-div" class="character-section">

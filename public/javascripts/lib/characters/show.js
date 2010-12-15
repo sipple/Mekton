@@ -146,6 +146,16 @@ $(document).ready(function() {
     name: 'value'
   });
 
+ $('.editable-text-area').editable(submitCharacterUpdate, {
+   type      : 'textarea',
+    method: 'PUT',
+    id: 'field',
+    name: 'value',
+    cancel    : 'Cancel',
+    submit    : 'OK',
+   rows       : 15
+  });
+
   bindEditableSelectRows(this);
   bindEditableFieldRows(this);
   bindDeletes(this);

@@ -132,3 +132,11 @@ table {
 .icon {
     width: 15px;
 }
+
+.side-stat {
+  clear: both;
+}
+
+#mecha-sheet{
+  padding-bottom: 40px;
+}

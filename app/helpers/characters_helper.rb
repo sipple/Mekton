@@ -3,6 +3,10 @@ module CharactersHelper
     "<div class=\"edit\" id=\"#{id}\">#{value}</div>"
   end
 
+  def editable_text_area(id, value)
+    "<div class=\"editable-text-area\" id=\"#{id}\">#{value}</div>"
+  end
+
   def editable_row_select(id, value)
     "<div class=\"editable-row-select\" id=\"#{id}\">#{value}</div>"
   end

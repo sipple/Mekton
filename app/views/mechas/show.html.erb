@@ -63,4 +63,8 @@
     <div id="mecha-armaments" class="mecha-section">
       <%= render :partial => 'mecha_weapons', :locals => {:mecha => @mecha, :mecha_weapons => @mecha.mecha_weapons} %>
     </div>
+   <div id="mecha-notes-div" class="mecha-section">
+      <strong>Notes</strong><br/>
+    <%= editable_text_area('notes', @mecha.notes) %>
+  </div>
 </div>
