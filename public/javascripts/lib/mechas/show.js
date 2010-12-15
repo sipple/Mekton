@@ -164,16 +164,21 @@ $(document).ready(function(){
     name: 'value'
   });
 
+  // Make mecha name editable (This could be rolled into that "Edit" class I think)
   $('#mecha_name').editable(submitNameUpdate, {
     method: 'PUT',
     id: 'field',
     name: 'value'
   });
+
+  // Make the mecha modifier fields editable
   $('.modifier').editable(submitMechaUpdate, {
     method: 'PUT',
     id: 'field',
     name: 'value'
   });
+
+  // Make the notes area editable
   $('.editable-text-area').editable(submitMechaUpdate, {
    type      : 'textarea',
     method: 'PUT',
