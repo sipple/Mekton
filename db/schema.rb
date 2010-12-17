@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101217212238) do
+ActiveRecord::Schema.define(:version => 20101217221428) do
 
   create_table "character_armor_data", :force => true do |t|
     t.string   "armor"
@@ -164,6 +164,7 @@ ActiveRecord::Schema.define(:version => 20101217212238) do
     t.integer  "psi_ability"
     t.text     "notes"
     t.boolean  "disabled",       :default => false
+    t.integer  "psi_points",     :default => 0
   end
 
   create_table "mecha_additives", :force => true do |t|
