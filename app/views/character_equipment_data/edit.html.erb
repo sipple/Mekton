@@ -1,0 +1,23 @@
+<h1><%= @equipment.equipment %></h1>
+
+<% form_for @equipment do |f| %>
+<p>
+Equipment Name:<br />
+  <%= f.text_field :equipment %>
+</p>
+    <p>
+Cost: <br />
+      <%= f.text_field :cost %>
+</p>
+    <p>
+Weight:<br />
+      <%= f.text_field :weight %>
+</p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+
+
+<% end %>
+
+<%= link_to "Disable", character_equipment_data_path(@equipment), :method => :delete, :confirm => "Are you sure you want to do this?" %>
