@@ -1,0 +1,47 @@
+<h1><%= @weapon.weapon %></h1>
+
+<% form_for @weapon do |f| %>
+<p>
+Weapon Name:<br />
+  <%= f.text_field :weapon %>
+</p>
+  <p>
+Weapon Adjustment:<br />
+    <%= f.text_field :weapon_adjustment %>
+</p>
+    <p>
+Range:<br />
+    <%= f.text_field :range %>
+</p>
+    <p>
+Damage:<br />
+    <%= f.text_field :damage %>
+</p>
+    <p>
+Shots:<br />
+    <%= f.text_field :shots %>
+</p>
+    <p>
+Burst Value:<br />
+    <%= f.text_field :burst_value %>
+</p>
+    <p>
+Concealment:<br />
+    <%= f.text_field :concealment %>
+</p>
+    <p>
+Cost: <br />
+      <%= f.text_field :cost %>
+</p>
+    <p>
+Weight:<br />
+      <%= f.text_field :weight %>
+</p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+
+
+<% end %>
+
+<%= link_to "Disable", character_weapon_data_path(@weapon), :method => :delete, :confirm => "Are you sure you want to do this?" %>

@@ -1,0 +1,11 @@
+<h1>Character Weapon</h1>
+<ul>
+  <% @weapons.each do |weapon| %>
+    <li><%= link_to weapon.weapon, edit_character_weapon_data_path(weapon) %></li>
+  <% end %>
+
+</ul>
+
+<p>
+  <%= link_to "New Weapon", new_character_weapon_data_path %>
+</p>

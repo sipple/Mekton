@@ -1,0 +1,17 @@
+<h1>Create a Character Skill</h1>
+
+<% form_for(:character_skill_data, @skill, :url => {:action => 'create'}) do |f| %>
+<p>
+Skill Name:<br />
+  <%= f.text_field :skill %>
+</p>
+  <p>
+Stopping Power:<br />
+    <%= f.select :related_attribute, options_for_select(related_attributes_array) %>
+</p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+
+
+<% end %>

@@ -23,4 +23,9 @@ module CharactersHelper
     "<div id=\"#{id}\">#{value}</div>"
   end
 
+  def related_attributes_array
+    ["Attractiveness", "Body Type", "Cool", "Education", "Empathy", "Intelligence", "Luck", "Move Allowance",
+     "Psi Ability", "Reflexes", "Tech Ability"]
+  end
+
 end

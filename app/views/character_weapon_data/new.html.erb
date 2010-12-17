@@ -1,0 +1,45 @@
+<h1>Create a Character Armor</h1>
+
+<% form_for(:character_weapon_data, @weapon, :url => {:action => 'create'}) do |f| %>
+<p>
+Weapon Name:<br />
+  <%= f.text_field :weapon %>
+</p>
+  <p>
+Weapon Adjustment:<br />
+    <%= f.text_field :weapon_adjustment %>
+</p>
+    <p>
+Range:<br />
+    <%= f.text_field :range %>
+</p>
+    <p>
+Damage:<br />
+    <%= f.text_field :damage %>
+</p>
+    <p>
+Shots:<br />
+    <%= f.text_field :shots %>
+</p>
+    <p>
+Burst Value:<br />
+    <%= f.text_field :burst_value %>
+</p>
+    <p>
+Concealment:<br />
+    <%= f.text_field :concealment %>
+</p>
+    <p>
+Cost: <br />
+      <%= f.text_field :cost %>
+</p>
+    <p>
+Weight:<br />
+      <%= f.text_field :weight %>
+</p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+
+
+<% end %>
