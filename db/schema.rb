@@ -9,11 +9,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101217012344) do
+ActiveRecord::Schema.define(:version => 20101217212238) do
 
   create_table "character_armor_data", :force => true do |t|
     t.string   "armor"
-    t.integer  "stopping_power"
+    t.string   "stopping_power"
     t.integer  "cost"
     t.float    "weight"
     t.datetime "created_at"

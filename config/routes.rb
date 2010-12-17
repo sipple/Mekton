@@ -32,6 +32,8 @@ ActionController::Routing::Routes.draw do |map|
     mecha.resources :mecha_multipliers
   end
 
+  map.resources :character_armor_data
+
   map.resources :mecha_weapon_data
   map.resources :mecha_multiplier_data
   map.resources :mecha_servo_level_data

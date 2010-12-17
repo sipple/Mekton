@@ -1,0 +1,11 @@
+<h1>Character Armor</h1>
+<ul>
+  <% @armors.each do |armor| %>
+    <li><%= link_to armor.armor, edit_character_armor_data_path(armor) %></li>
+  <% end %>
+
+</ul>
+
+<p>
+  <%= link_to "New Armor", new_character_armor_data_path %>
+</p>
