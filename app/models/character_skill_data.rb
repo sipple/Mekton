@@ -1,4 +1,5 @@
 class CharacterSkillData < ActiveRecord::Base
+  include Mekton::NamedScopes
 
   def self.mecha_piloting
     self.find(:first, :conditions => "skill like '%Mecha Piloting%'")

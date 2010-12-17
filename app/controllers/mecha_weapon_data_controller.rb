@@ -1,6 +1,6 @@
 class MechaWeaponDataController < ApplicationController
   def index
-    @weapons = MechaWeaponData.all(:order => "weapon")
+    @weapons = MechaWeaponData.active(:order => "weapon")
   end
 
   def show
@@ -34,8 +34,10 @@ class MechaWeaponDataController < ApplicationController
 
   def destroy
     @weapon = MechaWeaponData.find(params[:id])
-    @weapon.destroy
-    redirect_to(mecha_weapon_data_index_path)
+    @weapon.disabled = true
+    if @weapon.save
+      redirect_to(mecha_weapon_data_index_path)
+    end
   end
 
 end

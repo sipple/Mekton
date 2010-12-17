@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101215005144) do
+ActiveRecord::Schema.define(:version => 20101217012344) do
 
   create_table "character_armor_data", :force => true do |t|
     t.string   "armor"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(:version => 20101215005144) do
     t.float    "weight"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "disabled",       :default => false
   end
 
   create_table "character_armors", :force => true do |t|
@@ -34,6 +35,7 @@ ActiveRecord::Schema.define(:version => 20101215005144) do
     t.integer  "cost"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "disabled",   :default => false
   end
 
   create_table "character_equipments", :force => true do |t|
@@ -77,6 +79,7 @@ ActiveRecord::Schema.define(:version => 20101215005144) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "related_attribute"
+    t.boolean  "disabled",          :default => false
   end
 
   create_table "character_skills", :force => true do |t|
@@ -129,6 +132,7 @@ ActiveRecord::Schema.define(:version => 20101215005144) do
     t.integer  "cost"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "disabled",          :default => false
   end
 
   create_table "character_weapons", :force => true do |t|
@@ -159,6 +163,7 @@ ActiveRecord::Schema.define(:version => 20101215005144) do
     t.string   "character_type"
     t.integer  "psi_ability"
     t.text     "notes"
+    t.boolean  "disabled",       :default => false
   end
 
   create_table "mecha_additives", :force => true do |t|
@@ -177,6 +182,7 @@ ActiveRecord::Schema.define(:version => 20101215005144) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.float    "weight"
+    t.boolean  "disabled",       :default => false
   end
 
   create_table "mecha_attribute_data", :force => true do |t|
@@ -198,6 +204,7 @@ ActiveRecord::Schema.define(:version => 20101215005144) do
     t.float    "multiple"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "disabled",        :default => false
   end
 
   create_table "mecha_movements", :force => true do |t|
@@ -215,6 +222,7 @@ ActiveRecord::Schema.define(:version => 20101215005144) do
     t.float    "multiple"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "disabled",   :default => false
   end
 
   create_table "mecha_multipliers", :force => true do |t|
@@ -235,6 +243,7 @@ ActiveRecord::Schema.define(:version => 20101215005144) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "weight"
+    t.boolean  "disabled",            :default => false
   end
 
   create_table "mecha_sensors", :force => true do |t|
@@ -249,6 +258,7 @@ ActiveRecord::Schema.define(:version => 20101215005144) do
     t.string   "servo"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "disabled",   :default => false
   end
 
   create_table "mecha_servo_level_data", :force => true do |t|
@@ -260,6 +270,7 @@ ActiveRecord::Schema.define(:version => 20101215005144) do
     t.float    "weight"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "disabled",            :default => false
   end
 
   create_table "mecha_servos", :force => true do |t|
@@ -283,6 +294,7 @@ ActiveRecord::Schema.define(:version => 20101215005144) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "defense_adjustment"
+    t.boolean  "disabled",           :default => false
   end
 
   create_table "mecha_shields", :force => true do |t|
@@ -311,6 +323,7 @@ ActiveRecord::Schema.define(:version => 20101215005144) do
     t.float    "cost"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "disabled",    :default => false
   end
 
   create_table "mecha_weapon_data", :force => true do |t|
@@ -326,6 +339,7 @@ ActiveRecord::Schema.define(:version => 20101215005144) do
     t.datetime "updated_at"
     t.float    "weight"
     t.string   "burst_value"
+    t.boolean  "disabled",          :default => false
   end
 
   create_table "mecha_weapons", :force => true do |t|
@@ -349,6 +363,7 @@ ActiveRecord::Schema.define(:version => 20101215005144) do
     t.integer  "ma_bonus"
     t.integer  "mp_bonus"
     t.text     "notes"
+    t.boolean  "disabled",       :default => false
   end
 
 end

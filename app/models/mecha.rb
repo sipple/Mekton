@@ -1,4 +1,6 @@
 class Mecha < ActiveRecord::Base
+  include Mekton::NamedScopes
+
   has_many :mecha_additives
   has_many :mecha_modifiers
   has_many :mecha_movements
