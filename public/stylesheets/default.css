@@ -53,7 +53,7 @@ table {
   list-style: square;
 }
 
-#mecha-sheet {
+#character-sheet, #mecha-sheet {
   width: 900px;
 }
 
