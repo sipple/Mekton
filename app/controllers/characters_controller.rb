@@ -2,7 +2,7 @@ class CharactersController < ApplicationController
   # GET /characters
   # GET /characters.xml
   def index
-    @characters = Character.active
+    @characters = Character.all
 
     respond_to do |format|
       format.html # index.html.erb
