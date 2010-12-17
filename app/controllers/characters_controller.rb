@@ -2,7 +2,7 @@ class CharactersController < ApplicationController
   # GET /characters
   # GET /characters.xml
   def index
-    @characters = Character.all
+    @characters = Character.active
 
     respond_to do |format|
       format.html # index.html.erb
@@ -81,11 +81,13 @@ class CharactersController < ApplicationController
   # DELETE /characters/1.xml
   def destroy
     @character = Character.find(params[:id])
-    @character.destroy
+    @character.disabled = true
 
-    respond_to do |format|
-      format.html { redirect_to(characters_url) }
-      format.xml  { head :ok }
+    if @character.save
+      respond_to do |format|
+        format.html { redirect_to(characters_url) }
+        format.xml  { head :ok }
+      end
     end
   end
 

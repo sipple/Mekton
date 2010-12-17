@@ -1,6 +1,6 @@
 class MechaSubassemblyDataController < ApplicationController
   def index
-    @subassemblies = MechaSubassemblyData.all(:order => "subassembly")
+    @subassemblies = MechaSubassemblyData.active(:order => "subassembly")
   end
 
   def show
@@ -34,8 +34,11 @@ class MechaSubassemblyDataController < ApplicationController
 
   def destroy
     @subassembly = MechaSubassemblyData.find(params[:id])
-    @subassembly.destroy
-    redirect_to(mecha_subassembly_data_index_path)
+    @subassembly.disabled = true
+
+    if @subassembly.save
+      redirect_to(mecha_subassembly_data_index_path)
+    end
   end
 
 end

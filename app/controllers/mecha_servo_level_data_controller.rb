@@ -1,6 +1,6 @@
 class MechaServoLevelDataController < ApplicationController
   def index
-    @levels = MechaServoLevelData.all(:order => "level")
+    @levels = MechaServoLevelData.active(:order => "level")
   end
 
   def show
@@ -34,8 +34,12 @@ class MechaServoLevelDataController < ApplicationController
 
   def destroy
     @level = MechaServoLevelData.find(params[:id])
-    @level.destroy
-    redirect_to(mecha_servo_level_data_index_path)
+    @level.disabled = true
+
+    if @level.save
+      redirect_to(mecha_servo_level_data_index_path)
+    end
+
   end
 
 end

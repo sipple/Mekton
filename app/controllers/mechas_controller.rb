@@ -2,7 +2,7 @@ class MechasController < ApplicationController
   # GET /mechas
   # GET /mechas.xml
   def index
-    @mechas = Mecha.all
+    @mechas = Mecha.active
     respond_to do |format|
       format.html #index.html.erb
       format.xml {render :xml => @mechas}
@@ -74,6 +74,12 @@ class MechasController < ApplicationController
   # DELETE /mechas/1
   # DELETE /mechas/1.xml
   def destroy
+    @mecha = Mecha.find(params[:id])
+    @mecha.disabled = true
+
+    if @mecha.save
+      redirect_to(mechas_path)
+    end
     
   end
 
