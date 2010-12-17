@@ -1,4 +1,4 @@
 class MechaMultiplierData < ActiveRecord::Base
-  include Mekton::NamedScopes
+  named_scope :active, :conditions => {:disabled => false}
 
 end

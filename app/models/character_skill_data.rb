@@ -1,5 +1,5 @@
 class CharacterSkillData < ActiveRecord::Base
-  include Mekton::NamedScopes
+  named_scope :active, :conditions => {:disabled => false}
 
   def self.mecha_piloting
     self.find(:first, :conditions => "skill like '%Mecha Piloting%'")

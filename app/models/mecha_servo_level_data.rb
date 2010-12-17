@@ -1,5 +1,5 @@
 class MechaServoLevelData < ActiveRecord::Base
-  include Mekton::NamedScopes
+  named_scope :active, :conditions => {:disabled => false}
 
   belongs_to :mecha_servo_data
 end

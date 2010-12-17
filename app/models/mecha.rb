@@ -1,5 +1,5 @@
 class Mecha < ActiveRecord::Base
-  include Mekton::NamedScopes
+  named_scope :active, :conditions => {:disabled => false}
 
   has_many :mecha_additives
   has_many :mecha_modifiers

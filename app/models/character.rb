@@ -1,5 +1,4 @@
 class Character < ActiveRecord::Base
-  #include Mekton::NamedScopes
 
   has_many :character_armors
   has_many :character_equipments

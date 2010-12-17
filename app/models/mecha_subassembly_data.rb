@@ -1,5 +1,5 @@
 class MechaSubassemblyData < ActiveRecord::Base
-  include Mekton::NamedScopes
+  named_scope :active, :conditions => {:disabled => false}
 
   def weight
     super || 0
