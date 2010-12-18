@@ -1,4 +1,5 @@
 class Character < ActiveRecord::Base
+  named_scope :active, :conditions => {:disabled => false}
 
   has_many :character_armors
   has_many :character_equipments

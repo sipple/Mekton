@@ -15,6 +15,21 @@ function submitMechaUpdate(value, settings) {
   return value
 }
 
+function submitMechaSelectUpdate(value, settings) {
+  var field_id_hash = this.id.split('-');
+
+  $.ajax({
+     url: $('#mecha_id').text() + '.json',
+    type: 'PUT',
+    data: "field=" + field_id_hash[2] + "&value=" + value,
+    complete: function(xhr, textStatus) {
+      var response =  $.parseJSON(xhr.responseText);
+      updatePrimaryStats($.parseJSON(response.mecha).mecha);
+  }
+  });
+  return "Updating...";
+}
+
 function submitNameUpdate(value, settings) {
   $.ajax({
     url: $('#mecha_id').text() + '.json',
@@ -79,6 +94,7 @@ function updatePrimaryStats(mecha) {
   updateDiv($('#mecha_weight'), mecha.weight);
   updateDiv($('#mecha_cost'), mecha.cost);
   updateDiv($('#maneuver_pool'), mecha.maneuver_pool);
+  updateDiv($('.pilot'), mecha.character.name);
 
 }
 
@@ -187,6 +203,13 @@ $(document).ready(function(){
     cancel    : 'Cancel',
     submit    : 'OK',
    rows       : 4
+  });
+
+  $('.editable-select', this).editable(submitMechaSelectUpdate, {
+    method:'GET',
+    type: 'select',
+    loadurl: $('#mecha_id').text() + '/select_options',
+    onblur:'submit'
   });
 
   bindEditableSelectRows(this);

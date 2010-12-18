@@ -130,7 +130,7 @@ class Mecha < ActiveRecord::Base
   def mecha_json
     self.to_json(:methods => [:weight, :cost, :mecha_reflexes, :mecha_piloting, :mecha_fighting,
                                    :mecha_melee, :mecha_gunnery, :mecha_missiles, :flight_ma,
-                                   :land_ma, :mv, :ground_effects, :maneuver_pool])
+                                   :land_ma, :mv, :ground_effects, :maneuver_pool], :include => [:character])
   end
 
 

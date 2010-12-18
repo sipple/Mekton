@@ -159,5 +159,14 @@ module Mekton
       end
       hash
     end
+
+    def get_character_options(id, hash)
+      hash.delete("")
+      mecha = Mecha.find(id)
+      Character.active.each {|character| hash[character.id.to_s] = character.name}
+      hash["selected"] = mecha.character_id
+      hash
+    end
+
   end
 end
