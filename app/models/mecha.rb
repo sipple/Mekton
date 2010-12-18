@@ -1,5 +1,5 @@
 class Mecha < ActiveRecord::Base
-  named_scope :active, :conditions => {:disabled => false}
+  named_scope :active, :conditions => {:disabled => false}, :order => 'name ASC'
 
   has_many :mecha_additives
   has_many :mecha_modifiers
