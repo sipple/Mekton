@@ -1,5 +1,5 @@
 class MechaSubassemblyData < ActiveRecord::Base
-  named_scope :active, :conditions => {:disabled => false}
+  named_scope :active, :conditions => {:disabled => false}, :order => 'subassembly ASC'
 
   def weight
     super || 0

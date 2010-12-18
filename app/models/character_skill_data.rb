@@ -1,5 +1,5 @@
 class CharacterSkillData < ActiveRecord::Base
-  named_scope :active, :conditions => {:disabled => false}
+  named_scope :active, :conditions => {:disabled => false}, :order => 'skill ASC'
 
   def self.mecha_piloting
     self.find(:first, :conditions => "skill like '%Mecha Piloting%'")

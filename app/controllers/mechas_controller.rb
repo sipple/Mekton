@@ -96,7 +96,6 @@ class MechasController < ApplicationController
     else
       options = select_options.get_options(field_id_hash[0], field_id_hash[1])
     end
-
     render :text => options.to_json
   end
 
