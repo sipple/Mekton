@@ -1,0 +1,37 @@
+<h1>Create a Mecha Shield</h1>
+
+<% form_for(:mecha_shield_data, @shield, :url => {:action => 'create'}) do |f| %>
+<p>
+Shield Name:<br />
+  <%= f.text_field :shield %>
+</p>
+  <p>
+Stopping Power:<br />
+    <%= f.text_field :stopping_power %>
+</p>
+      <p>
+Defense Adjustment:<br />
+    <%= f.text_field :defense_adjustment %>
+</p>
+    <p>
+Mounted Space:<br />
+    <%= f.text_field :mounted_space %>
+</p>
+    <p>
+Handheld:<br />
+    <%= f.text_field :handheld_space %>
+</p>
+    <p>
+Cost: <br />
+      <%= f.text_field :cost %>
+</p>
+    <p>
+Weight:<br />
+      <%= f.text_field :weight %>
+</p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+
+
+<% end %>

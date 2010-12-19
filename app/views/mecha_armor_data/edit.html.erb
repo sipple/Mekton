@@ -1,0 +1,27 @@
+<h1><%= @armor.armor %></h1>
+
+<% form_for @armor do |f| %>
+<p>
+Armor Name:<br />
+  <%= f.text_field :armor %>
+</p>
+  <p>
+Stopping Power:<br />
+    <%= f.text_field :stopping_power %>
+</p>
+    <p>
+Cost: <br />
+      <%= f.text_field :cost %>
+</p>
+    <p>
+Weight:<br />
+      <%= f.text_field :weight %>
+</p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+
+
+<% end %>
+
+<%= link_to "Disable", mecha_armor_data_path(@armor), :method => :delete, :confirm => "Are you sure you want to do this?" %>

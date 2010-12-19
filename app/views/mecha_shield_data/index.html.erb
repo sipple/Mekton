@@ -1,0 +1,11 @@
+<h1>Mecha Shields</h1>
+<ul>
+  <% @shields.each do |shield| %>
+    <li><%= link_to shield.shield, edit_mecha_shield_data_path(shield) %></li>
+  <% end %>
+
+</ul>
+
+<p>
+  <%= link_to "New Shield", new_mecha_shield_data_path %>
+</p>
