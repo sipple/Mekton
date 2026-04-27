@@ -2,7 +2,6 @@
 .idea/
 
 # Rails
-/config/database.yml
 /config/credentials/*.key
 /config/master.key
 /storage/*
