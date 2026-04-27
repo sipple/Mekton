@@ -1,0 +1,29 @@
+{
+  "id": "phase-1-skeleton-01",
+  "seq": "01",
+  "title": "Generate Rails 8 application skeleton",
+  "status": "pending",
+  "depends_on": [],
+  "parallel": false,
+  "suggested_agent": "CoderAgent",
+  "context_files": [
+    ".opencode/context/project-intelligence/technical-domain.md"
+  ],
+  "reference_files": [],
+  "acceptance_criteria": [
+    "rails new runs successfully with flags: --database=sqlite3 --css=tailwind --javascript=importmap",
+    "Application directory exists with standard Rails 8 structure",
+    "Gemfile includes rails, sqlite3, importmap-rails, tailwindcss-rails, turbo-rails, stimulus-rails",
+    "Procfile exists with tailwind watch process",
+    "No Node.js dependencies (no package.json with esbuild/webpack)"
+  ],
+  "deliverables": [
+    "New Rails 8 app directory structure at project root",
+    "Gemfile",
+    "Procfile"
+  ],
+  "agent_id": "",
+  "started_at": null,
+  "completed_at": null,
+  "completion_summary": ""
+}

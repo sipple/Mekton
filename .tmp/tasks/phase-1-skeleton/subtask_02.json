@@ -1,0 +1,27 @@
+{
+  "id": "phase-1-skeleton-02",
+  "seq": "02",
+  "title": "Verify database configuration and Gemfile",
+  "status": "pending",
+  "depends_on": ["01"],
+  "parallel": false,
+  "suggested_agent": "CoderAgent",
+  "context_files": [
+    ".opencode/context/project-intelligence/technical-domain.md"
+  ],
+  "reference_files": [],
+  "acceptance_criteria": [
+    "config/database.yml uses SQLite3 adapter for all environments",
+    "Gemfile.lock resolves without errors after bundle install",
+    "rails db:create creates development.sqlite3 and test.sqlite3",
+    "turbo-rails, stimulus-rails, tailwindcss-rails all present in Gemfile.lock",
+    "No devise, pundit, or other auth gems in Gemfile"
+  ],
+  "deliverables": [
+    "config/database.yml (verified SQLite only)"
+  ],
+  "agent_id": "",
+  "started_at": null,
+  "completed_at": null,
+  "completion_summary": ""
+}

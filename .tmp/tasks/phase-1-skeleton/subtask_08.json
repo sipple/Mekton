@@ -1,0 +1,32 @@
+{
+  "id": "phase-1-skeleton-08",
+  "seq": "08",
+  "title": "Create Home controller and root route",
+  "status": "pending",
+  "depends_on": ["02"],
+  "parallel": true,
+  "suggested_agent": "CoderAgent",
+  "context_files": [
+    ".opencode/context/project-intelligence/technical-domain.md"
+  ],
+  "reference_files": [
+    "config/routes.rb"
+  ],
+  "acceptance_criteria": [
+    "HomeController exists with index action",
+    "config/routes.rb has root home#index",
+    "Placeholder view at app/views/home/index.html.erb loads without errors",
+    "View uses application layout with Tailwind",
+    "rails server boots and GET / returns HTTP 200",
+    "No other routes beyond root plus Rails default health check"
+  ],
+  "deliverables": [
+    "app/controllers/home_controller.rb",
+    "app/views/home/index.html.erb",
+    "config/routes.rb"
+  ],
+  "agent_id": "",
+  "started_at": null,
+  "completed_at": null,
+  "completion_summary": ""
+}

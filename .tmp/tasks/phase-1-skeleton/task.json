@@ -1,0 +1,29 @@
+{
+  "id": "phase-1-skeleton",
+  "name": "Phase 1 — Skeleton: Bootable Rails 8 App",
+  "status": "active",
+  "objective": "Generate a bootable Rails 8 app with SQLite, 37 ported tables, CSV seed data loading, all 37 models with RPG math preserved, and a placeholder landing page.",
+  "context_files": [
+    ".opencode/context/project-intelligence/technical-domain.md",
+    ".opencode/context/core/standards/code-quality.md"
+  ],
+  "reference_files": [
+    "db/schema.rb",
+    "app/models/",
+    "db/seed_data/",
+    "config/routes.rb"
+  ],
+  "exit_criteria": [
+    "Rails 8 app generated with SQLite, Tailwind, importmap flags",
+    "37 tables migrated via `rails db:migrate`",
+    "All CSV seed data loads via `rails db:seed`",
+    "All 37 models ported with RPG math preserved, SQL injection fixed, scope replacing named_scope",
+    "Home controller serves placeholder page at /",
+    "Server boots cleanly with rails server",
+    "Branch phase-1-skeleton off mekton-v2"
+  ],
+  "subtask_count": 9,
+  "completed_count": 0,
+  "created_at": "2026-04-27T13:15:00Z",
+  "completed_at": null
+}
