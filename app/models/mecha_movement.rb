@@ -1,6 +1,9 @@
-class MechaMovement < ActiveRecord::Base
+class MechaMovement < ApplicationRecord
   belongs_to :mecha
-  belongs_to :mecha_movement_data
+  belongs_to :mecha_movement_data, optional: true
+  belongs_to :mecha_servo, optional: true
+
+  # --- RPG Math ---
 
   def cost
     movement_cost_and_space.round
@@ -14,15 +17,15 @@ class MechaMovement < ActiveRecord::Base
     0
   end
 
-
   def movement_system
-    self.mecha_movement_data ? self.mecha_movement_data.movement_system : nil
+    mecha_movement_data&.movement_system
   end
 
   private
 
   def movement_cost_and_space
-    self.mecha_movement_data ? ((self.speed || 0) * self.mecha.weight * self.mecha_movement_data.multiple) : 0
-  end
+    return 0 unless mecha_movement_data
 
+    ((speed || 0) * mecha.weight * mecha_movement_data.multiple)
+  end
 end

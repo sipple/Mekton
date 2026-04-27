@@ -1,9 +1,8 @@
-class CharacterEquipment < ActiveRecord::Base
+class CharacterEquipment < ApplicationRecord
   belongs_to :character
   belongs_to :character_equipment_data
 
   def cost
-    (self.quantity || 0) * self.character_equipment_data.cost if self.character_equipment_data
+    (quantity || 0) * character_equipment_data.cost if character_equipment_data
   end
-  
 end

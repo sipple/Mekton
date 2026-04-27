@@ -1,78 +1,14 @@
-ActionController::Routing::Routes.draw do |map|
-  # The priority is based upon order of creation: first created -> highest priority.
+Rails.application.routes.draw do
+  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Sample of regular route:
-  #   map.connect 'products/:id', :controller => 'catalog', :action => 'view'
-  # Keep in mind you can assign values other than :controller and :action
+  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
+  # Can be used by load balancers and uptime monitors to verify that the app is live.
+  get "up" => "rails/health#show", as: :rails_health_check
 
-  # Sample of named route:
-  #   map.purchase 'products/:id/purchase', :controller => 'catalog', :action => 'purchase'
-  # This route can be invoked with purchase_url(:id => product.id)
+  # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
+  # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
+  # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
-  # Sample resource route (maps HTTP verbs to controller actions automatically):
-  #   map.resources :products
-  map.resources :characters do |character|
-    character.resources :character_armors
-    character.resources :character_weapons
-    character.resources :character_equipments
-    character.resources :character_skills
-  end
-
-  map.resources :character_profession_data do |profession|
-    profession.resources :character_profession_skill_data
-  end
-
-  map.resources :mechas do |mecha|
-    mecha.resources :mecha_servos
-    mecha.resources :mecha_weapons
-    mecha.resources :mecha_sensors
-    mecha.resources :mecha_subassemblies
-    mecha.resources :mecha_shields
-    mecha.resources :mecha_movements
-    mecha.resources :mecha_multipliers
-  end
-
-  map.resources :character_armor_data
-  map.resources :character_skill_data
-  map.resources :character_weapon_data
-  map.resources :character_equipment_data
-
-  map.resources :mecha_weapon_data
-  map.resources :mecha_multiplier_data
-  map.resources :mecha_servo_level_data
-  map.resources :mecha_subassembly_data
-  map.resources :mecha_armor_data
-  map.resources :mecha_shield_data
-
-  map.character_select_options 'characters/:character_id/select_options', :controller => 'characters', :action => 'select_options'
-  map.mecha_select_options 'mechas/:mecha_id/select_options', :controller => 'mechas', :action => 'select_options'
-
-  # Sample resource route with options:
-  #   map.resources :products, :member => { :short => :get, :toggle => :post }, :collection => { :sold => :get }
-
-  # Sample resource route with sub-resources:
-  #   map.resources :products, :has_many => [ :comments, :sales ], :has_one => :seller
-  
-  # Sample resource route with more complex sub-resources
-  #   map.resources :products do |products|
-  #     products.resources :comments
-  #     products.resources :sales, :collection => { :recent => :get }
-  #   end
-
-  # Sample resource route within a namespace:
-  #   map.namespace :admin do |admin|
-  #     # Directs /admin/products/* to Admin::ProductsController (app/controllers/admin/products_controller.rb)
-  #     admin.resources :products
-  #   end
-
-  # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
-   map.root :controller => "home"
-
-  # See how all your routes lay out with "rake routes"
-
-  # Install the default routes as the lowest priority.
-  # Note: These default routes make all actions in every controller accessible via GET requests. You should
-  # consider removing or commenting them out if you're using named routes and resources.
-  map.connect ':controller/:action/:id'
-  map.connect ':controller/:action/:id.:format'
+  # Defines the root path route ("/")
+  root "home#index"
 end

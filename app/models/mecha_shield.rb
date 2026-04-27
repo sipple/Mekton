@@ -1,13 +1,15 @@
-class MechaShield < ActiveRecord::Base
+class MechaShield < ApplicationRecord
   belongs_to :mecha
-  belongs_to :mecha_shield_data
+  belongs_to :mecha_shield_data, optional: true
+  belongs_to :mecha_servo, optional: true
+
+  # --- RPG Math ---
 
   def weight
-    self.mecha_shield_data ? self.mecha_shield_data.weight : 0
+    mecha_shield_data&.weight || 0
   end
 
   def cost
-    self.mecha_shield_data ? self.mecha_shield_data.cost : 0
+    mecha_shield_data&.cost || 0
   end
-
 end

@@ -1,8 +1,7 @@
-class MechaShieldData < ActiveRecord::Base
-  named_scope :active, :conditions => {:disabled => false}, :order => 'shield ASC'
+class MechaShieldData < ApplicationRecord
+  scope :active, -> { where(disabled: false).order(shield: :asc) }
 
   def space
-    "#{self.mounted_space}M\\#{self.handheld_space}H"
+    "#{mounted_space}M\\#{handheld_space}H"
   end
-
 end

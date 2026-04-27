@@ -1,17 +1,18 @@
-class MechaMultiplier < ActiveRecord::Base
+class MechaMultiplier < ApplicationRecord
   belongs_to :mecha
-  belongs_to :mecha_multiplier_data
+  belongs_to :mecha_multiplier_data, optional: true
+
+  # --- RPG Math ---
 
   def cost
-    ((self.quantity || 1) * multiple * self.mecha.base_cost).round
+    ((quantity || 1) * multiple * mecha.base_cost).round
   end
 
   def multiple
-    self.mecha_multiplier_data ? self.mecha_multiplier_data.multiple : 0
+    mecha_multiplier_data&.multiple || 0
   end
 
   def quantity
     super || 1
   end
-
 end

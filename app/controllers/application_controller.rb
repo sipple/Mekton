@@ -1,11 +1,7 @@
-# Filters added to this controller apply to all controllers in the application.
-# Likewise, all the methods added will be available for all controllers.
-
 class ApplicationController < ActionController::Base
-  helper :all # include all helpers, all the time
-  protect_from_forgery # See ActionController::RequestForgeryProtection for details
-  layout 'default'
+  # Only allow modern browsers supporting webp images, web push, badges, import maps, CSS nesting, and CSS :has.
+  allow_browser versions: :modern
 
-  # Scrub sensitive parameters from your log
-  # filter_parameter_logging :password
+  # Changes to the importmap will invalidate the etag for HTML responses
+  stale_when_importmap_changes
 end

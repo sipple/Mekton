@@ -1,3 +1,3 @@
-class MechaMovementData < ActiveRecord::Base
-  named_scope :active, :conditions => {:disabled => false}, :order => 'movement_system ASC'
+class MechaMovementData < ApplicationRecord
+  scope :active, -> { where(disabled: false).order(movement_system: :asc) }
 end

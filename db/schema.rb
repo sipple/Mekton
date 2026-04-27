@@ -1,370 +1,415 @@
-# This file is auto-generated from the current state of the database. Instead of editing this file, 
-# please use the migrations feature of Active Record to incrementally modify your database, and
-# then regenerate this schema definition.
+# This file is auto-generated from the current state of the database. Instead
+# of editing this file, please use the migrations feature of Active Record to
+# incrementally modify your database, and then regenerate this schema definition.
 #
-# Note that this schema.rb definition is the authoritative source for your database schema. If you need
-# to create the application database on another system, you should be using db:schema:load, not running
-# all the migrations from scratch. The latter is a flawed and unsustainable approach (the more migrations
-# you'll amass, the slower it'll run and the greater likelihood for issues).
+# This file is the source Rails uses to define your schema when running `bin/rails
+# db:schema:load`. When creating a new database, `bin/rails db:schema:load` tends to
+# be faster and is potentially less error prone than running all of your
+# migrations from scratch. Old migrations may fail to apply correctly if those
+# migrations use external dependencies or application code.
 #
-# It's strongly recommended to check this file into your version control system.
+# It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101217221428) do
-
-  create_table "character_armor_data", :force => true do |t|
-    t.string   "armor"
-    t.string   "stopping_power"
-    t.integer  "cost"
-    t.float    "weight"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.boolean  "disabled",       :default => false
+ActiveRecord::Schema[8.1].define(version: 2026_04_27_133356) do
+  create_table "character_armor_data", force: :cascade do |t|
+    t.string "armor"
+    t.integer "cost"
+    t.datetime "created_at", null: false
+    t.boolean "disabled", default: false
+    t.string "stopping_power"
+    t.datetime "updated_at", null: false
+    t.float "weight"
   end
 
-  create_table "character_armors", :force => true do |t|
-    t.integer  "character_armor_data_id"
-    t.string   "location"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "character_id"
+  create_table "character_armors", force: :cascade do |t|
+    t.integer "character_armor_data_id"
+    t.integer "character_id"
+    t.datetime "created_at", null: false
+    t.string "location"
+    t.datetime "updated_at", null: false
+    t.index ["character_armor_data_id"], name: "index_character_armors_on_character_armor_data_id"
+    t.index ["character_id"], name: "index_character_armors_on_character_id"
   end
 
-  create_table "character_equipment_data", :force => true do |t|
-    t.string   "equipment"
-    t.float    "weight"
-    t.integer  "cost"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.boolean  "disabled",   :default => false
+  create_table "character_equipment_data", force: :cascade do |t|
+    t.integer "cost"
+    t.datetime "created_at", null: false
+    t.boolean "disabled", default: false
+    t.string "equipment"
+    t.datetime "updated_at", null: false
+    t.float "weight"
   end
 
-  create_table "character_equipments", :force => true do |t|
-    t.integer  "character_equipment_data_id"
-    t.integer  "quantity"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "character_id"
+  create_table "character_equipments", force: :cascade do |t|
+    t.integer "character_equipment_data_id"
+    t.integer "character_id"
+    t.datetime "created_at", null: false
+    t.integer "quantity"
+    t.datetime "updated_at", null: false
+    t.index ["character_equipment_data_id"], name: "index_character_equipments_on_character_equipment_data_id"
+    t.index ["character_id"], name: "index_character_equipments_on_character_id"
   end
 
-  create_table "character_profession_data", :force => true do |t|
-    t.string   "profession"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "character_profession_data", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.string "profession"
+    t.datetime "updated_at", null: false
   end
 
-  create_table "character_profession_skill_data", :force => true do |t|
-    t.integer  "character_profession_data_id"
-    t.integer  "character_skill_data_id"
-    t.integer  "bonus"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "character_profession_skill_data", force: :cascade do |t|
+    t.integer "bonus"
+    t.integer "character_profession_data_id"
+    t.integer "character_skill_data_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["character_profession_data_id"], name: "idx_on_character_profession_data_id_5b64bd0956"
+    t.index ["character_skill_data_id"], name: "idx_on_character_skill_data_id_eadde831d1"
   end
 
-  create_table "character_profession_skills", :force => true do |t|
-    t.integer  "character_profession_skill_data_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "character_id"
+  create_table "character_profession_skills", force: :cascade do |t|
+    t.integer "character_id"
+    t.integer "character_profession_skill_data_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["character_id"], name: "index_character_profession_skills_on_character_id"
+    t.index ["character_profession_skill_data_id"], name: "idx_on_character_profession_skill_data_id_4bcfb1cb3d"
   end
 
-  create_table "character_professions", :force => true do |t|
-    t.integer  "character_profession_data_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "character_id"
+  create_table "character_professions", force: :cascade do |t|
+    t.integer "character_id"
+    t.integer "character_profession_data_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["character_id"], name: "index_character_professions_on_character_id"
+    t.index ["character_profession_data_id"], name: "index_character_professions_on_character_profession_data_id"
   end
 
-  create_table "character_skill_data", :force => true do |t|
-    t.string   "skill"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "related_attribute"
-    t.boolean  "disabled",          :default => false
+  create_table "character_skill_data", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.boolean "disabled", default: false
+    t.string "related_attribute"
+    t.string "skill"
+    t.datetime "updated_at", null: false
   end
 
-  create_table "character_skills", :force => true do |t|
-    t.integer  "character_skill_data_id"
-    t.integer  "level"
-    t.integer  "ip_earned"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "character_id"
+  create_table "character_skills", force: :cascade do |t|
+    t.integer "character_id"
+    t.integer "character_skill_data_id"
+    t.datetime "created_at", null: false
+    t.integer "ip_earned"
+    t.integer "level"
+    t.datetime "updated_at", null: false
+    t.index ["character_id"], name: "index_character_skills_on_character_id"
+    t.index ["character_skill_data_id"], name: "index_character_skills_on_character_skill_data_id"
   end
 
-  create_table "character_template_data", :force => true do |t|
-    t.string   "template"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "character_template_data", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.string "template"
+    t.datetime "updated_at", null: false
   end
 
-  create_table "character_template_skill_data", :force => true do |t|
-    t.integer  "character_template_data_id"
-    t.integer  "character_skill_data_id"
-    t.integer  "bonus"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "character_template_skill_data", force: :cascade do |t|
+    t.integer "bonus"
+    t.integer "character_skill_data_id"
+    t.integer "character_template_data_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["character_skill_data_id"], name: "index_character_template_skill_data_on_character_skill_data_id"
+    t.index ["character_template_data_id"], name: "idx_on_character_template_data_id_97cadc01d2"
   end
 
-  create_table "character_template_skills", :force => true do |t|
-    t.integer  "character_template_skill_data_id"
-    t.integer  "bonus"
-    t.integer  "character_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "character_template_skills", force: :cascade do |t|
+    t.integer "bonus"
+    t.integer "character_id"
+    t.integer "character_template_skill_data_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["character_id"], name: "index_character_template_skills_on_character_id"
+    t.index ["character_template_skill_data_id"], name: "idx_on_character_template_skill_data_id_9d1df66e47"
   end
 
-  create_table "character_templates", :force => true do |t|
-    t.integer  "character_template_data_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "character_id"
+  create_table "character_templates", force: :cascade do |t|
+    t.integer "character_id"
+    t.integer "character_template_data_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["character_id"], name: "index_character_templates_on_character_id"
+    t.index ["character_template_data_id"], name: "index_character_templates_on_character_template_data_id"
   end
 
-  create_table "character_weapon_data", :force => true do |t|
-    t.string   "weapon"
-    t.integer  "weapon_adjustment"
-    t.string   "range"
-    t.string   "damage"
-    t.string   "shots"
-    t.string   "burst_value"
-    t.string   "concealment"
-    t.float    "weight"
-    t.integer  "cost"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.boolean  "disabled",          :default => false
+  create_table "character_weapon_data", force: :cascade do |t|
+    t.string "burst_value"
+    t.string "concealment"
+    t.integer "cost"
+    t.datetime "created_at", null: false
+    t.string "damage"
+    t.boolean "disabled", default: false
+    t.string "range"
+    t.string "shots"
+    t.datetime "updated_at", null: false
+    t.string "weapon"
+    t.integer "weapon_adjustment"
+    t.float "weight"
   end
 
-  create_table "character_weapons", :force => true do |t|
-    t.integer  "character_weapon_data_id"
-    t.integer  "quantity"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "character_id"
+  create_table "character_weapons", force: :cascade do |t|
+    t.integer "character_id"
+    t.integer "character_weapon_data_id"
+    t.datetime "created_at", null: false
+    t.integer "quantity"
+    t.datetime "updated_at", null: false
+    t.index ["character_id"], name: "index_character_weapons_on_character_id"
+    t.index ["character_weapon_data_id"], name: "index_character_weapons_on_character_weapon_data_id"
   end
 
-  create_table "characters", :force => true do |t|
-    t.string   "name"
-    t.integer  "age"
-    t.integer  "money"
-    t.integer  "ip"
-    t.integer  "intelligence"
-    t.integer  "cool"
-    t.integer  "reflexes"
-    t.integer  "attractiveness"
-    t.integer  "empathy"
-    t.integer  "luck"
-    t.integer  "move_allowance"
-    t.integer  "body_type"
-    t.integer  "education"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "tech_ability"
-    t.string   "character_type"
-    t.integer  "psi_ability"
-    t.text     "notes"
-    t.boolean  "disabled",       :default => false
-    t.integer  "psi_points",     :default => 0
+  create_table "characters", force: :cascade do |t|
+    t.integer "age"
+    t.integer "attractiveness"
+    t.integer "body_type"
+    t.string "character_type"
+    t.integer "cool"
+    t.datetime "created_at", null: false
+    t.boolean "disabled", default: false
+    t.integer "education"
+    t.integer "empathy"
+    t.integer "intelligence"
+    t.integer "ip"
+    t.integer "luck"
+    t.integer "money"
+    t.integer "move_allowance"
+    t.string "name"
+    t.text "notes"
+    t.integer "psi_ability"
+    t.integer "psi_points", default: 0
+    t.integer "reflexes"
+    t.integer "tech_ability"
+    t.datetime "updated_at", null: false
   end
 
-  create_table "mecha_additives", :force => true do |t|
-    t.string   "system"
-    t.float    "cost"
-    t.string   "effect"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "mecha_id"
+  create_table "mecha_additives", force: :cascade do |t|
+    t.float "cost"
+    t.datetime "created_at", null: false
+    t.string "effect"
+    t.integer "mecha_id"
+    t.string "system"
+    t.datetime "updated_at", null: false
+    t.index ["mecha_id"], name: "index_mecha_additives_on_mecha_id"
   end
 
-  create_table "mecha_armor_data", :force => true do |t|
-    t.string   "armor"
-    t.integer  "stopping_power"
-    t.float    "cost"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.float    "weight"
-    t.boolean  "disabled",       :default => false
+  create_table "mecha_armor_data", force: :cascade do |t|
+    t.string "armor"
+    t.float "cost"
+    t.datetime "created_at", null: false
+    t.boolean "disabled", default: false
+    t.integer "stopping_power"
+    t.datetime "updated_at", null: false
+    t.float "weight"
   end
 
-  create_table "mecha_attribute_data", :force => true do |t|
-    t.string   "attribute"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "mecha_attribute_data", force: :cascade do |t|
+    t.string "attribute"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "mecha_modifiers", :force => true do |t|
-    t.integer  "mecha_attribute_data_id"
-    t.float    "modifier"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "mecha_id"
+  create_table "mecha_modifiers", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.integer "mecha_attribute_data_id"
+    t.integer "mecha_id"
+    t.float "modifier"
+    t.datetime "updated_at", null: false
+    t.index ["mecha_attribute_data_id"], name: "index_mecha_modifiers_on_mecha_attribute_data_id"
+    t.index ["mecha_id"], name: "index_mecha_modifiers_on_mecha_id"
   end
 
-  create_table "mecha_movement_data", :force => true do |t|
-    t.string   "movement_system"
-    t.float    "multiple"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.boolean  "disabled",        :default => false
+  create_table "mecha_movement_data", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.boolean "disabled", default: false
+    t.string "movement_system"
+    t.float "multiple"
+    t.datetime "updated_at", null: false
   end
 
-  create_table "mecha_movements", :force => true do |t|
-    t.integer  "mecha_movement_data_id"
-    t.integer  "mecha_servo_id"
-    t.integer  "speed"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "mecha_id"
-    t.string   "location"
+  create_table "mecha_movements", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.string "location"
+    t.integer "mecha_id"
+    t.integer "mecha_movement_data_id"
+    t.integer "mecha_servo_id"
+    t.integer "speed"
+    t.datetime "updated_at", null: false
+    t.index ["mecha_id"], name: "index_mecha_movements_on_mecha_id"
+    t.index ["mecha_movement_data_id"], name: "index_mecha_movements_on_mecha_movement_data_id"
+    t.index ["mecha_servo_id"], name: "index_mecha_movements_on_mecha_servo_id"
   end
 
-  create_table "mecha_multiplier_data", :force => true do |t|
-    t.string   "multiplier"
-    t.float    "multiple"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.boolean  "disabled",   :default => false
+  create_table "mecha_multiplier_data", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.boolean "disabled", default: false
+    t.float "multiple"
+    t.string "multiplier"
+    t.datetime "updated_at", null: false
   end
 
-  create_table "mecha_multipliers", :force => true do |t|
-    t.integer  "mecha_multiplier_data_id"
-    t.integer  "quantity"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "mecha_id"
+  create_table "mecha_multipliers", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.integer "mecha_id"
+    t.integer "mecha_multiplier_data_id"
+    t.integer "quantity"
+    t.datetime "updated_at", null: false
+    t.index ["mecha_id"], name: "index_mecha_multipliers_on_mecha_id"
+    t.index ["mecha_multiplier_data_id"], name: "index_mecha_multipliers_on_mecha_multiplier_data_id"
   end
 
-  create_table "mecha_sensor_data", :force => true do |t|
-    t.string   "sensor"
-    t.string   "range"
-    t.string   "communication_range"
-    t.integer  "kills"
-    t.float    "cost"
-    t.float    "space"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "weight"
-    t.boolean  "disabled",            :default => false
+  create_table "mecha_sensor_data", force: :cascade do |t|
+    t.string "communication_range"
+    t.float "cost"
+    t.datetime "created_at", null: false
+    t.boolean "disabled", default: false
+    t.integer "kills"
+    t.string "range"
+    t.string "sensor"
+    t.float "space"
+    t.datetime "updated_at", null: false
+    t.integer "weight"
   end
 
-  create_table "mecha_sensors", :force => true do |t|
-    t.integer  "mecha_sensor_data_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "mecha_id"
-    t.string   "location"
+  create_table "mecha_sensors", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.string "location"
+    t.integer "mecha_id"
+    t.integer "mecha_sensor_data_id"
+    t.datetime "updated_at", null: false
+    t.index ["mecha_id"], name: "index_mecha_sensors_on_mecha_id"
+    t.index ["mecha_sensor_data_id"], name: "index_mecha_sensors_on_mecha_sensor_data_id"
   end
 
-  create_table "mecha_servo_data", :force => true do |t|
-    t.string   "servo"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.boolean  "disabled",   :default => false
+  create_table "mecha_servo_data", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.boolean "disabled", default: false
+    t.string "servo"
+    t.datetime "updated_at", null: false
   end
 
-  create_table "mecha_servo_level_data", :force => true do |t|
-    t.integer  "mecha_servo_data_id"
-    t.string   "level"
-    t.integer  "kills"
-    t.float    "space"
-    t.integer  "cost"
-    t.float    "weight"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.boolean  "disabled",            :default => false
+  create_table "mecha_servo_level_data", force: :cascade do |t|
+    t.integer "cost"
+    t.datetime "created_at", null: false
+    t.boolean "disabled", default: false
+    t.integer "kills"
+    t.string "level"
+    t.integer "mecha_servo_data_id"
+    t.float "space"
+    t.datetime "updated_at", null: false
+    t.float "weight"
+    t.index ["mecha_servo_data_id"], name: "index_mecha_servo_level_data_on_mecha_servo_data_id"
   end
 
-  create_table "mecha_servos", :force => true do |t|
-    t.integer  "mecha_servo_data_id"
-    t.integer  "mecha_servo_level_data_id"
-    t.integer  "kills"
-    t.float    "space"
-    t.integer  "mecha_armor_data_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "mecha_id"
+  create_table "mecha_servos", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.integer "kills"
+    t.integer "mecha_armor_data_id"
+    t.integer "mecha_id"
+    t.integer "mecha_servo_data_id"
+    t.integer "mecha_servo_level_data_id"
+    t.float "space"
+    t.datetime "updated_at", null: false
+    t.index ["mecha_armor_data_id"], name: "index_mecha_servos_on_mecha_armor_data_id"
+    t.index ["mecha_id"], name: "index_mecha_servos_on_mecha_id"
+    t.index ["mecha_servo_data_id"], name: "index_mecha_servos_on_mecha_servo_data_id"
+    t.index ["mecha_servo_level_data_id"], name: "index_mecha_servos_on_mecha_servo_level_data_id"
   end
 
-  create_table "mecha_shield_data", :force => true do |t|
-    t.string   "shield"
-    t.integer  "stopping_power"
-    t.float    "mounted_space"
-    t.float    "handheld_space"
-    t.float    "weight"
-    t.float    "cost"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "defense_adjustment"
-    t.boolean  "disabled",           :default => false
+  create_table "mecha_shield_data", force: :cascade do |t|
+    t.float "cost"
+    t.datetime "created_at", null: false
+    t.integer "defense_adjustment"
+    t.boolean "disabled", default: false
+    t.float "handheld_space"
+    t.float "mounted_space"
+    t.string "shield"
+    t.integer "stopping_power"
+    t.datetime "updated_at", null: false
+    t.float "weight"
   end
 
-  create_table "mecha_shields", :force => true do |t|
-    t.integer  "mecha_shield_data_id"
-    t.integer  "mecha_servo_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "mecha_id"
-    t.string   "location"
+  create_table "mecha_shields", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.string "location"
+    t.integer "mecha_id"
+    t.integer "mecha_servo_id"
+    t.integer "mecha_shield_data_id"
+    t.datetime "updated_at", null: false
+    t.index ["mecha_id"], name: "index_mecha_shields_on_mecha_id"
+    t.index ["mecha_servo_id"], name: "index_mecha_shields_on_mecha_servo_id"
+    t.index ["mecha_shield_data_id"], name: "index_mecha_shields_on_mecha_shield_data_id"
   end
 
-  create_table "mecha_subassemblies", :force => true do |t|
-    t.integer  "mecha_subassembly_data_id"
-    t.integer  "mecha_servo_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "mecha_id"
-    t.string   "location"
+  create_table "mecha_subassemblies", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.string "location"
+    t.integer "mecha_id"
+    t.integer "mecha_servo_id"
+    t.integer "mecha_subassembly_data_id"
+    t.datetime "updated_at", null: false
+    t.index ["mecha_id"], name: "index_mecha_subassemblies_on_mecha_id"
+    t.index ["mecha_servo_id"], name: "index_mecha_subassemblies_on_mecha_servo_id"
+    t.index ["mecha_subassembly_data_id"], name: "index_mecha_subassemblies_on_mecha_subassembly_data_id"
   end
 
-  create_table "mecha_subassembly_data", :force => true do |t|
-    t.string   "subassembly"
-    t.float    "space"
-    t.integer  "kills"
-    t.float    "weight"
-    t.float    "cost"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.boolean  "disabled",    :default => false
+  create_table "mecha_subassembly_data", force: :cascade do |t|
+    t.float "cost"
+    t.datetime "created_at", null: false
+    t.boolean "disabled", default: false
+    t.integer "kills"
+    t.float "space"
+    t.string "subassembly"
+    t.datetime "updated_at", null: false
+    t.float "weight"
   end
 
-  create_table "mecha_weapon_data", :force => true do |t|
-    t.string   "weapon"
-    t.integer  "weapon_adjustment"
-    t.string   "range"
-    t.string   "damage"
-    t.string   "shots"
-    t.integer  "kills"
-    t.float    "space"
-    t.float    "cost"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.float    "weight"
-    t.string   "burst_value"
-    t.boolean  "disabled",          :default => false
+  create_table "mecha_weapon_data", force: :cascade do |t|
+    t.string "burst_value"
+    t.float "cost"
+    t.datetime "created_at", null: false
+    t.string "damage"
+    t.boolean "disabled", default: false
+    t.integer "kills"
+    t.string "range"
+    t.string "shots"
+    t.float "space"
+    t.datetime "updated_at", null: false
+    t.string "weapon"
+    t.integer "weapon_adjustment"
+    t.float "weight"
   end
 
-  create_table "mecha_weapons", :force => true do |t|
-    t.integer  "mecha_weapon_data_id"
-    t.integer  "mecha_servo_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "mecha_id"
-    t.integer  "quantity"
-    t.string   "notes"
-    t.string   "location"
+  create_table "mecha_weapons", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.string "location"
+    t.integer "mecha_id"
+    t.integer "mecha_servo_id"
+    t.integer "mecha_weapon_data_id"
+    t.string "notes"
+    t.integer "quantity"
+    t.datetime "updated_at", null: false
+    t.index ["mecha_id"], name: "index_mecha_weapons_on_mecha_id"
+    t.index ["mecha_servo_id"], name: "index_mecha_weapons_on_mecha_servo_id"
+    t.index ["mecha_weapon_data_id"], name: "index_mecha_weapons_on_mecha_weapon_data_id"
   end
 
-  create_table "mechas", :force => true do |t|
-    t.string   "name"
-    t.integer  "character_id"
-    t.integer  "mecha_servo_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "mv_bonus"
-    t.integer  "ma_bonus"
-    t.integer  "mp_bonus"
-    t.text     "notes"
-    t.boolean  "disabled",       :default => false
+  create_table "mechas", force: :cascade do |t|
+    t.integer "character_id"
+    t.datetime "created_at", null: false
+    t.boolean "disabled", default: false
+    t.integer "ma_bonus"
+    t.integer "mecha_servo_id"
+    t.integer "mp_bonus"
+    t.integer "mv_bonus"
+    t.string "name"
+    t.text "notes"
+    t.datetime "updated_at", null: false
+    t.index ["character_id"], name: "index_mechas_on_character_id"
+    t.index ["mecha_servo_id"], name: "index_mechas_on_mecha_servo_id"
   end
-
 end
