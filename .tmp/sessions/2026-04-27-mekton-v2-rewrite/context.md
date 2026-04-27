@@ -3,7 +3,7 @@
 Session ID: 2026-04-27-mekton-v2-rewrite
 Created: 2026-04-27T13:00:00Z
 Status: in_progress
-Current Phase: 1 (Skeleton) — PENDING TaskManager breakdown
+Current Phase: 2 (Auth) — PENDING TaskManager breakdown
 
 ## Current Request
 
@@ -124,7 +124,7 @@ master ────────────────────────�
 
 ## Exit Criteria (Overall)
 
-- [ ] Phase 1: Rails 8 app boots, seeds work
+- [x] Phase 1: Rails 8 app boots, seeds work
 - [ ] Phase 2: Devise auth + Pundit authorization working
 - [ ] Phase 3: Full character sheet with inline editing, user-scoped
 - [ ] Phase 4: Full mecha sheet with inline editing, user-scoped

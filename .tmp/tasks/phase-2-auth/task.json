@@ -1,0 +1,27 @@
+{
+  "id": "phase-2-auth",
+  "name": "Phase 2 — Auth: Devise + Pundit with admin/user roles",
+  "status": "active",
+  "objective": "Add Devise authentication and Pundit authorization. User model with admin boolean flag. Basic sign-up/sign-in/sign-out flows with Tailwind-styled views.",
+  "context_files": [
+    ".opencode/context/project-intelligence/technical-domain.md",
+    ".opencode/context/core/standards/code-quality.md"
+  ],
+  "reference_files": [
+    "Gemfile",
+    "config/routes.rb",
+    "app/views/layouts/application.html.erb"
+  ],
+  "exit_criteria": [
+    "User model exists with admin:boolean",
+    "Devise sign up, sign in, sign out flows work",
+    "All Devise views styled with Tailwind",
+    "Pundit ApplicationPolicy exists",
+    "Root redirects to sign_in for unauthenticated users",
+    "Admin flag testable via rails console"
+  ],
+  "subtask_count": 5,
+  "completed_count": 0,
+  "created_at": "2026-04-27T14:30:00Z",
+  "completed_at": null
+}

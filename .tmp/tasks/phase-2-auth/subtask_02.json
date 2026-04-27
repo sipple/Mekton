@@ -1,0 +1,27 @@
+{
+  "id": "phase-2-auth-02",
+  "seq": "02",
+  "title": "Configure Devise and style views with Tailwind",
+  "status": "pending",
+  "depends_on": ["01"],
+  "parallel": false,
+  "context_files": [
+    ".opencode/context/project-intelligence/technical-domain.md"
+  ],
+  "reference_files": [
+    "config/environments/development.rb",
+    "app/views/layouts/application.html.erb"
+  ],
+  "acceptance_criteria": [
+    "Devise initializer configured with mailer sender",
+    "Devise views generated (rails generate devise:views)",
+    "All Devise views restyled with Tailwind CSS (no raw Bootstrap/HTML)",
+    "Flash messages styled with Tailwind in application layout",
+    "devise_error_messages! helper works"
+  ],
+  "deliverables": ["config/initializers/devise.rb", "app/views/devise/**/*.erb (Tailwind-styled)"],
+  "agent_id": "",
+  "started_at": null,
+  "completed_at": null,
+  "completion_summary": ""
+}

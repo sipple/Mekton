@@ -1,0 +1,28 @@
+{
+  "id": "phase-2-auth-04",
+  "seq": "04",
+  "title": "Wire up authentication flows and navigation",
+  "status": "pending",
+  "depends_on": ["02", "03"],
+  "parallel": false,
+  "context_files": [
+    ".opencode/context/project-intelligence/technical-domain.md"
+  ],
+  "reference_files": [
+    "config/routes.rb",
+    "app/views/layouts/application.html.erb",
+    "app/controllers/home_controller.rb"
+  ],
+  "acceptance_criteria": [
+    "Root route redirects to sign_in for unauthenticated users",
+    "Navigation bar shows Sign In/Sign Up for guests, Sign Out for authenticated users",
+    "Home page accessible after sign in",
+    "Flash notices for sign in/out events display correctly",
+    "before_action :authenticate_user! on protected controllers"
+  ],
+  "deliverables": ["config/routes.rb (updated)", "app/views/layouts/application.html.erb (updated)", "app/controllers/application_controller.rb (updated)"],
+  "agent_id": "",
+  "started_at": null,
+  "completed_at": null,
+  "completion_summary": ""
+}
