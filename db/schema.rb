@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_04_27_133356) do
+ActiveRecord::Schema[8.1].define(version: 2026_04_27_143124) do
   create_table "character_armor_data", force: :cascade do |t|
     t.string "armor"
     t.integer "cost"
@@ -411,5 +411,23 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_27_133356) do
     t.datetime "updated_at", null: false
     t.index ["character_id"], name: "index_mechas_on_character_id"
     t.index ["mecha_servo_id"], name: "index_mechas_on_mecha_servo_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.boolean "admin", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "current_sign_in_at"
+    t.string "current_sign_in_ip"
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.datetime "last_sign_in_at"
+    t.string "last_sign_in_ip"
+    t.datetime "remember_created_at"
+    t.datetime "reset_password_sent_at"
+    t.string "reset_password_token"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 end
