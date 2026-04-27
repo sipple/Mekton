@@ -1,7 +1,21 @@
+# IDE
 .idea/
-config/database.yml
-tmp/
-log/
 
+# Rails
+/config/database.yml
+/config/credentials/*.key
+/config/master.key
+/storage/*
+!/storage/.keep
+/tmp/*
+!/tmp/.keep
+/log/*
+!/log/.keep
+
+# Seed data generated files
 db/seed_data/character_profession_skill_data.csv
 db/seed_data/character_template_skill_data.csv
+
+# Environment
+.env
+.env.*

@@ -1,3 +1,3 @@
-class CharacterArmorData < ActiveRecord::Base
-  named_scope :active, :conditions => {:disabled => false}, :order => 'armor ASC'
+class CharacterArmorData < ApplicationRecord
+  scope :active, -> { where(disabled: false).order(armor: :asc) }
 end

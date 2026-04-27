@@ -1,4 +1,4 @@
-class CharacterArmor < ActiveRecord::Base
+class CharacterArmor < ApplicationRecord
   belongs_to :character
   belongs_to :character_armor_data
 end

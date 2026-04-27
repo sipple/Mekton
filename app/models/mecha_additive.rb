@@ -1,3 +1,3 @@
-class MechaAdditive < ActiveRecord::Base
+class MechaAdditive < ApplicationRecord
   belongs_to :mecha
 end

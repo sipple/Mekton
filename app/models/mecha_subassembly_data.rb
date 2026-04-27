@@ -1,8 +1,7 @@
-class MechaSubassemblyData < ActiveRecord::Base
-  named_scope :active, :conditions => {:disabled => false}, :order => 'subassembly ASC'
+class MechaSubassemblyData < ApplicationRecord
+  scope :active, -> { where(disabled: false).order(subassembly: :asc) }
 
   def weight
     super || 0
   end
-
 end

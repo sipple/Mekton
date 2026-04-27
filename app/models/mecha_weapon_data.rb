@@ -1,3 +1,3 @@
-class MechaWeaponData < ActiveRecord::Base
-  named_scope :active, :conditions => {:disabled => false}, :order => 'weapon ASC'
+class MechaWeaponData < ApplicationRecord
+  scope :active, -> { where(disabled: false).order(weapon: :asc) }
 end

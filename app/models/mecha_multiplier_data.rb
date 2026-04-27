@@ -1,4 +1,3 @@
-class MechaMultiplierData < ActiveRecord::Base
-  named_scope :active, :conditions => {:disabled => false}, :order => 'multiplier ASC'
-
+class MechaMultiplierData < ApplicationRecord
+  scope :active, -> { where(disabled: false).order(multiplier: :asc) }
 end

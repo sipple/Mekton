@@ -1,3 +1,3 @@
-class CharacterWeaponData < ActiveRecord::Base
-  named_scope :active, :conditions => {:disabled => false}, :order => 'weapon ASC'
+class CharacterWeaponData < ApplicationRecord
+  scope :active, -> { where(disabled: false).order(weapon: :asc) }
 end

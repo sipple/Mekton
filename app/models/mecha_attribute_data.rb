@@ -1,2 +1,2 @@
-class MechaAttributeData < ActiveRecord::Base
+class MechaAttributeData < ApplicationRecord
 end

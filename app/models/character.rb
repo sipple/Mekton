@@ -1,33 +1,38 @@
-class Character < ActiveRecord::Base
-  named_scope :active, :conditions => {:disabled => false}, :order => "name ASC"
+class Character < ApplicationRecord
+  scope :active, -> { where(disabled: false).order(name: :asc) }
 
-  has_many :character_armors
-  has_many :character_equipments
-  has_many :character_profession_skills
-  has_many :character_professions
-  has_many :character_skills
-  has_many :character_template_skills
-  has_many :character_weapons
+  has_many :character_armors, dependent: :destroy
+  has_many :character_equipments, dependent: :destroy
+  has_many :character_profession_skills, dependent: :destroy
+  has_many :character_professions, dependent: :destroy
+  has_many :character_skills, dependent: :destroy
+  has_many :character_template_skills, dependent: :destroy
+  has_many :character_weapons, dependent: :destroy
 
-  has_one :character_template
+  has_one :character_template, dependent: :destroy
+
+  # --- RPG Math: Skill Points ---
 
   def skill_points
-    (self.intelligence || 0) + (self.education || 0) + 10
+    (intelligence || 0) + (education || 0) + 10
   end
 
-  def secondary_body_type_values
+  # --- RPG Math: Secondary Body Type Values ---
 
-    case self.body_type
-      when 2
-        {:head => 4, :torso => 8, :limbs => 6, :stun => 4, :lift => 20, :throw => "6m", :damage => -2, :ev => 2}
-      when 3..4
-        {:head => 5, :torso => 10, :limbs => 7, :stun => 5, :lift => 40, :throw => "12m", :damage => -1, :ev => 2}
-      when 5..7
-        {:head => 6, :torso => 12, :limbs => 9, :stun => 6, :lift => 60, :throw => "20m", :damage => 0, :ev => 4}
-      when 8..9
-        {:head => 7, :torso => 14, :limbs => 10, :stun => 7, :lift => 90, :throw => "26m", :damage => 1, :ev => 6}
-      when 10
-        {:head => 8, :torso => 16, :limbs => 12, :stun => 8, :lift => 120, :throw => "30m", :damage => 2, :ev => 8}
+  def secondary_body_type_values
+    case body_type
+    when 2
+      { head: 4, torso: 8, limbs: 6, stun: 4, lift: 20, throw: "6m", damage: -2, ev: 2 }
+    when 3..4
+      { head: 5, torso: 10, limbs: 7, stun: 5, lift: 40, throw: "12m", damage: -1, ev: 2 }
+    when 5..7
+      { head: 6, torso: 12, limbs: 9, stun: 6, lift: 60, throw: "20m", damage: 0, ev: 4 }
+    when 8..9
+      { head: 7, torso: 14, limbs: 10, stun: 7, lift: 90, throw: "26m", damage: 1, ev: 6 }
+    when 10
+      { head: 8, torso: 16, limbs: 12, stun: 8, lift: 120, throw: "30m", damage: 2, ev: 8 }
+    else
+      {}
     end
   end
 
@@ -63,65 +68,58 @@ class Character < ActiveRecord::Base
     secondary_body_type_values[:ev]
   end
 
+  # --- RPG Math: Derived Stats ---
+
   def stability
-    (self.cool * 2.5).truncate
+    (cool * 2.5).truncate
   end
 
   def run
-    self.move_allowance * 3
+    move_allowance * 3
   end
 
   def jump
-    (self.move_allowance / 4).truncate
+    (move_allowance / 4).truncate
   end
 
   def running_jump
-    (self.run / 4).truncate
+    (run / 4).truncate
   end
 
   def anime_leap
-    self.move_allowance * 2
+    move_allowance * 2
   end
 
+  # --- RPG Math: Mecha Skills (no SQL injection) ---
+
   def mecha_piloting
-    skill = self.character_skills.
-            find(:first, :conditions => "character_skill_data_id = #{CharacterSkillData.mecha_piloting.id}")
-
-    skill.nil? ? 0 : skill.level
-
+    skill = character_skills.find_by(character_skill_data_id: CharacterSkillData.mecha_piloting&.id)
+    skill&.level || 0
   end
 
   def mecha_fighting
-    skill = self.character_skills.
-            find(:first, :conditions => "character_skill_data_id = #{CharacterSkillData.mecha_fighting.id}")
-
-    skill.nil? ? 0 : skill.level
+    skill = character_skills.find_by(character_skill_data_id: CharacterSkillData.mecha_fighting&.id)
+    skill&.level || 0
   end
 
   def mecha_melee
-    skill = self.character_skills.
-            find(:first, :conditions => "character_skill_data_id = #{CharacterSkillData.mecha_melee.id}")
-
-    skill.nil? ? 0 : skill.level
+    skill = character_skills.find_by(character_skill_data_id: CharacterSkillData.mecha_melee&.id)
+    skill&.level || 0
   end
 
   def mecha_gunnery
-    skill = self.character_skills.
-            find(:first, :conditions => "character_skill_data_id = #{CharacterSkillData.mecha_gunnery.id}")
-
-    skill.nil? ? 0 : skill.level
+    skill = character_skills.find_by(character_skill_data_id: CharacterSkillData.mecha_gunnery&.id)
+    skill&.level || 0
   end
 
   def mecha_missiles
-    skill = self.character_skills.
-            find(:first, :conditions => "character_skill_data_id = #{CharacterSkillData.mecha_missiles.id}")
-
-    skill.nil? ? 0 : skill.level
+    skill = character_skills.find_by(character_skill_data_id: CharacterSkillData.mecha_missiles&.id)
+    skill&.level || 0
   end
+
+  # --- RPG Math: Maneuver Pool ---
 
   def maneuver_pool
-    self.mecha_piloting >= 5 ? (self.mecha_piloting - 5) : 0
+    mecha_piloting >= 5 ? (mecha_piloting - 5) : 0
   end
-
-
 end

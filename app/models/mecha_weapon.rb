@@ -1,18 +1,19 @@
-class MechaWeapon < ActiveRecord::Base
+class MechaWeapon < ApplicationRecord
   belongs_to :mecha
-  belongs_to :mecha_weapon_data
-  belongs_to :mecha_servo
+  belongs_to :mecha_weapon_data, optional: true
+  belongs_to :mecha_servo, optional: true
+
+  # --- RPG Math (quantity-aware) ---
 
   def cost
-    self.mecha_weapon_data ? ((self.quantity || 1) * self.mecha_weapon_data.cost) : 0
+    mecha_weapon_data ? ((quantity || 1) * mecha_weapon_data.cost) : 0
   end
 
   def space
-    self.mecha_weapon_data ? ((self.quantity || 1) * self.mecha_weapon_data.space) : 0
+    mecha_weapon_data ? ((quantity || 1) * mecha_weapon_data.space) : 0
   end
 
   def weight
-    self.mecha_weapon_data ? ((self.quantity || 1) * self.mecha_weapon_data.weight) : 0
+    mecha_weapon_data ? ((quantity || 1) * mecha_weapon_data.weight) : 0
   end
-
 end
