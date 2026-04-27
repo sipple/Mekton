@@ -1,4 +1,5 @@
 class Mecha < ApplicationRecord
+  belongs_to :user
   scope :active, -> { where(disabled: false).order(name: :asc) }
 
   has_many :mecha_additives, dependent: :destroy

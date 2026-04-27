@@ -1,63 +1,77 @@
+# frozen_string_literal: true
+
 class MechaMultipliersController < ApplicationController
-  def index
-  end
+  before_action :set_mecha, only: [:create]
 
-  def show
-  end
-
-  def edit
-  end
-
-  def new
-  end
-
+  # POST /mechas/:mecha_id/mecha_multipliers
   def create
-    @mecha_multiplier = MechaMultiplier.new(:mecha_id => params[:mecha_id])
+    authorize @mecha, :update?
+    @multiplier = @mecha.mecha_multipliers.create!
 
     respond_to do |format|
-      if @mecha_multiplier.save
-        flash[:notice] = 'Test was successfully created.'
-        format.html { render :partial => 'mecha_multiplier_line', :locals => {:mecha_multiplier => @mecha_multiplier} }
-        format.xml  { render :xml => @mecha_multiplier, :status => :created, :location => @mecha_multiplier }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @mecha_multiplier.errors, :status => :unprocessable_entity }
+      format.turbo_stream do
+        render turbo_stream: [
+          turbo_stream.append("mecha_multipliers_body",
+            partial: "mecha_multipliers/mecha_multiplier_line",
+            locals: { mecha_multiplier: @multiplier }),
+          turbo_stream.replace("mecha_stats",
+            partial: "mechas/mecha_stats",
+            locals: { mecha: @mecha })
+        ]
       end
     end
   end
 
+  # PATCH/PUT /mechas/:mecha_id/mecha_multipliers/:id
   def update
-    @mecha_multiplier = MechaMultiplier.find(params[:id])
-    @mecha_multiplier.send("#{params[:field]}=", params[:value])
+    @multiplier = MechaMultiplier.find(params[:id])
+    authorize @multiplier.mecha, :update?
+
+    # Explicit field whitelist — no send(), no mass assignment
+    if params.key?(:mecha_multiplier_data_id)
+      @multiplier.mecha_multiplier_data_id = params[:mecha_multiplier_data_id]
+    end
+    @multiplier.quantity = params[:quantity] if params.key?(:quantity)
+    @multiplier.save!
+
+    mecha = @multiplier.mecha
     respond_to do |format|
-      if @mecha_multiplier.save
-        format.json { render :text => mecha_multiplier_json(@mecha_multiplier)}
+      format.turbo_stream do
+        render turbo_stream: [
+          turbo_stream.replace("mecha_multiplier_#{@multiplier.id}",
+            partial: "mecha_multipliers/mecha_multiplier_line",
+            locals: { mecha_multiplier: @multiplier }),
+          turbo_stream.replace("mecha_stats",
+            partial: "mechas/mecha_stats",
+            locals: { mecha: mecha })
+        ]
       end
     end
   end
 
+  # DELETE /mechas/:mecha_id/mecha_multipliers/:id
   def destroy
-
-    @mecha_multiplier = MechaMultiplier.find(params[:id])
-    @mecha_multiplier.destroy
+    @multiplier = MechaMultiplier.find(params[:id])
+    authorize @multiplier.mecha, :update?
+    dom_id = "mecha_multiplier_#{@multiplier.id}"
+    mecha = @multiplier.mecha
+    @multiplier.destroy!
 
     respond_to do |format|
-      format.html { redirect_to(mecha_multipliers_url) }
-      format.json {render :text => 'Success'}
-      format.xml  { head :ok }
+      format.turbo_stream do
+        render turbo_stream: [
+          turbo_stream.remove(dom_id),
+          turbo_stream.replace("mecha_stats",
+            partial: "mechas/mecha_stats",
+            locals: { mecha: mecha })
+        ]
+      end
     end
   end
 
   private
 
-  def mecha_multiplier_json(mecha_multiplier)
-    multiplier_data = mecha_multiplier.mecha_multiplier_data
-    json_hash = Hash.new
-    json_hash["mecha_multiplier_data_id"] = multiplier_data.multiplier
-    json_hash["quantity"] = mecha_multiplier.quantity
-    json_hash["cost"] = mecha_multiplier.cost
-    json_hash["mecha"] = mecha_multiplier.mecha.mecha_json
-
-    json_hash.to_json
+  def set_mecha
+    @mecha = Mecha.find(params[:mecha_id])
   end
 end

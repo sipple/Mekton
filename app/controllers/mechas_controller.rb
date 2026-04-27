@@ -1,111 +1,86 @@
+# frozen_string_literal: true
+
 class MechasController < ApplicationController
+  before_action :set_mecha, only: [:show, :edit, :update, :destroy]
+
   # GET /mechas
-  # GET /mechas.xml
   def index
-    @mechas = Mecha.active
-    respond_to do |format|
-      format.html #index.html.erb
-      format.xml {render :xml => @mechas}
-    end
+    @mechas = policy_scope(Mecha).active
   end
 
-  # GET /mechas/1
-  # GET /mechas/1.xml
+  # GET /mechas/:id
   def show
-    @mecha = Mecha.find(params[:id])
-    @mecha_pilot = Character.find(@mecha.character_id)
-
-    respond_to do |format|
-      format.html #show.html.erb
-      format.json {render :text => full_mecha_json(@mecha)}
-      format.xml {render :xml => @mecha}
-    end
-
+    authorize @mecha
   end
 
   # GET /mechas/new
-  # GET /mechas/new.xml
   def new
     @mecha = Mecha.new
-
-    respond_to do |format|
-      format.html #new.html.erb
-      format.xml {render :xml => @mecha}
-    end
-  end
-
-  # GET /mechas/1/edit
-  def edit
-
+    authorize @mecha
   end
 
   # POST /mechas
-  # POST /mechas.xml
   def create
-    @mecha = Mecha.new(params[:mecha])
-
-    respond_to do |format|
-      if @mecha.save
-        flash[:notice] = "Mecha was successfully created"
-        format.html {redirect_to(@mecha)}
-        format.xml {render :xml => @mecha, :status => :created, :location => @mecha}
-      else
-        flash[:error] = "Unable to create the mecha, something must be wrong"
-        format.html {render :action => "new"}
-        format.xml {render :xml => @mecha, :status => :unprocessable_entity}
-      end
-    end
-
-  end
-
-  # PUT /mechas/1
-  # PUT /mechas/1.xml
-  def update
-    @mecha = Mecha.find(params[:id])
-    @mecha.send("#{params[:field]}=", params[:value])
-    respond_to do |format|
-      if @mecha.save
-        format.json {render :text => full_mecha_json(@mecha)}
-      end
-    end
-
-  end
-
-  # DELETE /mechas/1
-  # DELETE /mechas/1.xml
-  def destroy
-    @mecha = Mecha.find(params[:id])
-    @mecha.disabled = true
+    @mecha = current_user.mechas.build(mecha_params)
+    authorize @mecha
 
     if @mecha.save
-      redirect_to(mechas_path)
+      redirect_to @mecha, notice: "Mecha was successfully created."
+    else
+      render :new, status: :unprocessable_entity
     end
-    
   end
 
-  def select_options
+  # GET /mechas/:id/edit
+  def edit
+    authorize @mecha
+  end
 
-    # We're expecting a field name like 'mecha_servos-1-servo'
-    # When we split on '-', the first value will be the model, and the second the id
-    field_id_hash = params[:id].split('-')
-    select_options = Mekton::SelectOptions.new
+  # PATCH/PUT /mechas/:id
+  # Handles both full form submission and single-field inline edits via Turbo Stream
+  def update
+    authorize @mecha
 
-    if (field_id_hash[2].include?("_id"))
-      model_match = field_id_hash[2].match('^(.*)_id')
-      options = select_options.get_options(model_match.captures[0], field_id_hash[1])
-    else
-      options = select_options.get_options(field_id_hash[0], field_id_hash[1])
+    permitted = params.permit(
+      :name, :notes, :character_id,
+      :mv_bonus, :ma_bonus, :mp_bonus
+    )
+
+    @mecha.update!(permitted)
+
+    respond_to do |format|
+      format.turbo_stream do
+        # After any stat edit, update all derived stat displays.
+        # The mecha_stats partial includes weight, cost, mv, land_ma,
+        # flight_ma, ground_effects, mecha_reflexes, and all combat skills,
+        # so a single replace handles all cascading recalculations.
+        render turbo_stream: turbo_stream.replace("mecha_stats",
+          partial: "mechas/mecha_stats",
+          locals: { mecha: @mecha })
+      end
+      format.html { redirect_to @mecha, notice: "Mecha was successfully updated." }
     end
-    render :text => options.to_json
+  end
+
+  # DELETE /mechas/:id
+  # Soft-delete: sets disabled flag rather than destroying the record
+  def destroy
+    authorize @mecha
+    @mecha.update!(disabled: true)
+    redirect_to mechas_url, notice: "Mecha was successfully archived."
   end
 
   private
 
-  def full_mecha_json(mecha)
-    json_hash = Hash.new
-    json_hash["mecha"] = mecha.mecha_json
-    json_hash.to_json
+  def set_mecha
+    @mecha = Mecha.find(params[:id])
   end
 
-
+  # Strong params for full form submission (new/create/edit)
+  def mecha_params
+    params.require(:mecha).permit(
+      :name, :notes, :character_id,
+      :mv_bonus, :ma_bonus, :mp_bonus
+    )
+  end
 end

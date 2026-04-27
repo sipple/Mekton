@@ -3,30 +3,54 @@
 <table id="mecha-stats-table" class="mecha-table">
   <thead class="shaded">
     <tr>
-      <th colspan="5">Mecha Stats</th>
-    </tr>
-    <tr>
-      <th>Configuration</th>
-      <th>MV</th>
-      <th>MR</th>
-      <th>Land MA</th>
-      <th>Flight MA</th>
+      <th colspan="4">Mecha Stats</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>Humanoid Mecha</td>
-      <td><div id="mv"><%= mecha.mv %></div></td>
-      <td><div id="mecha_reflexes"><%= mecha.mecha_reflexes %></div></td>
-      <td><div id="land_ma"><%= mecha.land_ma %></div></td>
-      <td><div id="flight_ma"><%= mecha.flight_ma %></div></td>
+      <td class="stat-label shaded">Weight</td>
+      <td class="stat-value" id="mecha_weight"><%= mecha.weight %></td>
+      <td class="stat-label shaded">Cost</td>
+      <td class="stat-value" id="mecha_cost"><%= mecha.cost %></td>
     </tr>
     <tr>
+      <td class="stat-label shaded">MV</td>
+      <td class="stat-value" id="mecha_mv"><%= mecha.mv %></td>
+      <td class="stat-label shaded">Mecha Reflexes</td>
+      <td class="stat-value" id="mecha_reflexes"><%= mecha.mecha_reflexes %></td>
+    </tr>
+    <tr>
+      <td class="stat-label shaded">Land MA</td>
+      <td class="stat-value" id="mecha_land_ma"><%= mecha.land_ma %></td>
+      <td class="stat-label shaded">Flight MA</td>
+      <td class="stat-value" id="mecha_flight_ma"><%= mecha.flight_ma %></td>
+    </tr>
+    <tr>
+      <td class="stat-label shaded">Ground Effects</td>
+      <td class="stat-value" id="mecha_ground_effects"><%= mecha.ground_effects %></td>
+      <td class="stat-label shaded">Maneuver Pool</td>
+      <td class="stat-value" id="mecha_maneuver_pool"><%= mecha.maneuver_pool %></td>
+    </tr>
+    <tr class="top-border">
+      <td class="stat-label shaded" colspan="4"><strong>Mecha Combat Skills</strong></td>
+    </tr>
+    <tr>
+      <td class="stat-label shaded">Mecha Piloting</td>
+      <td class="stat-value" id="mecha_mecha_piloting"><%= mecha.mecha_piloting %></td>
+      <td class="stat-label shaded">Mecha Fighting</td>
+      <td class="stat-value" id="mecha_mecha_fighting"><%= mecha.mecha_fighting %></td>
+    </tr>
+    <tr>
+      <td class="stat-label shaded">Mecha Melee</td>
+      <td class="stat-value" id="mecha_mecha_melee"><%= mecha.mecha_melee %></td>
+      <td class="stat-label shaded">Mecha Gunnery</td>
+      <td class="stat-value" id="mecha_mecha_gunnery"><%= mecha.mecha_gunnery %></td>
+    </tr>
+    <tr>
+      <td class="stat-label shaded">Mecha Missiles</td>
+      <td class="stat-value" id="mecha_mecha_missiles"><%= mecha.mecha_missiles %></td>
       <td></td>
       <td></td>
-      <td></td>
-      <td>Ground Effects: <div id="ground_effects"><%= mecha.ground_effects %></div></td>
-      <td>With Wings: <div id="wings_flight_ma"><%= mecha.flight_ma + 2 %></div></td>
     </tr>
   </tbody>
 </table>

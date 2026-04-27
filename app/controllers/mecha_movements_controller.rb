@@ -1,65 +1,78 @@
+# frozen_string_literal: true
+
 class MechaMovementsController < ApplicationController
-  def index
-  end
+  before_action :set_mecha, only: [:create]
 
-  def show
-  end
-
-  def edit
-  end
-
-  def new
-  end
-
+  # POST /mechas/:mecha_id/mecha_movements
   def create
-    @mecha_movement = MechaMovement.new(:mecha_id => params[:mecha_id])
+    authorize @mecha, :update?
+    @movement = @mecha.mecha_movements.create!
 
     respond_to do |format|
-      if @mecha_movement.save
-        flash[:notice] = 'Test was successfully created.'
-        format.html { render :partial => 'mecha_movement_line', :locals => {:mecha_movement => @mecha_movement} }
-        format.xml  { render :xml => @mecha_movement, :status => :created, :location => @mecha_movement }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @mecha_movement.errors, :status => :unprocessable_entity }
+      format.turbo_stream do
+        render turbo_stream: [
+          turbo_stream.append("mecha_movements_body",
+            partial: "mecha_movements/mecha_movement_line",
+            locals: { mecha_movement: @movement }),
+          turbo_stream.replace("mecha_stats",
+            partial: "mechas/mecha_stats",
+            locals: { mecha: @mecha })
+        ]
       end
     end
   end
 
+  # PATCH/PUT /mechas/:mecha_id/mecha_movements/:id
   def update
-    @mecha_movement = MechaMovement.find(params[:id])
-    @mecha_movement.send("#{params[:field]}=", params[:value])
+    @movement = MechaMovement.find(params[:id])
+    authorize @movement.mecha, :update?
+
+    # Explicit field whitelist — no send(), no mass assignment
+    if params.key?(:mecha_movement_data_id)
+      @movement.mecha_movement_data_id = params[:mecha_movement_data_id]
+    end
+    @movement.location = params[:location] if params.key?(:location)
+    @movement.speed = params[:speed] if params.key?(:speed)
+    @movement.save!
+
+    mecha = @movement.mecha
     respond_to do |format|
-      if @mecha_movement.save
-        format.json { render :text => mecha_movement_json(@mecha_movement)}
+      format.turbo_stream do
+        render turbo_stream: [
+          turbo_stream.replace("mecha_movement_#{@movement.id}",
+            partial: "mecha_movements/mecha_movement_line",
+            locals: { mecha_movement: @movement }),
+          turbo_stream.replace("mecha_stats",
+            partial: "mechas/mecha_stats",
+            locals: { mecha: mecha })
+        ]
       end
     end
   end
 
+  # DELETE /mechas/:mecha_id/mecha_movements/:id
   def destroy
-
-    @mecha_movement = MechaMovement.find(params[:id])
-    @mecha_movement.destroy
+    @movement = MechaMovement.find(params[:id])
+    authorize @movement.mecha, :update?
+    dom_id = "mecha_movement_#{@movement.id}"
+    mecha = @movement.mecha
+    @movement.destroy!
 
     respond_to do |format|
-      format.html { redirect_to(mecha_movements_url) }
-      format.json {render :text => 'Success'}
-      format.xml  { head :ok }
+      format.turbo_stream do
+        render turbo_stream: [
+          turbo_stream.remove(dom_id),
+          turbo_stream.replace("mecha_stats",
+            partial: "mechas/mecha_stats",
+            locals: { mecha: mecha })
+        ]
+      end
     end
   end
 
   private
 
-  def mecha_movement_json(mecha_movement)
-    movement_data = mecha_movement.mecha_movement_data
-    json_hash = Hash.new
-    json_hash["mecha_movement_data_id"] = movement_data.movement_system
-    json_hash["location"] = mecha_movement.location
-    json_hash["speed"] = mecha_movement.speed
-    json_hash["cost"] = mecha_movement.cost
-    json_hash["space"] = mecha_movement.space
-    json_hash["mecha"] = mecha_movement.mecha.mecha_json
-
-    json_hash.to_json
+  def set_mecha
+    @mecha = Mecha.find(params[:mecha_id])
   end
 end

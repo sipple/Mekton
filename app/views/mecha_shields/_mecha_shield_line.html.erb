@@ -1,15 +1,15 @@
-<%
-   shield = local_assigns[:mecha_shield]
-   shield_data = local_assigns[:mecha_shield].mecha_shield_data
-   shield_id = "mecha_shields-#{local_assigns[:mecha_shield].id}"
-%>
-
-<tr id="<%= shield_id %>">
-  <td><%= editable_row_select("#{shield_id}-mecha_shield_data_id", (shield_data.shield if shield_data)) %></td>
-  <td><%= static("#{shield_id}-defense_adjustment", (shield_data.defense_adjustment if shield_data)) %></td>
-  <td><%= static("#{shield_id}-stopping_power", (shield_data.stopping_power if shield_data)) %></td>
-  <td><%= editable_row_field("#{shield_id}-location", (shield.location)) %></td>
-  <td><%= static("#{shield_id}-space", (shield_data.space if shield_data)) %></td>
-  <td><%= static("#{shield_id}-cost", (shield.cost)) %></td>
-  <td><%= image_tag("delete.png", :alt=>"Delete", :class=>"icon delete") %></td>
+<tr id="mecha_shield_<%= mecha_shield.id %>">
+  <td><%= mecha_shield.mecha_shield_data&.shield %></td>
+  <td><%= mecha_shield.mecha_shield_data&.defense_adjustment %></td>
+  <td><%= mecha_shield.mecha_shield_data&.stopping_power %></td>
+  <td><%= mecha_shield.location %></td>
+  <td><%= mecha_shield.mecha_shield_data&.space %></td>
+  <td><%= mecha_shield.cost %></td>
+  <td>
+    <%= button_to "Delete",
+          [mecha_shield.mecha, mecha_shield],
+          method: :delete,
+          data: { turbo_stream: true },
+          class: "text-red-500 hover:text-red-700" %>
+  </td>
 </tr>
