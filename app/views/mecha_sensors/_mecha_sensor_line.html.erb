@@ -1,15 +1,15 @@
-<%
-   sensor = local_assigns[:mecha_sensor]
-   sensor_data = local_assigns[:mecha_sensor].mecha_sensor_data
-   sensor_id = "mecha_sensors-#{local_assigns[:mecha_sensor].id}"
-%>
-
-<tr id="<%= sensor_id %>">
-  <td><%= editable_row_select("#{sensor_id}-mecha_sensor_data_id", (sensor_data.sensor if sensor_data)) %></td>
-  <td><%= editable_row_field("#{sensor_id}-location", (sensor.location)) %></td>
-  <td><%= static("#{sensor_id}-range", (sensor_data.range if sensor_data)) %></td>
-  <td><%= static("#{sensor_id}-kills", (sensor_data.kills if sensor_data)) %></td>
-  <td><%= static("#{sensor_id}-cost", (sensor.cost)) %></td>
-  <td><%= static("#{sensor_id}-space", (sensor_data.space if sensor_data)) %></td>
-  <td><%= image_tag("delete.png", :alt=>"Delete", :class=>"icon delete") %></td>
+<tr id="mecha_sensor_<%= mecha_sensor.id %>">
+  <td><%= mecha_sensor.mecha_sensor_data&.sensor %></td>
+  <td><%= mecha_sensor.location %></td>
+  <td><%= mecha_sensor.mecha_sensor_data&.range %></td>
+  <td><%= mecha_sensor.mecha_sensor_data&.kills %></td>
+  <td><%= mecha_sensor.cost %></td>
+  <td><%= mecha_sensor.mecha_sensor_data&.space %></td>
+  <td>
+    <%= button_to "Delete",
+          [mecha_sensor.mecha, mecha_sensor],
+          method: :delete,
+          data: { turbo_stream: true },
+          class: "text-red-500 hover:text-red-700" %>
+  </td>
 </tr>

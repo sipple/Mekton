@@ -1,70 +1,306 @@
-<%= javascript_include_tag 'lib/mechas/show' %>
 <% @title = @mecha.name %>
 
-<div class="hidden" id="mecha_id"><%= @mecha.id %></div>
 <div id="mecha-sheet">
 <div id="mecha-left">
-  <div id="mecha-stats" class="mecha-section">
-      <%= render :partial => 'mecha_stats', :locals => {:mecha => @mecha} %>
+  <div id="mecha_stats">
+    <%= render "mecha_stats", mecha: @mecha %>
   </div>
+
   <div class="mecha-section">
     <div class="mecha-subleft">
-     <div id="mecha-maneuver_pool" class="mecha-section">
-       <div class="side-label label shaded">
-         Maneuver Pool
-       </div>
-       <div id="maneuver_pool">
-         <%= @mecha.maneuver_pool %>
-       </div>
-     </div>
-     <div id="mecha-combat_skills" class="mecha-section">
-       <%= render :partial => 'mecha_combat_skills', :locals => {:mecha => @mecha} %>
-     </div>
+      <div id="mecha-modifiers" class="mecha-section">
+        <table id="mecha-modifiers-table" class="mecha-table">
+          <thead class="shaded">
+            <tr>
+              <th colspan="3">Mecha Modifiers</th>
+            </tr>
+            <tr>
+              <th>MV Bonus</th>
+              <th>MA Bonus</th>
+              <th>Maneuver Pool Bonus (%)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div id="mv_bonus" class="modifier"><%= @mecha.mv_bonus %></div></td>
+              <td><div id="ma_bonus" class="modifier"><%= @mecha.ma_bonus %></div></td>
+              <td><div id="mp_bonus" class="modifier"><%= @mecha.mp_bonus %></div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
     <div class="mecha-subright">
-     <div id="mecha-multipliers" class="mecha-section">
-       <%= render :partial => 'mecha_multipliers', :locals => {:mecha => @mecha, :mecha_multipliers => @mecha.mecha_multipliers} %>
-     </div>
-     <div id="mecha-modifiers" class="mecha-section">
-       <%= render :partial => 'mecha_modifiers', :locals => {:mecha => @mecha} %>
-     </div>
+      <div id="mecha-multipliers" class="mecha-section">
+        <table id="mecha-multipliers-table" class="mecha-table">
+          <thead class="shaded">
+            <tr>
+              <th colspan="4">Cost Multipliers</th>
+            </tr>
+            <tr>
+              <th>Multiplier System</th>
+              <th>Qty</th>
+              <th>Cost</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="mecha_multipliers_body">
+            <% @mecha.mecha_multipliers.each do |multiplier| %>
+              <%= render "mecha_multipliers/mecha_multiplier_line", mecha_multiplier: multiplier %>
+            <% end %>
+            <tr id="mecha_multipliers-add">
+              <td colspan="4">
+                <%= button_to "Add Multiplier",
+                      [@mecha, :mecha_multipliers],
+                      method: :post,
+                      data: { turbo_stream: true },
+                      class: "text-green-500 hover:text-green-700" %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
+
   <div id="mecha-servos" class="mecha-section">
-     <%= render :partial => 'mecha_servos', :locals => {:mecha => @mecha, :mecha_servos => @mecha.mecha_servos} %>
+    <table id="mecha-servos-table" class="mecha-table">
+      <thead class="shaded">
+        <tr>
+          <th colspan="9">Servos &amp; Armor</th>
+        </tr>
+        <tr>
+          <th>SP</th>
+          <th>Kills</th>
+          <th>Servo</th>
+          <th>Level</th>
+          <th>Space</th>
+          <th>Cost</th>
+          <th>Armor</th>
+          <th>Cost</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="mecha_servos_body">
+        <% @mecha.mecha_servos.each do |servo| %>
+          <%= render "mecha_servos/mecha_servo_line", mecha_servo: servo %>
+        <% end %>
+        <tr id="mecha_servos-add">
+          <td colspan="9">
+            <%= button_to "Add Servo",
+                  [@mecha, :mecha_servos],
+                  method: :post,
+                  data: { turbo_stream: true },
+                  class: "text-green-500 hover:text-green-700" %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
+
   <div class="mecha-section">
     <div class="mecha-subleft">
-      <div id="mecha-movement_systems" class="mecha-section">
-        <%= render :partial => 'mecha_movements', :locals => {:mecha => @mecha, :mecha_movements => @mecha.mecha_movements} %>
+      <div id="mecha-movements" class="mecha-section">
+        <table id="mecha-movements-table" class="mecha-table">
+          <thead class="shaded">
+            <tr>
+              <th colspan="6">Movement Systems</th>
+            </tr>
+            <tr>
+              <th>Type</th>
+              <th>Loc</th>
+              <th>Speed</th>
+              <th>Cp</th>
+              <th>Sp</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="mecha_movements_body">
+            <% @mecha.mecha_movements.each do |movement| %>
+              <%= render "mecha_movements/mecha_movement_line", mecha_movement: movement %>
+            <% end %>
+            <tr id="mecha_movements-add">
+              <td colspan="6">
+                <%= button_to "Add Movement",
+                      [@mecha, :mecha_movements],
+                      method: :post,
+                      data: { turbo_stream: true },
+                      class: "text-green-500 hover:text-green-700" %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
     <div class="mecha-subright">
       <div id="mecha-sensors" class="mecha-section">
-        <%= render :partial => 'mecha_sensors', :locals => {:mecha => @mecha, :mecha_sensors => @mecha.mecha_sensors} %>
+        <table id="mecha-sensors-table" class="mecha-table">
+          <thead class="shaded">
+            <tr>
+              <th colspan="7">Sensors</th>
+            </tr>
+            <tr>
+              <th>Sensor</th>
+              <th>Loc</th>
+              <th>Rng</th>
+              <th>Kills</th>
+              <th>Cp</th>
+              <th>Sp</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="mecha_sensors_body">
+            <% @mecha.mecha_sensors.each do |sensor| %>
+              <%= render "mecha_sensors/mecha_sensor_line", mecha_sensor: sensor %>
+            <% end %>
+            <tr id="mecha_sensors-add">
+              <td colspan="7">
+                <%= button_to "Add Sensor",
+                      [@mecha, :mecha_sensors],
+                      method: :post,
+                      data: { turbo_stream: true },
+                      class: "text-green-500 hover:text-green-700" %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
 </div>
+
 <div id="mecha-right">
   <div id="portrait" class="mecha-section">
-    
+
   </div>
   <div id="mecha-profile" class="mecha-section">
-    <%= render :partial => 'mecha_profile', :locals => {:mecha => @mecha} %>
+    <table id="mecha-profile-table" class="mecha-table">
+      <thead class="shaded">
+        <tr>
+          <th colspan="3">Mecha Profile</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="stat-label shaded">Name</td>
+          <td id="mecha_name"><%= @mecha.name %></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="stat-label shaded">Pilot</td>
+          <td><%= @mecha.character&.name || "None" %></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
   <div id="mecha-subassemblies" class="mecha-section">
-    <%= render :partial => 'mecha_subassemblies', :locals => {:mecha => @mecha, :mecha_subassemblies => @mecha.mecha_subassemblies} %>
+    <table id="mecha-subassemblies-table" class="mecha-table">
+      <thead class="shaded">
+        <tr>
+          <th colspan="6">Subassemblies</th>
+        </tr>
+        <tr>
+          <th>Subassembly</th>
+          <th>Loc</th>
+          <th>Space</th>
+          <th>Cp</th>
+          <th>K</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="mecha_subassemblies_body">
+        <% @mecha.mecha_subassemblies.each do |subassembly| %>
+          <%= render "mecha_subassemblies/mecha_subassembly_line", mecha_subassembly: subassembly %>
+        <% end %>
+        <tr id="mecha_subassemblies-add">
+          <td colspan="6">
+            <%= button_to "Add Subassembly",
+                  [@mecha, :mecha_subassemblies],
+                  method: :post,
+                  data: { turbo_stream: true },
+                  class: "text-green-500 hover:text-green-700" %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
   <div id="mecha-shields" class="mecha-section">
-    <%= render :partial => 'mecha_shields', :locals => {:mecha => @mecha, :mecha_shields => @mecha.mecha_shields} %>
+    <table id="mecha-shields-table" class="mecha-table">
+      <thead class="shaded">
+        <tr>
+          <th colspan="7">Shields</th>
+        </tr>
+        <tr>
+          <th>Shield</th>
+          <th>DA</th>
+          <th>SP</th>
+          <th>Loc</th>
+          <th>Sp</th>
+          <th>Cp</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="mecha_shields_body">
+        <% @mecha.mecha_shields.each do |shield| %>
+          <%= render "mecha_shields/mecha_shield_line", mecha_shield: shield %>
+        <% end %>
+        <tr id="mecha_shields-add">
+          <td colspan="7">
+            <%= button_to "Add Shield",
+                  [@mecha, :mecha_shields],
+                  method: :post,
+                  data: { turbo_stream: true },
+                  class: "text-green-500 hover:text-green-700" %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
-    <div id="mecha-armaments" class="mecha-section">
-      <%= render :partial => 'mecha_weapons', :locals => {:mecha => @mecha, :mecha_weapons => @mecha.mecha_weapons} %>
-    </div>
-   <div id="mecha-notes-div" class="mecha-section">
-      <strong>Notes</strong><br/>
-    <%= editable_text_area('notes', @mecha.notes) %>
-  </div>
+
+<div id="mecha-armaments" class="mecha-section">
+  <table id="mecha-weapons-table" class="mecha-table">
+    <thead class="shaded">
+      <tr>
+        <th colspan="14">Armaments</th>
+      </tr>
+      <tr>
+        <th>Weapon</th>
+        <th>WA</th>
+        <th>Range</th>
+        <th>Damage</th>
+        <th>Shots</th>
+        <th>Kills</th>
+        <th>Loc</th>
+        <th>Cost</th>
+        <th>Space</th>
+        <th>WT</th>
+        <th>BV</th>
+        <th>Qty</th>
+        <th>Notes</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody id="mecha_weapons_body">
+      <% @mecha.mecha_weapons.each do |weapon| %>
+        <%= render "mecha_weapons/mecha_weapon_line", mecha_weapon: weapon %>
+      <% end %>
+      <tr id="mecha_weapons-add">
+        <td colspan="14">
+          <%= button_to "Add Weapon",
+                [@mecha, :mecha_weapons],
+                method: :post,
+                data: { turbo_stream: true },
+                class: "text-green-500 hover:text-green-700" %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div id="mecha-notes-div" class="mecha-section">
+  <strong>Notes</strong><br/>
+  <%= @mecha.notes %>
+</div>
 </div>

@@ -1,68 +1,77 @@
+# frozen_string_literal: true
+
 class MechaSensorsController < ApplicationController
-  def index
-  end
+  before_action :set_mecha, only: [:create]
 
-  def show
-  end
-
-  def edit
-  end
-
-  def new
-  end
-
+  # POST /mechas/:mecha_id/mecha_sensors
   def create
-    @mecha_sensor = MechaSensor.new(:mecha_id => params[:mecha_id])
+    authorize @mecha, :update?
+    @sensor = @mecha.mecha_sensors.create!
 
     respond_to do |format|
-      if @mecha_sensor.save
-        flash[:notice] = 'Test was successfully created.'
-        format.html { render :partial => 'mecha_sensor_line', :locals => {:mecha_sensor => @mecha_sensor} }
-        format.xml  { render :xml => @mecha_sensor, :status => :created, :location => @mecha_sensor }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @mecha_sensor.errors, :status => :unprocessable_entity }
+      format.turbo_stream do
+        render turbo_stream: [
+          turbo_stream.append("mecha_sensors_body",
+            partial: "mecha_sensors/mecha_sensor_line",
+            locals: { mecha_sensor: @sensor }),
+          turbo_stream.replace("mecha_stats",
+            partial: "mechas/mecha_stats",
+            locals: { mecha: @mecha })
+        ]
       end
     end
   end
 
+  # PATCH/PUT /mechas/:mecha_id/mecha_sensors/:id
   def update
-    @mecha_sensor = MechaSensor.find(params[:id])
-    @mecha_sensor.send("#{params[:field]}=", params[:value])
+    @sensor = MechaSensor.find(params[:id])
+    authorize @sensor.mecha, :update?
+
+    # Explicit field whitelist — no send(), no mass assignment
+    if params.key?(:mecha_sensor_data_id)
+      @sensor.mecha_sensor_data_id = params[:mecha_sensor_data_id]
+    end
+    @sensor.location = params[:location] if params.key?(:location)
+    @sensor.save!
+
+    mecha = @sensor.mecha
     respond_to do |format|
-      if @mecha_sensor.save
-        format.json { render :text => mecha_sensor_json(@mecha_sensor)}
+      format.turbo_stream do
+        render turbo_stream: [
+          turbo_stream.replace("mecha_sensor_#{@sensor.id}",
+            partial: "mecha_sensors/mecha_sensor_line",
+            locals: { mecha_sensor: @sensor }),
+          turbo_stream.replace("mecha_stats",
+            partial: "mechas/mecha_stats",
+            locals: { mecha: mecha })
+        ]
       end
     end
   end
 
+  # DELETE /mechas/:mecha_id/mecha_sensors/:id
   def destroy
-
-    @mecha_sensor = MechaSensor.find(params[:id])
-    @mecha_sensor.destroy
+    @sensor = MechaSensor.find(params[:id])
+    authorize @sensor.mecha, :update?
+    dom_id = "mecha_sensor_#{@sensor.id}"
+    mecha = @sensor.mecha
+    @sensor.destroy!
 
     respond_to do |format|
-      format.html { redirect_to(mecha_sensors_url) }
-      format.json {render :text => 'Success'}
-      format.xml  { head :ok }
+      format.turbo_stream do
+        render turbo_stream: [
+          turbo_stream.remove(dom_id),
+          turbo_stream.replace("mecha_stats",
+            partial: "mechas/mecha_stats",
+            locals: { mecha: mecha })
+        ]
+      end
     end
   end
 
   private
 
-  def mecha_sensor_json(mecha_sensor)
-    sensor_data = mecha_sensor.mecha_sensor_data
-    json_hash = Hash.new
-    json_hash["mecha_sensor_data_id"] = sensor_data.sensor
-    json_hash["range"] = sensor_data.range
-    json_hash["communication_range"] = sensor_data.communication_range
-    json_hash["kills"] = sensor_data.kills
-    json_hash["space"] = sensor_data.space
-    json_hash["cost"] = sensor_data.cost
-    json_hash["weight"] = sensor_data.weight
-    json_hash["location"] = mecha_sensor.location
-    json_hash["mecha"] = mecha_sensor.mecha.mecha_json
-
-    json_hash.to_json
+  def set_mecha
+    @mecha = Mecha.find(params[:mecha_id])
   end
 end

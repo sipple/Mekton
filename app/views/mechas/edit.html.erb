@@ -1,4 +1,4 @@
-<h1>New Mecha</h1>
+<h1>Edit Mecha</h1>
 
 <%= form_with model: @mecha, local: true do |f| %>
   <% if @mecha.errors.any? %>
@@ -25,7 +25,27 @@
           prompt: "Select a Pilot" %>
   </p>
 
+  <h2>Modifiers</h2>
   <p>
-    <%= f.submit "Create" %>
+    <%= f.label :mv_bonus, "MV Bonus" %><br />
+    <%= f.number_field :mv_bonus %>
+  </p>
+  <p>
+    <%= f.label :ma_bonus, "MA Bonus" %><br />
+    <%= f.number_field :ma_bonus %>
+  </p>
+  <p>
+    <%= f.label :mp_bonus, "Maneuver Pool Bonus (%)" %><br />
+    <%= f.number_field :mp_bonus %>
+  </p>
+
+  <p>
+    <%= f.label :notes %><br />
+    <%= f.text_area :notes %>
+  </p>
+
+  <p>
+    <%= f.submit "Save" %>
+    <%= link_to "Cancel", @mecha %>
   </p>
 <% end %>

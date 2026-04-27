@@ -1,67 +1,78 @@
+# frozen_string_literal: true
+
 class MechaShieldsController < ApplicationController
-  def index
-  end
+  before_action :set_mecha, only: [:create]
 
-  def show
-  end
-
-  def edit
-  end
-
-  def new
-  end
-
+  # POST /mechas/:mecha_id/mecha_shields
   def create
-    @mecha_shield = MechaShield.new(:mecha_id => params[:mecha_id])
+    authorize @mecha, :update?
+    @shield = @mecha.mecha_shields.create!
 
     respond_to do |format|
-      if @mecha_shield.save
-        flash[:notice] = 'Test was successfully created.'
-        format.html { render :partial => 'mecha_shield_line', :locals => {:mecha_shield => @mecha_shield} }
-        format.xml  { render :xml => @mecha_shield, :status => :created, :location => @mecha_shield }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @mecha_shield.errors, :status => :unprocessable_entity }
+      format.turbo_stream do
+        render turbo_stream: [
+          turbo_stream.append("mecha_shields_body",
+            partial: "mecha_shields/mecha_shield_line",
+            locals: { mecha_shield: @shield }),
+          turbo_stream.replace("mecha_stats",
+            partial: "mechas/mecha_stats",
+            locals: { mecha: @mecha })
+        ]
       end
     end
   end
 
+  # PATCH/PUT /mechas/:mecha_id/mecha_shields/:id
   def update
-    @mecha_shield = MechaShield.find(params[:id])
-    @mecha_shield.send("#{params[:field]}=", params[:value])
+    @shield = MechaShield.find(params[:id])
+    authorize @shield.mecha, :update?
+
+    # Explicit field whitelist — no send(), no mass assignment
+    if params.key?(:mecha_shield_data_id)
+      @shield.mecha_shield_data_id = params[:mecha_shield_data_id]
+    end
+    @shield.location = params[:location] if params.key?(:location)
+    @shield.mecha_servo_id = params[:mecha_servo_id] if params.key?(:mecha_servo_id)
+    @shield.save!
+
+    mecha = @shield.mecha
     respond_to do |format|
-      if @mecha_shield.save
-        format.json { render :text => mecha_shield_json(@mecha_shield)}
+      format.turbo_stream do
+        render turbo_stream: [
+          turbo_stream.replace("mecha_shield_#{@shield.id}",
+            partial: "mecha_shields/mecha_shield_line",
+            locals: { mecha_shield: @shield }),
+          turbo_stream.replace("mecha_stats",
+            partial: "mechas/mecha_stats",
+            locals: { mecha: mecha })
+        ]
       end
     end
   end
 
+  # DELETE /mechas/:mecha_id/mecha_shields/:id
   def destroy
-
-    @mecha_shield = MechaShield.find(params[:id])
-    @mecha_shield.destroy
+    @shield = MechaShield.find(params[:id])
+    authorize @shield.mecha, :update?
+    dom_id = "mecha_shield_#{@shield.id}"
+    mecha = @shield.mecha
+    @shield.destroy!
 
     respond_to do |format|
-      format.html { redirect_to(mecha_shields_url) }
-      format.json {render :text => 'Success'}
-      format.xml  { head :ok }
+      format.turbo_stream do
+        render turbo_stream: [
+          turbo_stream.remove(dom_id),
+          turbo_stream.replace("mecha_stats",
+            partial: "mechas/mecha_stats",
+            locals: { mecha: mecha })
+        ]
+      end
     end
   end
 
   private
 
-  def mecha_shield_json(mecha_shield)
-    shield_data = mecha_shield.mecha_shield_data
-    json_hash = Hash.new
-    json_hash["mecha_shield_data_id"] = shield_data.shield
-    json_hash["stopping_power"] = shield_data.stopping_power
-    json_hash["space"] = shield_data.space
-    json_hash["defense_adjustment"] = shield_data.defense_adjustment
-    json_hash["cost"] = mecha_shield.cost
-    json_hash["weight"] = mecha_shield.weight
-    json_hash["location"] = mecha_shield.location
-    json_hash["mecha"] = mecha_shield.mecha.mecha_json
-
-    json_hash.to_json
+  def set_mecha
+    @mecha = Mecha.find(params[:mecha_id])
   end
 end

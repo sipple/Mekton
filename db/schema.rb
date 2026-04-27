@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_04_27_185944) do
+ActiveRecord::Schema[8.1].define(version: 2026_04_27_192726) do
   create_table "character_armor_data", force: :cascade do |t|
     t.string "armor"
     t.integer "cost"
@@ -411,8 +411,10 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_27_185944) do
     t.string "name"
     t.text "notes"
     t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
     t.index ["character_id"], name: "index_mechas_on_character_id"
     t.index ["mecha_servo_id"], name: "index_mechas_on_mecha_servo_id"
+    t.index ["user_id"], name: "index_mechas_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -434,4 +436,5 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_27_185944) do
   end
 
   add_foreign_key "characters", "users"
+  add_foreign_key "mechas", "users"
 end
