@@ -1,14 +1,14 @@
- <%
-   skill = local_assigns[:character_skill]
-   skill_data = local_assigns[:character_skill].character_skill_data
-   skill_id = "character_skills-#{local_assigns[:character_skill].id}"
- %>
-
-<tr id="<%= skill_id %>">
-  <td><%=editable_row_select("#{skill_id}-character_skill_data_id", (skill_data.skill if skill_data)) %></td>
-  <td><%= editable_row_field("#{skill_id}-level", skill.level) %></td>
-  <td><%= editable_row_field("#{skill_id}-ip_earned", skill.ip_earned) %></td>
-  <td><%= static("#{skill_id}-attribute_bonus", skill.attribute_bonus) %></td>
-  <td><%= static("#{skill_id}-total", skill.total) %></td>
-  <td><%= image_tag("delete.png", :alt=>"Delete", :class=>"icon delete") %></td>
+<tr id="character_skill_<%= character_skill.id %>">
+  <td><%= character_skill.character_skill_data&.skill %></td>
+  <td><%= character_skill.level %></td>
+  <td><%= character_skill.ip_earned %></td>
+  <td><%= character_skill.attribute_bonus %></td>
+  <td><%= character_skill.total %></td>
+  <td>
+    <%= button_to "Delete",
+          [character_skill.character, character_skill],
+          method: :delete,
+          data: { turbo_stream: true },
+          class: "text-red-500 hover:text-red-700" %>
+  </td>
 </tr>

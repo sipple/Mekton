@@ -1,43 +1,40 @@
 class CharacterWeaponDataController < ApplicationController
-  def index
-    @weapons = CharacterWeaponData.active(:order => "weapon")
-  end
+  before_action :set_weapon, only: [:show, :edit, :update, :destroy]
 
-  def show
-    @weapon = CharacterWeaponData.find(params[:id])
-  end
-
-  def new
-    @weapon = CharacterWeaponData.new
-  end
-
-  def edit
-    @weapon = CharacterWeaponData.find(params[:id])
-  end
+  def index; @weapons = CharacterWeaponData.active; end
+  def show; end
+  def new; @weapon = CharacterWeaponData.new; end
+  def edit; end
 
   def create
-    @weapon = CharacterWeaponData.new(params[:character_weapon_data])
-
+    @weapon = CharacterWeaponData.new(weapon_params)
     if @weapon.save
-      redirect_to(character_weapon_data_index_path)
+      redirect_to character_weapon_data_index_path, notice: "Weapon data created."
+    else
+      render :new, status: :unprocessable_entity
     end
-
   end
 
   def update
-    @weapon = CharacterWeaponData.find(params[:id])
-    @weapon.update_attributes(params[:character_weapon_data])
-    redirect_to(character_weapon_data_index_path)
-
-
-  end
-
-  def destroy
-    @weapon = CharacterWeaponData.find(params[:id])
-    @weapon.disabled = true
-    if @weapon.save
-      redirect_to(character_weapon_data_index_path)
+    if @weapon.update(weapon_params)
+      redirect_to character_weapon_data_index_path, notice: "Weapon data updated."
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
+  def destroy
+    @weapon.update!(disabled: true)
+    redirect_to character_weapon_data_index_path, notice: "Weapon data disabled."
+  end
+
+  private
+
+  def set_weapon
+    @weapon = CharacterWeaponData.find(params[:id])
+  end
+
+  def weapon_params
+    params.require(:character_weapon_data).permit(:weapon, :weapon_adjustment, :range, :damage, :shots, :burst_value, :concealment, :weight, :cost, :disabled)
+  end
 end

@@ -1,64 +1,77 @@
+# frozen_string_literal: true
+
 class CharacterSkillsController < ApplicationController
-  def index
-  end
+  before_action :set_character, only: [:create]
 
-  def show
-  end
-
-  def new
-  end
-
-  def edit
-  end
-
+  # POST /characters/:character_id/character_skills
   def create
-    @character_skill = CharacterSkill.new(:character_id => params[:character_id], :level => 0)
+    authorize @character, :update?
+    @skill = @character.character_skills.create!(level: 0, ip_earned: 0)
 
     respond_to do |format|
-      if @character_skill.save
-        flash[:notice] = 'Test was successfully created.'
-        format.html { render :partial => 'character_skill_line', :locals => {:character_skill => @character_skill} }
-        format.xml  { render :xml => @character_skill, :status => :created, :location => @character_skill }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @character_skill.errors, :status => :unprocessable_entity }
+      format.turbo_stream do
+        render turbo_stream: [
+          turbo_stream.append("character_skills_body",
+            partial: "character_skills/character_skill_line",
+            locals: { character_skill: @skill }),
+          turbo_stream.replace("skill_points",
+            partial: "characters/skill_points",
+            locals: { character: @character })
+        ]
       end
     end
   end
 
+  # PATCH/PUT /characters/:character_id/character_skills/:id
   def update
-    @character_skill = CharacterSkill.find(params[:id])
-    @character_skill.send("#{params[:field]}=", params[:value])
+    @skill = CharacterSkill.find(params[:id])
+    authorize @skill.character, :update?
+
+    # Explicit field whitelist — no send(), no mass assignment
+    if params.key?(:character_skill_data_id)
+      @skill.character_skill_data_id = params[:character_skill_data_id]
+    end
+    @skill.level = params[:level] if params.key?(:level)
+    @skill.ip_earned = params[:ip_earned] if params.key?(:ip_earned)
+    @skill.save!
 
     respond_to do |format|
-      if @character_skill.save
-        format.json { render :text => character_skill_json(@character_skill)}
+      format.turbo_stream do
+        render turbo_stream: [
+          turbo_stream.replace("character_skill_#{@skill.id}",
+            partial: "character_skills/character_skill_line",
+            locals: { character_skill: @skill }),
+          turbo_stream.replace("skill_points",
+            partial: "characters/skill_points",
+            locals: { character: @skill.character })
+        ]
       end
     end
   end
 
+  # DELETE /characters/:character_id/character_skills/:id
   def destroy
-    @character_skill = CharacterSkill.find(params[:id])
-    @character_skill.destroy
+    @skill = CharacterSkill.find(params[:id])
+    authorize @skill.character, :update?
+    dom_id = "character_skill_#{@skill.id}"
+    character = @skill.character
+    @skill.destroy!
 
     respond_to do |format|
-      format.html { redirect_to(character_skills_url) }
-      format.json {render :text => 'Success'}
-      format.xml  { head :ok }
+      format.turbo_stream do
+        render turbo_stream: [
+          turbo_stream.remove(dom_id),
+          turbo_stream.replace("skill_points",
+            partial: "characters/skill_points",
+            locals: { character: character })
+        ]
+      end
     end
   end
 
   private
 
-  def character_skill_json(character_skill)
-    skill_data = character_skill.character_skill_data
-    json_hash = Hash.new
-    json_hash["character_skill_data_id"] = skill_data.skill
-    json_hash["level"] = character_skill.level
-    json_hash["ip_earned"] = character_skill.ip_earned
-    json_hash["attribute_bonus"] = character_skill.attribute_bonus
-    json_hash["total"] = character_skill.total
-    json_hash.to_json
+  def set_character
+    @character = Character.find(params[:character_id])
   end
-
 end

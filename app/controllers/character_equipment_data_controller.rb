@@ -1,43 +1,40 @@
 class CharacterEquipmentDataController < ApplicationController
-  def index
-    @equipments = CharacterEquipmentData.active(:order => "equipment")
-  end
+  before_action :set_equipment, only: [:show, :edit, :update, :destroy]
 
-  def show
-    @equipment = CharacterEquipmentData.find(params[:id])
-  end
-
-  def new
-    @equipment = CharacterEquipmentData.new
-  end
-
-  def edit
-    @equipment = CharacterEquipmentData.find(params[:id])
-  end
+  def index; @equipments = CharacterEquipmentData.active; end
+  def show; end
+  def new; @equipment = CharacterEquipmentData.new; end
+  def edit; end
 
   def create
-    @equipment = CharacterEquipmentData.new(params[:character_equipment_data])
-
+    @equipment = CharacterEquipmentData.new(equipment_params)
     if @equipment.save
-      redirect_to(character_equipment_data_index_path)
+      redirect_to character_equipment_data_index_path, notice: "Equipment data created."
+    else
+      render :new, status: :unprocessable_entity
     end
-
   end
 
   def update
-    @equipment = CharacterEquipmentData.find(params[:id])
-    @equipment.update_attributes(params[:character_equipment_data])
-    redirect_to(character_equipment_data_index_path)
-
-
-  end
-
-  def destroy
-    @equipment = CharacterEquipmentData.find(params[:id])
-    @equipment.disabled = true
-    if @equipment.save
-      redirect_to(character_equipment_data_index_path)
+    if @equipment.update(equipment_params)
+      redirect_to character_equipment_data_index_path, notice: "Equipment data updated."
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
+  def destroy
+    @equipment.update!(disabled: true)
+    redirect_to character_equipment_data_index_path, notice: "Equipment data disabled."
+  end
+
+  private
+
+  def set_equipment
+    @equipment = CharacterEquipmentData.find(params[:id])
+  end
+
+  def equipment_params
+    params.require(:character_equipment_data).permit(:equipment, :weight, :cost, :disabled)
+  end
 end

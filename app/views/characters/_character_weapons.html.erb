@@ -13,12 +13,18 @@
       <th>Cost</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody id="character_weapons_body">
     <% local_assigns[:character_weapons].each do |weapon| %>
-        <%= render :partial => '/character_weapons/character_weapon_line', :locals => {:character_weapon => weapon} %>
+      <%= render "character_weapons/character_weapon_line", character_weapon: weapon %>
     <% end %>
-  <tr id="character_weapons-add">
-     <td><%= image_tag("add.png", :alt=>"Add Weapon", :class=>"icon add") %></td>
-  </tr>
+    <tr id="character_weapons-add">
+      <td>
+        <%= button_to "Add Weapon",
+              [character, :character_weapons],
+              method: :post,
+              data: { turbo_stream: true },
+              class: "text-green-500 hover:text-green-700" %>
+      </td>
+    </tr>
   </tbody>
 </table>

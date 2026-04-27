@@ -1,65 +1,60 @@
+# frozen_string_literal: true
+
 class CharacterArmorsController < ApplicationController
-  def index
-  end
+  before_action :set_character, only: [:create]
 
-  def show
-  end
-
-  def edit
-  end
-
-  def new
-  end
-
+  # POST /characters/:character_id/character_armors
   def create
-    @character_armor = CharacterArmor.new(:character_id => params[:character_id])
+    authorize @character, :update?
+    @armor = @character.character_armors.create!
 
     respond_to do |format|
-      if @character_armor.save
-        flash[:notice] = 'Test was successfully created.'
-        format.html { render :partial => 'character_armor_line', :locals => {:character_armor => @character_armor} }
-        format.xml  { render :xml => @character_armor, :status => :created, :location => @character_armor }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @character_armor.errors, :status => :unprocessable_entity }
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.append("character_armors_body",
+          partial: "character_armors/character_armor_line",
+          locals: { character_armor: @armor })
       end
     end
   end
 
+  # PATCH/PUT /characters/:character_id/character_armors/:id
   def update
-    @character_armor = CharacterArmor.find(params[:id])
-    @character_armor.send("#{params[:field]}=", params[:value])
+    @armor = CharacterArmor.find(params[:id])
+    authorize @armor.character, :update?
+
+    # Explicit field whitelist — no send(), no mass assignment
+    if params.key?(:character_armor_data_id)
+      @armor.character_armor_data_id = params[:character_armor_data_id]
+    end
+    @armor.location = params[:location] if params.key?(:location)
+    @armor.save!
 
     respond_to do |format|
-      if @character_armor.save
-        format.json { render :text => character_armor_json(@character_armor)}
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.replace("character_armor_#{@armor.id}",
+          partial: "character_armors/character_armor_line",
+          locals: { character_armor: @armor })
       end
     end
   end
 
+  # DELETE /characters/:character_id/character_armors/:id
   def destroy
-
-    @character_armor = CharacterArmor.find(params[:id])
-    @character_armor.destroy
+    @armor = CharacterArmor.find(params[:id])
+    authorize @armor.character, :update?
+    dom_id = "character_armor_#{@armor.id}"
+    @armor.destroy!
 
     respond_to do |format|
-      format.html { redirect_to(character_armors_url) }
-      format.json {render :text => 'Success'}
-      format.xml  { head :ok }
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.remove(dom_id)
+      end
     end
   end
 
   private
 
-  def character_armor_json(character_armor)
-    armor_data = character_armor.character_armor_data
-    json_hash = Hash.new
-    json_hash["character_armor_data_id"] = armor_data.armor
-    json_hash["location"] = character_armor.location
-    json_hash["stopping_power"] = armor_data.stopping_power
-    json_hash["cost"] = armor_data.cost
-    json_hash["weight"] = armor_data.weight
-    json_hash.to_json
+  def set_character
+    @character = Character.find(params[:character_id])
   end
-
 end

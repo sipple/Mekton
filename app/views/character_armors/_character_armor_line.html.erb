@@ -1,13 +1,14 @@
-<%
-   armor_data = local_assigns[:character_armor].character_armor_data
-   armor_id = "character_armors-#{local_assigns[:character_armor].id}"
-%>
-
-<tr id="<%= armor_id %>">
-  <td><%= editable_row_select("#{armor_id}-character_armor_data_id", (armor_data.armor if armor_data)) %></td>
-  <td><%= editable_row_field("#{armor_id}-location", local_assigns[:character_armor].location) %></td>
-  <td><%= static("#{armor_id}-stopping_power", (armor_data.stopping_power if armor_data)) %></td>
-  <td><%= static("#{armor_id}-cost", (armor_data.cost if armor_data)) %></td>
-  <td><%= static("#{armor_id}-weight", (armor_data.weight if armor_data)) %></td>
-  <td><%= image_tag("delete.png", :alt=>"Delete", :class=>"icon delete") %></td>
+<tr id="character_armor_<%= character_armor.id %>">
+  <td><%= character_armor.character_armor_data&.armor %></td>
+  <td><%= character_armor.location %></td>
+  <td><%= character_armor.character_armor_data&.stopping_power %></td>
+  <td><%= character_armor.character_armor_data&.cost %></td>
+  <td><%= character_armor.character_armor_data&.weight %></td>
+  <td>
+    <%= button_to "Delete",
+          [character_armor.character, character_armor],
+          method: :delete,
+          data: { turbo_stream: true },
+          class: "text-red-500 hover:text-red-700" %>
+  </td>
 </tr>
