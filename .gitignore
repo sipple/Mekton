@@ -12,6 +12,9 @@
 /log/*
 !/log/.keep
 
+# OpenCode development artifacts
+.tmp/
+
 # Seed data generated files
 db/seed_data/character_profession_skill_data.csv
 db/seed_data/character_template_skill_data.csv
