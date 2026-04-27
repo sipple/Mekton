@@ -1,9 +1,0 @@
-<h1>New Profession</h1>
-<% form_for(@profession, :url => {:action => "create"}) do |f| %>
-    <p>Profession Name:
-      <%= f.text_field :profession %>
-    </p>
-    <p>
-      <%= f.submit "Submit" %>
-    </p>
-<% end %>

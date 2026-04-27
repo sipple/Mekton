@@ -1,9 +1,0 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
-one:
-  character_equipment_data_id: 1
-  quantity: 1
-
-two:
-  character_equipment_data_id: 1
-  quantity: 1
