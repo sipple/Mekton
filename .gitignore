@@ -19,3 +19,7 @@ db/seed_data/character_template_skill_data.csv
 # Environment
 .env
 .env.*
+
+# Ignore key files for decrypting credentials and more.
+/config/*.key
+
