@@ -19,6 +19,7 @@ class CharacterSkillsController < ApplicationController
             locals: { character: @character })
         ]
       end
+      format.html { redirect_to @character, notice: "Skill added." }
     end
   end
 
@@ -46,6 +47,7 @@ class CharacterSkillsController < ApplicationController
             locals: { character: @skill.character })
         ]
       end
+      format.html { redirect_to @skill.character, notice: "Skill updated." }
     end
   end
 
@@ -66,6 +68,7 @@ class CharacterSkillsController < ApplicationController
             locals: { character: character })
         ]
       end
+      format.html { redirect_to character, notice: "Skill removed." }
     end
   end
 

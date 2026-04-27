@@ -19,6 +19,7 @@ class MechaWeaponsController < ApplicationController
             locals: { mecha: @mecha })
         ]
       end
+      format.html { redirect_to @mecha, notice: "Weapon added." }
     end
   end
 
@@ -49,6 +50,7 @@ class MechaWeaponsController < ApplicationController
             locals: { mecha: mecha })
         ]
       end
+      format.html { redirect_to mecha, notice: "Weapon updated." }
     end
   end
 
@@ -69,6 +71,7 @@ class MechaWeaponsController < ApplicationController
             locals: { mecha: mecha })
         ]
       end
+      format.html { redirect_to mecha, notice: "Weapon removed." }
     end
   end
 

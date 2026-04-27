@@ -19,6 +19,7 @@ class MechaMovementsController < ApplicationController
             locals: { mecha: @mecha })
         ]
       end
+      format.html { redirect_to @mecha, notice: "Movement added." }
     end
   end
 
@@ -47,6 +48,7 @@ class MechaMovementsController < ApplicationController
             locals: { mecha: mecha })
         ]
       end
+      format.html { redirect_to mecha, notice: "Movement updated." }
     end
   end
 
@@ -67,6 +69,7 @@ class MechaMovementsController < ApplicationController
             locals: { mecha: mecha })
         ]
       end
+      format.html { redirect_to mecha, notice: "Movement removed." }
     end
   end
 

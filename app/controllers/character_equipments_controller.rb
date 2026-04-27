@@ -14,6 +14,7 @@ class CharacterEquipmentsController < ApplicationController
           partial: "character_equipments/character_equipment_line",
           locals: { character_equipment: @equipment })
       end
+      format.html { redirect_to @character, notice: "Equipment added." }
     end
   end
 
@@ -35,6 +36,7 @@ class CharacterEquipmentsController < ApplicationController
           partial: "character_equipments/character_equipment_line",
           locals: { character_equipment: @equipment })
       end
+      format.html { redirect_to @equipment.character, notice: "Equipment updated." }
     end
   end
 
@@ -43,12 +45,14 @@ class CharacterEquipmentsController < ApplicationController
     @equipment = CharacterEquipment.find(params[:id])
     authorize @equipment.character, :update?
     dom_id = "character_equipment_#{@equipment.id}"
+    character = @equipment.character
     @equipment.destroy!
 
     respond_to do |format|
       format.turbo_stream do
         render turbo_stream: turbo_stream.remove(dom_id)
       end
+      format.html { redirect_to character, notice: "Equipment removed." }
     end
   end
 

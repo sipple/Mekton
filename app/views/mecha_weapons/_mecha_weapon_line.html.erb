@@ -1,0 +1,22 @@
+<tr id="mecha_weapon_<%= mecha_weapon.id %>">
+  <td><%= mecha_weapon.mecha_weapon_data&.weapon %></td>
+  <td><%= mecha_weapon.mecha_weapon_data&.weapon_adjustment %></td>
+  <td><%= mecha_weapon.mecha_weapon_data&.range %></td>
+  <td><%= mecha_weapon.mecha_weapon_data&.damage %></td>
+  <td><%= mecha_weapon.mecha_weapon_data&.shots %></td>
+  <td><%= mecha_weapon.mecha_weapon_data&.kills %></td>
+  <td><%= mecha_weapon.location %></td>
+  <td><%= mecha_weapon.cost %></td>
+  <td><%= mecha_weapon.space %></td>
+  <td><%= mecha_weapon.weight %></td>
+  <td><%= mecha_weapon.mecha_weapon_data&.burst_value %></td>
+  <td><%= mecha_weapon.quantity %></td>
+  <td><%= mecha_weapon.notes %></td>
+  <td>
+    <%= button_to "Delete",
+          [mecha_weapon.mecha, mecha_weapon],
+          method: :delete,
+          data: { turbo_stream: true },
+          class: "text-red-500 hover:text-red-700" %>
+  </td>
+</tr>

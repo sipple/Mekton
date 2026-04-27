@@ -19,6 +19,7 @@ class MechaMultipliersController < ApplicationController
             locals: { mecha: @mecha })
         ]
       end
+      format.html { redirect_to @mecha, notice: "Multiplier added." }
     end
   end
 
@@ -46,6 +47,7 @@ class MechaMultipliersController < ApplicationController
             locals: { mecha: mecha })
         ]
       end
+      format.html { redirect_to mecha, notice: "Multiplier updated." }
     end
   end
 
@@ -66,6 +68,7 @@ class MechaMultipliersController < ApplicationController
             locals: { mecha: mecha })
         ]
       end
+      format.html { redirect_to mecha, notice: "Multiplier removed." }
     end
   end
 

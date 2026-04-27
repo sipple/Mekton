@@ -19,6 +19,7 @@ class MechaSensorsController < ApplicationController
             locals: { mecha: @mecha })
         ]
       end
+      format.html { redirect_to @mecha, notice: "Sensor added." }
     end
   end
 
@@ -46,6 +47,7 @@ class MechaSensorsController < ApplicationController
             locals: { mecha: mecha })
         ]
       end
+      format.html { redirect_to mecha, notice: "Sensor updated." }
     end
   end
 
@@ -66,6 +68,7 @@ class MechaSensorsController < ApplicationController
             locals: { mecha: mecha })
         ]
       end
+      format.html { redirect_to mecha, notice: "Sensor removed." }
     end
   end
 

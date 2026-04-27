@@ -19,6 +19,7 @@ class MechaShieldsController < ApplicationController
             locals: { mecha: @mecha })
         ]
       end
+      format.html { redirect_to @mecha, notice: "Shield added." }
     end
   end
 
@@ -47,6 +48,7 @@ class MechaShieldsController < ApplicationController
             locals: { mecha: mecha })
         ]
       end
+      format.html { redirect_to mecha, notice: "Shield updated." }
     end
   end
 
@@ -67,6 +69,7 @@ class MechaShieldsController < ApplicationController
             locals: { mecha: mecha })
         ]
       end
+      format.html { redirect_to mecha, notice: "Shield removed." }
     end
   end
 

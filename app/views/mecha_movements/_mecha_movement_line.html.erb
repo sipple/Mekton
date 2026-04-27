@@ -1,0 +1,14 @@
+<tr id="mecha_movement_<%= mecha_movement.id %>">
+  <td><%= mecha_movement.mecha_movement_data&.movement_system %></td>
+  <td><%= mecha_movement.location %></td>
+  <td><%= mecha_movement.speed %></td>
+  <td><%= mecha_movement.cost %></td>
+  <td><%= mecha_movement.space %></td>
+  <td>
+    <%= button_to "Delete",
+          [mecha_movement.mecha, mecha_movement],
+          method: :delete,
+          data: { turbo_stream: true },
+          class: "text-red-500 hover:text-red-700" %>
+  </td>
+</tr>

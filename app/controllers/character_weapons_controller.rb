@@ -14,6 +14,7 @@ class CharacterWeaponsController < ApplicationController
           partial: "character_weapons/character_weapon_line",
           locals: { character_weapon: @weapon })
       end
+      format.html { redirect_to @character, notice: "Weapon added." }
     end
   end
 
@@ -35,6 +36,7 @@ class CharacterWeaponsController < ApplicationController
           partial: "character_weapons/character_weapon_line",
           locals: { character_weapon: @weapon })
       end
+      format.html { redirect_to @weapon.character, notice: "Weapon updated." }
     end
   end
 
@@ -43,12 +45,14 @@ class CharacterWeaponsController < ApplicationController
     @weapon = CharacterWeapon.find(params[:id])
     authorize @weapon.character, :update?
     dom_id = "character_weapon_#{@weapon.id}"
+    character = @weapon.character
     @weapon.destroy!
 
     respond_to do |format|
       format.turbo_stream do
         render turbo_stream: turbo_stream.remove(dom_id)
       end
+      format.html { redirect_to character, notice: "Weapon removed." }
     end
   end
 

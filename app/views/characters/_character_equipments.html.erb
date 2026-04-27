@@ -13,10 +13,9 @@
     <% end %>
     <tr id="character_equipments-add">
       <td>
-        <%= button_to "Add Equipment",
+        <%= link_to "Add Equipment",
               [character, :character_equipments],
-              method: :post,
-              data: { turbo_stream: true },
+              data: { turbo_method: :post },
               class: "text-green-500 hover:text-green-700" %>
       </td>
     </tr>

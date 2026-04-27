@@ -1,0 +1,14 @@
+<tr id="mecha_subassembly_<%= mecha_subassembly.id %>">
+  <td><%= mecha_subassembly.mecha_subassembly_data&.subassembly %></td>
+  <td><%= mecha_subassembly.location %></td>
+  <td><%= mecha_subassembly.mecha_subassembly_data&.space %></td>
+  <td><%= mecha_subassembly.cost %></td>
+  <td><%= mecha_subassembly.mecha_subassembly_data&.kills %></td>
+  <td>
+    <%= button_to "Delete",
+          [mecha_subassembly.mecha, mecha_subassembly],
+          method: :delete,
+          data: { turbo_stream: true },
+          class: "text-red-500 hover:text-red-700" %>
+  </td>
+</tr>

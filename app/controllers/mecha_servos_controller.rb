@@ -19,6 +19,7 @@ class MechaServosController < ApplicationController
             locals: { mecha: @mecha })
         ]
       end
+      format.html { redirect_to @mecha, notice: "Servo added." }
     end
   end
 
@@ -51,6 +52,7 @@ class MechaServosController < ApplicationController
             locals: { mecha: mecha })
         ]
       end
+      format.html { redirect_to mecha, notice: "Servo updated." }
     end
   end
 
@@ -71,6 +73,7 @@ class MechaServosController < ApplicationController
             locals: { mecha: mecha })
         ]
       end
+      format.html { redirect_to mecha, notice: "Servo removed." }
     end
   end
 

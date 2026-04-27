@@ -50,10 +50,9 @@
             <% end %>
             <tr id="mecha_multipliers-add">
               <td colspan="4">
-                <%= button_to "Add Multiplier",
+                <%= link_to "Add Multiplier",
                       [@mecha, :mecha_multipliers],
-                      method: :post,
-                      data: { turbo_stream: true },
+                      data: { turbo_method: :post },
                       class: "text-green-500 hover:text-green-700" %>
               </td>
             </tr>
@@ -87,10 +86,9 @@
         <% end %>
         <tr id="mecha_servos-add">
           <td colspan="9">
-            <%= button_to "Add Servo",
+            <%= link_to "Add Servo",
                   [@mecha, :mecha_servos],
-                  method: :post,
-                  data: { turbo_stream: true },
+                  data: { turbo_method: :post },
                   class: "text-green-500 hover:text-green-700" %>
           </td>
         </tr>
@@ -121,10 +119,9 @@
             <% end %>
             <tr id="mecha_movements-add">
               <td colspan="6">
-                <%= button_to "Add Movement",
+                <%= link_to "Add Movement",
                       [@mecha, :mecha_movements],
-                      method: :post,
-                      data: { turbo_stream: true },
+                      data: { turbo_method: :post },
                       class: "text-green-500 hover:text-green-700" %>
               </td>
             </tr>
@@ -155,10 +152,9 @@
             <% end %>
             <tr id="mecha_sensors-add">
               <td colspan="7">
-                <%= button_to "Add Sensor",
+                <%= link_to "Add Sensor",
                       [@mecha, :mecha_sensors],
-                      method: :post,
-                      data: { turbo_stream: true },
+                      data: { turbo_method: :post },
                       class: "text-green-500 hover:text-green-700" %>
               </td>
             </tr>
@@ -215,11 +211,10 @@
         <% end %>
         <tr id="mecha_subassemblies-add">
           <td colspan="6">
-            <%= button_to "Add Subassembly",
-                  [@mecha, :mecha_subassemblies],
-                  method: :post,
-                  data: { turbo_stream: true },
-                  class: "text-green-500 hover:text-green-700" %>
+                <%= link_to "Add Subassembly",
+                      [@mecha, :mecha_subassemblies],
+                      data: { turbo_method: :post },
+                      class: "text-green-500 hover:text-green-700" %>
           </td>
         </tr>
       </tbody>
@@ -247,11 +242,10 @@
         <% end %>
         <tr id="mecha_shields-add">
           <td colspan="7">
-            <%= button_to "Add Shield",
-                  [@mecha, :mecha_shields],
-                  method: :post,
-                  data: { turbo_stream: true },
-                  class: "text-green-500 hover:text-green-700" %>
+                <%= link_to "Add Shield",
+                      [@mecha, :mecha_shields],
+                      data: { turbo_method: :post },
+                      class: "text-green-500 hover:text-green-700" %>
           </td>
         </tr>
       </tbody>
@@ -288,11 +282,10 @@
       <% end %>
       <tr id="mecha_weapons-add">
         <td colspan="14">
-          <%= button_to "Add Weapon",
-                [@mecha, :mecha_weapons],
-                method: :post,
-                data: { turbo_stream: true },
-                class: "text-green-500 hover:text-green-700" %>
+            <%= link_to "Add Weapon",
+                  [@mecha, :mecha_weapons],
+                  data: { turbo_method: :post },
+                  class: "text-green-500 hover:text-green-700" %>
         </td>
       </tr>
     </tbody>

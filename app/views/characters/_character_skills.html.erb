@@ -14,10 +14,9 @@
     <% end %>
     <tr id="character_skills-add">
       <td>
-        <%= button_to "Add Skill",
+        <%= link_to "Add Skill",
               [character, :character_skills],
-              method: :post,
-              data: { turbo_stream: true },
+              data: { turbo_method: :post },
               class: "text-green-500 hover:text-green-700" %>
       </td>
     </tr>

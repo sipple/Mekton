@@ -19,6 +19,7 @@ class MechaSubassembliesController < ApplicationController
             locals: { mecha: @mecha })
         ]
       end
+      format.html { redirect_to @mecha, notice: "Subassembly added." }
     end
   end
 
@@ -46,6 +47,7 @@ class MechaSubassembliesController < ApplicationController
             locals: { mecha: mecha })
         ]
       end
+      format.html { redirect_to mecha, notice: "Subassembly updated." }
     end
   end
 
@@ -66,6 +68,7 @@ class MechaSubassembliesController < ApplicationController
             locals: { mecha: mecha })
         ]
       end
+      format.html { redirect_to mecha, notice: "Subassembly removed." }
     end
   end
 
