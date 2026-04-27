@@ -1,59 +1,65 @@
-<%= javascript_include_tag "lib/characters/new" %>
-
 <h1>New Character</h1>
 
-<% form_for(@character, :html => {:id => 'new_character_form'}) do |f| %>
-   <p>
+<%= form_with model: @character, local: true do |f| %>
+  <% if @character.errors.any? %>
+    <div class="error-explanation">
+      <h2><%= pluralize(@character.errors.count, "error") %> prohibited this character from being saved:</h2>
+      <ul>
+        <% @character.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </p>
 
-    <h2>Character Stats</h2>
-    <p>
-      <%= f.label :intelligence %><br />
-      <%= f.text_field :intelligence %>
-    </p>
-    <p>
-      <%= f.label :cool %><br />
-      <%= f.text_field :cool %>
-    </p>
-    <p>
-      <%= f.label :reflexes %><br />
-      <%= f.text_field :reflexes %>
-    </p>
-    <p>
-      <%= f.label :attractiveness %><br />
-      <%= f.text_field :attractiveness %>
-    </p>
-    <p>
-      <%= f.label :empathy %><br />
-      <%= f.text_field :empathy %>
-    </p>
-    <p>
-      <%= f.label :tech_ability %><br />
-      <%= f.text_field :tech_ability %>
-    </p>
-    <p>
-      <%= f.label :luck %><br />
-      <%= f.text_field :luck %>
-    </p>
-    <p>
-      <%= f.label :move_allowance %><br />
-      <%= f.text_field :move_allowance %>
-    </p>
-    <p>
-      <%= f.label :body_type %><br />
-      <%= f.text_field :body_type %>
-    </p>
-    <p>
-      <%= f.label :education %><br />
-      <%= f.text_field :education %>
-    </p>
-    <p>
-      You've spent: <span id="character_points_spent"></span> points.
-    </p>
+  <h2>Character Stats</h2>
+  <p>
+    <%= f.label :intelligence %><br />
+    <%= f.number_field :intelligence %>
+  </p>
+  <p>
+    <%= f.label :cool %><br />
+    <%= f.number_field :cool %>
+  </p>
+  <p>
+    <%= f.label :reflexes %><br />
+    <%= f.number_field :reflexes %>
+  </p>
+  <p>
+    <%= f.label :attractiveness %><br />
+    <%= f.number_field :attractiveness %>
+  </p>
+  <p>
+    <%= f.label :empathy %><br />
+    <%= f.number_field :empathy %>
+  </p>
+  <p>
+    <%= f.label :tech_ability %><br />
+    <%= f.number_field :tech_ability %>
+  </p>
+  <p>
+    <%= f.label :luck %><br />
+    <%= f.number_field :luck %>
+  </p>
+  <p>
+    <%= f.label :move_allowance %><br />
+    <%= f.number_field :move_allowance %>
+  </p>
+  <p>
+    <%= f.label :body_type %><br />
+    <%= f.number_field :body_type %>
+  </p>
+  <p>
+    <%= f.label :education %><br />
+    <%= f.number_field :education %>
+  </p>
 
-    <p>
-    <%= f.submit 'Create' %>
+  <p>
+    <%= f.submit "Create" %>
   </p>
 <% end %>

@@ -1,120 +1,96 @@
-class CharactersController < ApplicationController
-  # GET /characters
-  # GET /characters.xml
-  def index
-    @characters = Character.active
+# frozen_string_literal: true
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @characters }
-    end
+class CharactersController < ApplicationController
+  before_action :set_character, only: [:show, :edit, :update, :destroy]
+
+  # GET /characters
+  def index
+    @characters = policy_scope(Character).active
   end
 
-  # GET /characters/1
-  # GET /characters/1.xml
+  # GET /characters/:id
   def show
-    @character = Character.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render :text => full_character_json(@character)}
-      format.xml  { render :xml => @character }
-    end
+    authorize @character
   end
 
   # GET /characters/new
-  # GET /characters/new.xml
   def new
     @character = Character.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @character }
-    end
-  end
-
-  # GET /characters/1/edit
-  def edit
-    @character = Character.find(params[:id])
+    authorize @character
   end
 
   # POST /characters
-  # POST /characters.xml
   def create
-    @character = Character.new(params[:character])
-
-    respond_to do |format|
-      if @character.save
-        flash[:notice] = 'Character was successfully created.'
-        format.html { redirect_to(@character) }
-        format.xml  { render :xml => @character, :status => :created, :location => @character }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @character.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
-
-  # PUT /characters/1
-  # PUT /characters/1.xml
-  def update
-    @character = Character.find(params[:id])
-
-    @character.send("#{params[:field]}=", params[:value])
-    
-
-    respond_to do |format|
-      if @character.save
-        flash[:notice] = 'Character was successfully updated.'
-        format.html { redirect_to(@character) }
-        format.json {render :text => full_character_json(@character)}
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.json { render :text => full_character_json(@character)}
-        format.xml  { render :xml => @character.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /characters/1
-  # DELETE /characters/1.xml
-  def destroy
-    @character = Character.find(params[:id])
-    @character.disabled = true
+    @character = current_user.characters.build(character_params)
+    authorize @character
 
     if @character.save
-      respond_to do |format|
-        format.html { redirect_to(characters_url) }
-        format.xml  { head :ok }
-      end
+      redirect_to @character, notice: "Character was successfully created."
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
-  def select_options
+  # GET /characters/:id/edit
+  def edit
+    authorize @character
+  end
 
-    # We're expecting a field name like 'character_armors-1-armor'
-    # When we split on '-', the first value will be the model, and the second the id
-    field_id_hash = params[:id].split('-')
-    select_options = Mekton::SelectOptions.new
-    options = select_options.get_options(field_id_hash[0], field_id_hash[1])
+  # PATCH/PUT /characters/:id
+  # Handles both full form submission and single-field inline edits via Turbo Stream
+  def update
+    authorize @character
 
-    render :text => options.to_json
+    permitted = params.permit(
+      :name, :age, :money, :intelligence, :cool, :reflexes,
+      :attractiveness, :empathy, :luck, :move_allowance, :body_type,
+      :education, :tech_ability, :character_type, :psi_ability,
+      :psi_points, :notes
+    )
+
+    @character.update!(permitted)
+
+    respond_to do |format|
+      format.turbo_stream do
+        # After any stat edit, update the stats table and skill points display.
+        # The character_stats partial includes all primary AND derived stats
+        # (head, torso, limbs, stun, lift, throw_distance, ev, stability,
+        # run, jump, running_jump, anime_leap, melee_damage_mod), so a single
+        # replace handles all body_type / cool / move_allowance cascades.
+        render turbo_stream: [
+          turbo_stream.replace("character_stats",
+            partial: "characters/character_stats",
+            locals: { character: @character }),
+          turbo_stream.replace("skill_points",
+            partial: "characters/skill_points",
+            locals: { character: @character })
+        ]
+      end
+      format.html { redirect_to @character, notice: "Character was successfully updated." }
+    end
+  end
+
+  # DELETE /characters/:id
+  # Soft-delete: sets disabled flag rather than destroying the record
+  def destroy
+    authorize @character
+    @character.update!(disabled: true)
+    redirect_to characters_url, notice: "Character was successfully archived."
   end
 
   private
 
-  def full_character_json(character)
-    character.to_json(:methods => [:head, :torso, :limbs, :stun, :lift, :throw_distance, :skill_points,
-                                  :melee_damage_mod, :ev, :stability, :run, :jump, :running_jump, :anime_leap],
-                      :include => {:character_armors => {:include => :character_armor_data},
-                                   :character_equipments => {:include => :character_equipment_data},
-                                   :character_professions => {:include =>:character_profession_data},
-                                   :character_skills => {
-                                           :methods => [:total, :profession_and_template_bonus, :attribute_bonus],
-                                           :include => :character_skill_data},
-                                   :character_template => {:include => :character_template_data},
-                                   :character_weapons => {:include => :character_weapon_data}})
+  def set_character
+    @character = Character.find(params[:id])
   end
 
+  # Strong params for full form submission (new/create/edit)
+  def character_params
+    params.require(:character).permit(
+      :name, :age, :money, :intelligence, :cool, :reflexes,
+      :attractiveness, :empathy, :luck, :move_allowance, :body_type,
+      :education, :tech_ability, :character_type, :psi_ability,
+      :psi_points, :notes
+    )
+  end
 end

@@ -8,12 +8,18 @@
       <th>Weight</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody id="character_armors_body">
     <% local_assigns[:character_armors].each do |armor| %>
-        <%= render :partial => '/character_armors/character_armor_line', :locals => {:character_armor => armor} %>
+      <%= render "character_armors/character_armor_line", character_armor: armor %>
     <% end %>
-  <tr id="character_armors-add">
-     <td><%= image_tag("add.png", :alt=>"Add Armor", :class=>"icon add") %></td>
-  </tr>
+    <tr id="character_armors-add">
+      <td>
+        <%= button_to "Add Armor",
+              [character, :character_armors],
+              method: :post,
+              data: { turbo_stream: true },
+              class: "text-green-500 hover:text-green-700" %>
+      </td>
+    </tr>
   </tbody>
 </table>

@@ -1,43 +1,40 @@
 class CharacterSkillDataController < ApplicationController
-  def index
-    @skills = CharacterSkillData.active(:order => "skill")
-  end
+  before_action :set_skill, only: [:show, :edit, :update, :destroy]
 
-  def show
-    @skill = CharacterSkillData.find(params[:id])
-  end
-
-  def new
-    @skill = CharacterSkillData.new
-  end
-
-  def edit
-    @skill = CharacterSkillData.find(params[:id])
-  end
+  def index; @skills = CharacterSkillData.active; end
+  def show; end
+  def new; @skill = CharacterSkillData.new; end
+  def edit; end
 
   def create
-    @skill = CharacterSkillData.new(params[:character_skill_data])
-
+    @skill = CharacterSkillData.new(skill_params)
     if @skill.save
-      redirect_to(character_skill_data_index_path)
+      redirect_to character_skill_data_index_path, notice: "Skill data created."
+    else
+      render :new, status: :unprocessable_entity
     end
-
   end
 
   def update
-    @skill = CharacterSkillData.find(params[:id])
-    @skill.update_attributes(params[:character_skill_data])
-    redirect_to(character_skill_data_index_path)
-
-
-  end
-
-  def destroy
-    @skill = CharacterSkillData.find(params[:id])
-    @skill.disabled = true
-    if @skill.save
-      redirect_to(character_skill_data_index_path)
+    if @skill.update(skill_params)
+      redirect_to character_skill_data_index_path, notice: "Skill data updated."
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
+  def destroy
+    @skill.update!(disabled: true)
+    redirect_to character_skill_data_index_path, notice: "Skill data disabled."
+  end
+
+  private
+
+  def set_skill
+    @skill = CharacterSkillData.find(params[:id])
+  end
+
+  def skill_params
+    params.require(:character_skill_data).permit(:skill, :related_attribute, :disabled)
+  end
 end

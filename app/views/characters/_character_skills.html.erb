@@ -8,12 +8,18 @@
       <th>Total</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody id="character_skills_body">
     <% local_assigns[:character_skills].each do |skill| %>
-        <%= render :partial => '/character_skills/character_skill_line', :locals => {:character_skill => skill} %>
+      <%= render "character_skills/character_skill_line", character_skill: skill %>
     <% end %>
-  <tr id="character_skills-add">
-     <td><%= image_tag("add.png", :alt=>"Add Skill", :class=>"icon add") %></td>
-  </tr>
+    <tr id="character_skills-add">
+      <td>
+        <%= button_to "Add Skill",
+              [character, :character_skills],
+              method: :post,
+              data: { turbo_stream: true },
+              class: "text-green-500 hover:text-green-700" %>
+      </td>
+    </tr>
   </tbody>
 </table>

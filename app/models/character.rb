@@ -1,4 +1,5 @@
 class Character < ApplicationRecord
+  belongs_to :user
   scope :active, -> { where(disabled: false).order(name: :asc) }
 
   has_many :character_armors, dependent: :destroy

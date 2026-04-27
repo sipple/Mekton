@@ -1,8 +1,12 @@
 <h1>Characters</h1>
 <ul>
-    <% @characters.each do |character| %>
-        <li><%= link_to character.name, character %></li>
-    <% end %>
+  <% @characters.each do |character| %>
+    <li><%= link_to character.name, character %></li>
+  <% end %>
 </ul>
 
-<%= link_to "New Character", new_character_url %>
+<% if @characters.empty? %>
+  <p>No characters yet.</p>
+<% end %>
+
+<%= link_to "New Character", new_character_path, class: "inline-block mt-4" %>
